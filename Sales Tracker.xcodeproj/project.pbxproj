@@ -47,6 +47,7 @@
 		E9CFE365290BFEE9001693F8 /* EditQuantityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE364290BFEE9001693F8 /* EditQuantityView.xib */; };
 		E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE366290BFEF8001693F8 /* EditQuantityView.swift */; };
 		E9CFE369290C0237001693F8 /* EditQuantityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE368290C0237001693F8 /* EditQuantityModel.swift */; };
+		E9CFE36B290D2613001693F8 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE36A290D2613001693F8 /* UIImageView+URL.swift */; };
 		E9DB17DA28FE855A006CF900 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17D928FE855A006CF900 /* XibView.swift */; };
 		E9DB17DD28FFAE2B006CF900 /* ProductIndexNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17DC28FFAE2B006CF900 /* ProductIndexNavigator.swift */; };
 		E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17DE28FFB02B006CF900 /* Transitionable.swift */; };
@@ -129,6 +130,7 @@
 		E9CFE364290BFEE9001693F8 /* EditQuantityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditQuantityView.xib; sourceTree = "<group>"; };
 		E9CFE366290BFEF8001693F8 /* EditQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuantityView.swift; sourceTree = "<group>"; };
 		E9CFE368290C0237001693F8 /* EditQuantityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuantityModel.swift; sourceTree = "<group>"; };
+		E9CFE36A290D2613001693F8 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		E9DB17D928FE855A006CF900 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		E9DB17DC28FFAE2B006CF900 /* ProductIndexNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexNavigator.swift; sourceTree = "<group>"; };
 		E9DB17DE28FFB02B006CF900 /* Transitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitionable.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				E9DB17D928FE855A006CF900 /* XibView.swift */,
 				E9DB17E028FFBBFB006CF900 /* UIViewController+UIStoryboard.swift */,
 				E9CFE35A290BA590001693F8 /* UIView+.swift */,
+				E9CFE36A290D2613001693F8 /* UIImageView+URL.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				E99C65B42907CF7B0049E00D /* ProductSelectViewController.swift in Sources */,
 				E96362CA28FE748B00C6F3CD /* ProductIndexView.swift in Sources */,
 				E99C65AB2903C4C80049E00D /* Brand.swift in Sources */,
+				E9CFE36B290D2613001693F8 /* UIImageView+URL.swift in Sources */,
 				E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */,
 				E9DB17EB29023AD1006CF900 /* MainTabBarController.swift in Sources */,
 				E9DB17FA29025267006CF900 /* SalesHistoryViewController.swift in Sources */,

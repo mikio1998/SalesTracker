@@ -26,6 +26,10 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 10)
         shadeView.giveSmallShadow()
         
+        // Image View
+        guard let url = model.variants.first?.imageUrl else { return }
+        productImageView.loadImage(with: url)
+        
         // Details View
         detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 20)
         detailsLabel.layer.masksToBounds = true

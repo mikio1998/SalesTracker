@@ -36,12 +36,12 @@ class SalesHistoryTableViewCell: UITableViewCell {
 //        shadeView.giveSmallShadow()
         shadeView.giveShadow()
         
+        // Image View
+        productImageView.loadImage(with: model.soldProductItem.imageUrl)
+        
         // Main View
         mainView.giveRoundCorners(withCornerRadius: 8)
         mainView.clipsToBounds = true
-        
-        // Image View
-        // productImageView = Nuke
         
         // Brand Label
         brandLabel.text = model.soldProductItem.brand
