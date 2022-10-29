@@ -135,10 +135,8 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
         switch component {
         case 0:
             return data.variants.getNthColorAndImg(n: row).color
-//            return Array(data.colors.keys)[row]
         case 1:
             return data.variants.getNthSize(n: row)
-//            return data.sizes[row]
         case 2:
             return "\(row+1)"
         default:

@@ -45,7 +45,6 @@ final class SalesHistoryView: XibView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.reloadButton.addGestureRecognizer(tapGesture)
         self.reloadButton.giveRoundCorners(withCornerRadius: 20)
-        
     }
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -61,7 +60,7 @@ extension SalesHistoryView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+        let delete = UIContextualAction(style: .destructive, title: "削除") { (action, sourceView, completionHandler) in
             guard let id = self.dataSource.itemIdentifier(for: indexPath)?.soldProductItem.id else { return }
             
             FirestoreManager.deleteSaleEntry(id: id) { result in
@@ -75,8 +74,7 @@ extension SalesHistoryView: UITableViewDelegate {
             }
             completionHandler(true)
         }
-
-        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
+        let edit = UIContextualAction(style: .normal, title: "編集") { (action, sourceView, completionHandler) in
             self.presenterLike?.didSelectEditFor(indexPath)
             completionHandler(true)
         }
