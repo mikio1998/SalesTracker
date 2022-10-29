@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sales History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g55-Yy-KHa">
-                    <rect key="frame" x="15" y="64" width="264" height="30"/>
-                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
-                    <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="15" y="64" width="264" height="32.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2RI-j5-MQg">
-                    <rect key="frame" x="299" y="59" width="100" height="40"/>
+                    <rect key="frame" x="299" y="60.5" width="100" height="40"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJE-Ed-ypa">
                             <rect key="frame" x="12.5" y="7.5" width="75" height="25"/>
@@ -42,11 +42,12 @@
                                         <constraint firstAttribute="width" constant="65" id="pi7-TQ-Awj"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" red="0.3803921938" green="0.69803923369999998" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.clockwise" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QaA-Gn-8gB">
                                     <rect key="frame" x="65" y="-1" width="10" height="25"/>
+                                    <color key="tintColor" red="0.3803921938" green="0.69803923369999998" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="6nD-nQ-j2k"/>
                                         <constraint firstAttribute="height" constant="25" id="jDn-LG-8SP"/>
@@ -55,7 +56,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93333339689999995" green="0.97254908080000002" blue="0.86666667460000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="yJE-Ed-ypa" firstAttribute="centerX" secondItem="2RI-j5-MQg" secondAttribute="centerX" id="0ud-wF-jub"/>
                         <constraint firstAttribute="height" constant="40" id="47k-gV-VmV"/>
@@ -64,11 +65,11 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aKs-Vl-til">
-                    <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                    <rect key="frame" x="0.0" y="120.5" width="414" height="741.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-s1-ZbS">
-                    <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                    <rect key="frame" x="0.0" y="120.5" width="414" height="741.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No results label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaG-hY-Sry">
                             <rect key="frame" x="121" y="356" width="171" height="30"/>
@@ -82,7 +83,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.3803921938" green="0.69803923369999998" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2RI-j5-MQg" secondAttribute="trailing" constant="15" id="1HD-Gb-Pmx"/>
                 <constraint firstItem="6gH-s1-ZbS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1lv-53-pBx"/>

@@ -44,6 +44,7 @@ final class SalesHistoryView: XibView {
         super.init(frame: .zero)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.reloadButton.addGestureRecognizer(tapGesture)
+        self.reloadButton.giveRoundCorners(withCornerRadius: 20)
         
     }
     @available(*, unavailable)

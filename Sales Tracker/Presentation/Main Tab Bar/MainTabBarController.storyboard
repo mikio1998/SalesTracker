@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,11 +25,17 @@
             </objects>
             <point key="canvasLocation" x="-277" y="-737"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="0px-pW-d7b">
             <objects>
                 <navigationController id="O9V-2o-B1D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="NpP-ct-Cgn"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="NpP-ct-Cgn">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemRedColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="62G-Wa-s4c">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -38,11 +45,11 @@
             </objects>
             <point key="canvasLocation" x="-1323" y="69"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="PVQ-Nh-uuP">
             <objects>
                 <navigationController id="9nN-eD-V1l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bxF-K1-6lF"/>
+                    <tabBarItem key="tabBarItem" title="" image="shippingbox.fill" catalog="system" id="bxF-K1-6lF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfd-Lj-8CV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,4 +60,11 @@
             <point key="canvasLocation" x="446" y="69"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="shippingbox.fill" catalog="system" width="128" height="124"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

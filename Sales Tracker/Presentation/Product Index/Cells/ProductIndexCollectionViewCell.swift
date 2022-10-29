@@ -27,7 +27,7 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         shadeView.giveSmallShadow()
         
         // Details View
-        detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 15)
+        detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 20)
         detailsLabel.layer.masksToBounds = true
         
         // Whole View

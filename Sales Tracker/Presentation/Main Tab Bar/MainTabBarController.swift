@@ -13,8 +13,7 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
          setUpViewControllers()
-        UITabBar.appearance().tintColor = .blue
-        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.9242072701, green: 0.9741521478, blue: 0.8562057018, alpha: 1)
     }
     
     private func setUpViewControllers() {
