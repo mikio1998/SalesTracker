@@ -21,15 +21,34 @@ final class EditQuantityView: XibView {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var editButton: UIView!
+    
+    
+    @IBAction func tapMinus(_ sender: Any) {
+        guard countNum > 0 else { return }
+        self.countNum -= 1
+    }
+    @IBAction func tapPlus(_ sender: Any) {
+        self.countNum += 1
+    }
+    
     private var soldItem: SoldProductItem
+    
+    private var countNum: Int {
+        didSet {
+            counterLabel.text = String(countNum)
+        }
+    }
     
     init(soldItem: SoldProductItem) {
         self.soldItem = soldItem
+        self.countNum = soldItem.quantity
         super.init(frame: .zero)
+        DispatchQueue.main.async {
+            self.countNum = self.soldItem.quantity
+        }
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
         slideIndicator.roundCorners(.allCorners, radius: 10)
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.editButton.addGestureRecognizer(tapGesture)
         editButton.roundCorners(.allCorners, radius: 10)
@@ -67,18 +86,33 @@ final class EditQuantityView: XibView {
     }
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
-        guard let id = soldItem.id, let count = Int(counterLabel.text!) else { return }
-        
-        FirestoreManager.updateSaleCountForItem(id: id, newCount: count) { result in
-            switch result {
-            case .failure(let fireErr):
-                // TODO: Error alert
-                print("fireerr")
-            case .success(()):
-                print("Successs!")
+        guard let id = soldItem.id else { return }
+        SVProgressHUD.show()
+        if countNum == 0 {
+            FirestoreManager.deleteSaleEntry(id: id) {
+                result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .failure(let fireErr):
+                    print("firerr")
+                case .success(()):
+                    print("success!")
+                }
+                self.presenterLike?.dismissPresenter(animated: true)
+            }
+        } else {
+            FirestoreManager.updateSaleCountForItem(id: id, newCount: countNum) { result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .failure(let fireErr):
+                    // TODO: Error alert
+                    print("fireerr")
+                case .success(()):
+                    print("Successs!")
+                }
+                self.presenterLike?.dismissPresenter(animated: true)
             }
         }
-        presenterLike?.dismissPresenter(animated: true)
     }
     
 }

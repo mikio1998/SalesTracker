@@ -9,9 +9,12 @@ import UIKit
 import SVProgressHUD
 
 protocol SalesHistoryPresenterLike: AnyObject {
-    // deletedCell
     func reloadData()
     func didSelectEditFor(_ indexPath: IndexPath)
+}
+
+protocol SalesHistoryViewControllerDelegate: AnyObject {
+    func reloadData()
 }
 
 final class SalesHistoryViewController: UIViewController {
@@ -59,14 +62,18 @@ final class SalesHistoryViewController: UIViewController {
     }
     
 }
-extension SalesHistoryViewController: SalesHistoryPresenterLike {
+extension SalesHistoryViewController: SalesHistoryPresenterLike, SalesHistoryViewControllerDelegate {
     func reloadData() {
         self.loadData()
     }
     func didSelectEditFor(_ indexPath: IndexPath) {
-        <#code#>
-        // MARK: Left off here.
-        
+        guard let prod = data?.salesHistorySnapshot.itemIdentifiers(inSection: 0)[indexPath.row].soldProductItem else { return }
+        let editQuantityVC = EditQuantityViewController(soldItem: prod, salesHistoryDelegate: self)
+        editQuantityVC.modalPresentationStyle = .custom
+        editQuantityVC.transitioningDelegate = self
+        self.present(editQuantityVC, animated: true) {
+            print("Presenting Edit Screen.")
+        }
         
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol EditQuantityPresenterLike: AnyObject {
     func dismissPresenter(animated: Bool)
@@ -13,9 +14,11 @@ protocol EditQuantityPresenterLike: AnyObject {
 
 final class EditQuantityViewController: UIViewController {
     private let viewContainer: EditQuantityViewLike
+    private let salesHistoryDelegate: SalesHistoryViewControllerDelegate
     
-    init(soldItem: SoldProductItem) {
+    init(soldItem: SoldProductItem, salesHistoryDelegate: SalesHistoryViewControllerDelegate) {
         self.viewContainer = EditQuantityView(soldItem: soldItem)
+        self.salesHistoryDelegate = salesHistoryDelegate
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
     required init?(coder: NSCoder) {
@@ -29,10 +32,18 @@ final class EditQuantityViewController: UIViewController {
         viewContainer.presenterLike = self
     }
 }
+
 extension EditQuantityViewController: EditQuantityPresenterLike {
     func dismissPresenter(animated: Bool) {
         self.dismiss(animated: true) {
+            self.salesHistoryDelegate.reloadData()
             print("Dismissed Edit Quantity VC!")
         }
     }
 }
+
+//extension EditQuantityViewController: SalesHistoryViewControllerDelegate {
+//    func reloadData() {
+//        <#code#>
+//    }
+//}

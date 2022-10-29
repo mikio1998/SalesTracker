@@ -33,6 +33,8 @@ class PresentationController: UIPresentationController {
           heightRatio = 0.7
       case is ChooseBrandViewController:
           heightRatio = 0.4
+      case is EditQuantityViewController:
+          heightRatio = 0.3
       default:
           heightRatio = 0.2
       }

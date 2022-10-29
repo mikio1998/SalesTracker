@@ -76,13 +76,10 @@ extension SalesHistoryView: UITableViewDelegate {
         }
 
         let edit = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
-            
-            // MARK: Present quantity + -
-            
-            
+            self.presenterLike?.didSelectEditFor(indexPath)
             completionHandler(true)
         }
-        let swipeActionConfig = UISwipeActionsConfiguration(actions: [rename, edit])
+        let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete, edit])
         swipeActionConfig.performsFirstActionWithFullSwipe = false
         return swipeActionConfig
     }
@@ -97,9 +94,6 @@ extension SalesHistoryView: SalesHistoryViewLike {
     // MARK: LEft off here!!
     //  Is the no results alpha working?
     //  Screw up the data and see if it shows.
-    
-    // The Cell format looks nice.
-    // Adopt the UIView extensions for ProductIndex's cells.
     
     func noResults(error: FirestoreError?) {
         tableView.alpha = 0
