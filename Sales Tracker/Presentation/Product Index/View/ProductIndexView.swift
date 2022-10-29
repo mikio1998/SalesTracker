@@ -12,7 +12,7 @@ import UIKit
 protocol ProductIndexViewLike: ViewContainer {
 //    Keep reference to the presenter that initializes this view.
     var presenterLike: ProductIndexPresenterLike? { get set }
-    func setTitle(_ title: String)
+    func setTitleAndImage(_ title: String, imageUrl: String)
     func setSnapshot(_ snapshot: ProductIndexSnapshot)
     func noResults(error: FirestoreError?)
 }
@@ -36,6 +36,9 @@ final class ProductIndexView: XibView {
             self.collectionView.register(UINib(nibName: "ProductIndexCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductIndexCollectionViewCell")
         }
     }
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var dropdownLabel: UILabel!
@@ -64,8 +67,9 @@ final class ProductIndexView: XibView {
 }
 
 extension ProductIndexView: ProductIndexViewLike {
-    func setTitle(_ title: String) {
+    func setTitleAndImage(_ title: String, imageUrl: String) {
         self.titleLabel.text = title
+        self.logoImageView.loadImage(with: imageUrl)
     }
     
     func setSnapshot(_ snapshot: ProductIndexSnapshot) {

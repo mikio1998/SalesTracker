@@ -63,7 +63,7 @@ class ProductIndexViewController: UIViewController {
                 print("Show an alert.")
                 self.viewContainer.noResults(error: fireErr)
             case .success(let dataModel):
-                self.viewContainer.setTitle(dataModel.brand.officialBrandName)
+                self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.brandLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)
                 self.data = dataModel
             }

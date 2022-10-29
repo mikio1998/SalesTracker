@@ -147,14 +147,8 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            if row == 0 {
-                imageView.loadImage(with: "https://user-images.githubusercontent.com/1567433/114792417-57c1d080-9d56-11eb-8035-dc07cfd7557f.png")
-            } else {
-                imageView.loadImage(with: "https://koenig-media.raywenderlich.com/uploads/2018/11/Pluto-Heart-500x500.jpg")
-            }
-            
-            
-//            imageView.loadImage(with: data?.variants[row].imageUrl ?? "https://user-images.githubusercontent.com/1567433/114792417-57c1d080-9d56-11eb-8035-dc07cfd7557f.png")
+            guard let url = data?.variants[row].imageUrl else { return }
+            imageView.loadImage(with: url)
         }
     }
     

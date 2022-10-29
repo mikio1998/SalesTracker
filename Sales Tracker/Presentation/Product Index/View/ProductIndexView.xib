@@ -13,6 +13,7 @@
                 <outlet property="collectionView" destination="JIZ-Wi-hvl" id="T1E-Wt-0FY"/>
                 <outlet property="dropdownLabel" destination="LrC-Du-MwS" id="wio-cL-fQf"/>
                 <outlet property="listButton" destination="jWt-ee-cfJ" id="pZ4-Hv-QCr"/>
+                <outlet property="logoImageView" destination="wKP-tc-17e" id="UU5-np-qJw"/>
                 <outlet property="noResultLabel" destination="8NR-sZ-XQ3" id="7Zg-cp-auE"/>
                 <outlet property="noResultsView" destination="53X-2z-Ne3" id="4bU-K5-dqe"/>
                 <outlet property="titleLabel" destination="hGz-yR-Dfo" id="xAG-mH-LYP"/>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ブランド名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGz-yR-Dfo">
-                    <rect key="frame" x="15" y="64" width="264" height="32.5"/>
+                    <rect key="frame" x="70" y="64" width="209" height="32.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -87,28 +88,38 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wKP-tc-17e">
+                    <rect key="frame" x="15" y="58" width="40" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7fM-o6-A9E"/>
+                        <constraint firstAttribute="width" constant="40" id="kVd-dR-fYB"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="TzH-yR-Gsi"/>
             <color key="backgroundColor" red="0.3803921938" green="0.69803923369999998" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="wKP-tc-17e" firstAttribute="leading" secondItem="TzH-yR-Gsi" secondAttribute="leading" constant="15" id="6bh-o3-elM"/>
                 <constraint firstItem="TzH-yR-Gsi" firstAttribute="trailing" secondItem="jWt-ee-cfJ" secondAttribute="trailing" constant="15" id="Fd9-T3-PKj"/>
                 <constraint firstItem="jWt-ee-cfJ" firstAttribute="centerY" secondItem="hGz-yR-Dfo" secondAttribute="centerY" id="HYC-0o-pCk"/>
-                <constraint firstItem="hGz-yR-Dfo" firstAttribute="leading" secondItem="TzH-yR-Gsi" secondAttribute="leading" constant="15" id="I36-6R-GhP"/>
                 <constraint firstItem="JIZ-Wi-hvl" firstAttribute="leading" secondItem="TzH-yR-Gsi" secondAttribute="leading" id="KU0-Tf-lYW"/>
                 <constraint firstItem="53X-2z-Ne3" firstAttribute="top" secondItem="JIZ-Wi-hvl" secondAttribute="top" id="UfU-it-efl"/>
                 <constraint firstItem="JIZ-Wi-hvl" firstAttribute="top" secondItem="jWt-ee-cfJ" secondAttribute="bottom" constant="20" id="XGv-dz-Vra"/>
+                <constraint firstItem="wKP-tc-17e" firstAttribute="top" secondItem="TzH-yR-Gsi" secondAttribute="top" constant="15" id="bM1-PR-6z6"/>
                 <constraint firstItem="53X-2z-Ne3" firstAttribute="leading" secondItem="TzH-yR-Gsi" secondAttribute="leading" id="jep-hT-z8v"/>
                 <constraint firstItem="hGz-yR-Dfo" firstAttribute="top" secondItem="TzH-yR-Gsi" secondAttribute="top" constant="20" id="kud-OF-nE0"/>
                 <constraint firstItem="jWt-ee-cfJ" firstAttribute="leading" secondItem="hGz-yR-Dfo" secondAttribute="trailing" constant="20" id="lDj-ok-tNl"/>
                 <constraint firstItem="TzH-yR-Gsi" firstAttribute="trailing" secondItem="53X-2z-Ne3" secondAttribute="trailing" id="m6P-zL-HX3"/>
                 <constraint firstItem="TzH-yR-Gsi" firstAttribute="trailing" secondItem="JIZ-Wi-hvl" secondAttribute="trailing" id="rfu-t4-tZT"/>
+                <constraint firstItem="hGz-yR-Dfo" firstAttribute="leading" secondItem="wKP-tc-17e" secondAttribute="trailing" constant="15" id="uDY-66-feS"/>
                 <constraint firstItem="TzH-yR-Gsi" firstAttribute="bottom" secondItem="JIZ-Wi-hvl" secondAttribute="bottom" id="uz3-2e-1EW"/>
                 <constraint firstItem="TzH-yR-Gsi" firstAttribute="bottom" secondItem="53X-2z-Ne3" secondAttribute="bottom" id="zKe-us-jEt"/>
             </constraints>
-            <point key="canvasLocation" x="-449" y="588"/>
+            <point key="canvasLocation" x="-449.27536231884062" y="587.94642857142856"/>
         </view>
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
     </resources>
 </document>
