@@ -5,15 +5,21 @@
 //  Created by Mikio Nakata on 2022/10/15.
 //
 
+import Firebase
 import UIKit
 
 @main
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         // Override point for customization after application launch.
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
+
+        
         return true
     }
 

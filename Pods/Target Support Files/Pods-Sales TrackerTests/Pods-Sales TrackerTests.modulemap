@@ -1,0 +1,6 @@
+framework module Pods_Sales_TrackerTests {
+  umbrella header "Pods-Sales TrackerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

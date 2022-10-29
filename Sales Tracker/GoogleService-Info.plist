@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>849427119430-23g15eh93ngor0gtkndsbm2ookrnkhmo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.849427119430-23g15eh93ngor0gtkndsbm2ookrnkhmo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAQmgckQiy4N6B9OHCyX1Kz5mgVkY79a6c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>849427119430</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nakata.Sales-Tracker</string>
+	<key>PROJECT_ID</key>
+	<string>nakata-72f8a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nakata-72f8a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:849427119430:ios:43728412ff409b05e97947</string>
+	<key>DATABASE_URL</key>
+	<string>https://nakata-72f8a.firebaseio.com</string>
+</dict>
+</plist>
