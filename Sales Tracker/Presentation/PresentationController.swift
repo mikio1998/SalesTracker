@@ -24,17 +24,14 @@ class PresentationController: UIPresentationController {
   }
   
   override var frameOfPresentedViewInContainerView: CGRect {
-//      CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.3),
-//             size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height *
-//              0.7))
       var heightRatio = Double()
       switch presentedViewController {
       case is ProductSelectViewController:
-          heightRatio = 0.7
+          heightRatio = Const.HeightRatio.productSelect
       case is ChooseBrandViewController:
-          heightRatio = 0.4
+          heightRatio = Const.HeightRatio.chooseBrand
       case is EditQuantityViewController:
-          heightRatio = 0.3
+          heightRatio = Const.HeightRatio.editQuantity
       default:
           heightRatio = 0.2
       }
@@ -73,6 +70,17 @@ class PresentationController: UIPresentationController {
   @objc func dismissController(){
       self.presentedViewController.dismiss(animated: true, completion: nil)
   }
+}
+
+extension PresentationController {
+    private enum Const {
+        enum HeightRatio {
+            static let productSelect: Double = 0.7
+            static let chooseBrand: Double = 0.4
+            static let editQuantity: Double = 0.35
+        }
+        
+    }
 }
 
 // MARK: Move this, also understand it.
