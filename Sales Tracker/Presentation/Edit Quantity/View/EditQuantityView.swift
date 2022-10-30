@@ -48,10 +48,10 @@ final class EditQuantityView: XibView {
         }
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(for: .allCorners, radius: 10)
+        slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.editButton.addGestureRecognizer(tapGesture)
-        editButton.roundCorners(for: .allCorners, radius: 10)
+        editButton.roundCorners(for: .allCorners, radius: Const.editButtonCornerRadius)
     }
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -86,37 +86,48 @@ final class EditQuantityView: XibView {
     }
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
-        guard let id = soldItem.id else { return }
-        SVProgressHUD.show()
-        if countNum == 0 {
-            FirestoreManager.deleteSaleEntry(id: id) {
-                result in
-                SVProgressHUD.dismiss()
-                switch result {
-                case .failure(let fireErr):
-                    print("firerr")
-                    
-                case .success(()):
-                    print("success!")
-                }
-                self.presenterLike?.dismissPresenter(animated: true)
-            }
-        } else {
-            FirestoreManager.updateSaleCountForItem(id: id, newCount: countNum) { result in
-                SVProgressHUD.dismiss()
-                switch result {
-                case .failure(let fireErr):
-                    // TODO: Error alert
-                    print("fireerr")
-                case .success(()):
-                    print("Successs!")
-                }
-                self.presenterLike?.dismissPresenter(animated: true)
-            }
-        }
+        presenterLike?.didTapEditButton(item: soldItem, count: countNum)
+        
+        
+//        guard let id = soldItem.id else { return }
+//        SVProgressHUD.show()
+//        if countNum == 0 {
+//            FirestoreManager.deleteSaleEntry(id: id) {
+//                result in
+//                SVProgressHUD.dismiss()
+//                switch result {
+//                case .failure(let fireErr):
+//                    print("firerr")
+//
+//                case .success(()):
+//                    print("success!")
+//                }
+//                self.presenterLike?.dismissPresenter(animated: true)
+//            }
+//        } else {
+//            FirestoreManager.updateSaleCountForItem(id: id, newCount: countNum) { result in
+//                SVProgressHUD.dismiss()
+//                switch result {
+//                case .failure(let fireErr):
+//                    // TODO: Error alert
+//                    print("fireerr")
+//                case .success(()):
+//                    print("Successs!")
+//                }
+//                self.presenterLike?.dismissPresenter(animated: true)
+//            }
+//        }
+        
+        
+        
     }
     
 }
-extension EditQuantityView: EditQuantityViewLike {
-    
+extension EditQuantityView: EditQuantityViewLike {}
+
+extension EditQuantityView {
+    private enum Const {
+        static let slideIndicatorCornerRadius: CGFloat = 10
+        static let editButtonCornerRadius: CGFloat = 10
+    }
 }

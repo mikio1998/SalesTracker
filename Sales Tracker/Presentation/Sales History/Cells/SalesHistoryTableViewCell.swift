@@ -32,7 +32,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         // Shade View
-        shadeView.giveRoundCorners(withCornerRadius: 8)
+        shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
 //        shadeView.giveSmallShadow()
         shadeView.giveShadow()
         
@@ -40,7 +40,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
         productImageView.loadImage(with: model.soldProductItem.imageUrl)
         
         // Main View
-        mainView.giveRoundCorners(withCornerRadius: 8)
+        mainView.giveRoundCorners(withCornerRadius: Const.mainViewCornerRadius)
         mainView.clipsToBounds = true
         
         // Brand Label
@@ -58,5 +58,11 @@ class SalesHistoryTableViewCell: UITableViewCell {
         // Quantity Label
         quantityLabel.text = String(model.soldProductItem.quantity)
     }
-    
+}
+
+extension SalesHistoryTableViewCell {
+    private enum Const {
+        static let shadeViewCornerRadius: CGFloat = 8
+        static let mainViewCornerRadius: CGFloat = 8
+    }
 }

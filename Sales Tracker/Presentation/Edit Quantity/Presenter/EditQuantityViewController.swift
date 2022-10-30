@@ -9,7 +9,8 @@ import UIKit
 import SVProgressHUD
 
 protocol EditQuantityPresenterLike: AnyObject {
-    func dismissPresenter(animated: Bool)
+//    func dismissPresenter(animated: Bool)
+    func didTapEditButton(item: SoldProductItem, count: Int)
 }
 
 final class EditQuantityViewController: UIViewController {
@@ -31,9 +32,7 @@ final class EditQuantityViewController: UIViewController {
         super.viewDidLoad()
         viewContainer.presenterLike = self
     }
-}
-
-extension EditQuantityViewController: EditQuantityPresenterLike {
+    
     func dismissPresenter(animated: Bool) {
         self.dismiss(animated: true) {
             self.salesHistoryDelegate.reloadData()
@@ -42,8 +41,45 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
     }
 }
 
-//extension EditQuantityViewController: SalesHistoryViewControllerDelegate {
-//    func reloadData() {
-//        <#code#>
-//    }
-//}
+extension EditQuantityViewController: EditQuantityPresenterLike {
+    func didTapEditButton(item: SoldProductItem, count: Int) {
+        guard let id = item.id else { return }
+        SVProgressHUD.show()
+        
+        if count == 0 {
+            FirestoreManager.deleteSaleEntry(id: id) {
+                result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .failure(let fireErr):
+                    UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+                        .addOK()
+                        .show(fromVC: self)
+                    
+                case .success(()):
+                    UIAlertController(title: "削除！", message: nil, preferredStyle: .alert)
+                        .showAndDismiss(fromVC: self, deadline: .now() + 0.7) {
+                            self.dismissPresenter(animated: true)
+                        }
+                    
+                }
+            }
+        } else {
+            FirestoreManager.updateSaleCountForItem(id: id, newCount: count) { result in
+                SVProgressHUD.dismiss()
+                switch result {
+                case .failure(let fireErr):
+                    UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+                        .addOK()
+                        .show(fromVC: self)
+                case .success(()):
+                    UIAlertController(title: "変更！", message: nil, preferredStyle: .alert)
+                        .showAndDismiss(fromVC: self, deadline: .now() + 0.7) {
+                            self.dismissPresenter(animated: true)
+                        }
+                }
+                self.dismissPresenter(animated: true)
+            }
+        }
+    }
+}
