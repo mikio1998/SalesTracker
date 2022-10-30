@@ -60,7 +60,7 @@ final class ProductIndexView: XibView {
     }
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
-        presenterLike?.didTapListButton()
+        presenterLike?.didTapListButton()        
     }
     
 

@@ -22,6 +22,7 @@
 		E9526A8E290E49FC0056546E /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A8D290E49FC0056546E /* CameraView.xib */; };
 		E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8F290E4B0D0056546E /* CameraViewController.swift */; };
 		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
+		E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A93290E4EA90056546E /* UIAlertController+.swift */; };
 		E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */; };
 		E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */; };
@@ -109,6 +110,7 @@
 		E9526A8D290E49FC0056546E /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		E9526A8F290E4B0D0056546E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		E9526A93290E4EA90056546E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		E96362BB28FE6AB900C6F3CD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexViewController.swift; sourceTree = "<group>"; };
 		E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexViewController.xib; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				E9DB17E028FFBBFB006CF900 /* UIViewController+UIStoryboard.swift */,
 				E9CFE35A290BA590001693F8 /* UIView+.swift */,
 				E9CFE36A290D2613001693F8 /* UIImageView+URL.swift */,
+				E9526A93290E4EA90056546E /* UIAlertController+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
 				E932778428FAA9A700EA9E40 /* ViewController.swift in Sources */,
+				E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */,
 				E9CFE369290C0237001693F8 /* EditQuantityModel.swift in Sources */,
 				E9DB17E428FFBD4E006CF900 /* NSObject+Name.swift in Sources */,
 				E9CFE362290BFED7001693F8 /* EditQuantityViewController.swift in Sources */,
