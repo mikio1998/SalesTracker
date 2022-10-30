@@ -20,7 +20,7 @@ final class SalesHistoryView: XibView {
         .init(tableView: tableView, cellProvider: cellProvider)
     }()
     private lazy var cellProvider: DataSource.CellProvider = { tableView, indexPath, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SalesHistoryTableViewCell", for: indexPath) as! SalesHistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Const.salesHistoryTableViewCellClassName, for: indexPath) as! SalesHistoryTableViewCell
         cell.setUpCell(model: item)
         return cell
     }
@@ -34,7 +34,7 @@ final class SalesHistoryView: XibView {
         didSet {
             tableView.delegate = self
             tableView.separatorStyle = .none
-            tableView.register(UINib(nibName: "SalesHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SalesHistoryTableViewCell")
+            tableView.register(UINib(nibName: Const.salesHistoryTableViewCellClassName, bundle: nil), forCellReuseIdentifier: Const.salesHistoryTableViewCellClassName)
         }
     }
     @IBOutlet weak var noResultsView: UIView!
@@ -56,22 +56,12 @@ final class SalesHistoryView: XibView {
 }
 extension SalesHistoryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        130
+        Const.tableViewRowHeight
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "削除") { (action, sourceView, completionHandler) in
-            guard let id = self.dataSource.itemIdentifier(for: indexPath)?.soldProductItem.id else { return }
-            
-            FirestoreManager.deleteSaleEntry(id: id) { result in
-                switch result {
-                case .failure(let fireErr):
-                    print("fail")
-                    // TODO: Error alert!!
-                case .success():
-                    self.presenterLike?.reloadData()
-                }
-            }
+            self.presenterLike?.didSelectDeleteFor(indexPath)
             completionHandler(true)
         }
         let edit = UIContextualAction(style: .normal, title: "編集") { (action, sourceView, completionHandler) in
@@ -90,14 +80,17 @@ extension SalesHistoryView: SalesHistoryViewLike {
     func setSnapshot(_ snapshot: SalesHistorySnapshot) {
         dataSource.apply(snapshot)
     }
-    // MARK: LEft off here!!
-    //  Is the no results alpha working?
-    //  Screw up the data and see if it shows.
-    
     func noResults(error: FirestoreError?) {
         tableView.alpha = 0
         noResultsView.alpha = 1
         noResultLabel.alpha = 1
         noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
+    }
+}
+
+extension SalesHistoryView {
+    private enum Const {
+        static let salesHistoryTableViewCellClassName: String = "SalesHistoryTableViewCell"
+        static let tableViewRowHeight: CGFloat = 130
     }
 }

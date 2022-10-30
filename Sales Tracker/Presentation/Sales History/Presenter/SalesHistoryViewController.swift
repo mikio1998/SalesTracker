@@ -10,6 +10,7 @@ import SVProgressHUD
 
 protocol SalesHistoryPresenterLike: AnyObject {
     func reloadData()
+    func didSelectDeleteFor(_ indexPath: IndexPath)
     func didSelectEditFor(_ indexPath: IndexPath)
 }
 
@@ -52,7 +53,9 @@ final class SalesHistoryViewController: UIViewController {
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let fireErr):
-                // TODO: container.errorALert
+                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+                    .addOK()
+                    .show(fromVC: self)
                 self.viewContainer.noResults(error: fireErr)
             case .success(let dataModel):
                 self.viewContainer.setSnapshot(dataModel.salesHistorySnapshot)
@@ -66,15 +69,29 @@ extension SalesHistoryViewController: SalesHistoryPresenterLike, SalesHistoryVie
     func reloadData() {
         self.loadData()
     }
+    
+    func didSelectDeleteFor(_ indexPath: IndexPath) {
+        guard let prodId = data?.salesHistorySnapshot.itemIdentifiers(inSection: 0)[indexPath.row].soldProductItem.id else { return }
+        
+        
+        FirestoreManager.deleteSaleEntry(id: prodId) { result in
+            switch result {
+            case .failure(let fireErr):
+                UIAlertController(title: "失敗", message: fireErr.message, preferredStyle: .alert)
+                    .addOK()
+                    .show(fromVC: self)
+            case .success():
+                self.loadData()
+            }
+        }
+    }
+    
     func didSelectEditFor(_ indexPath: IndexPath) {
         guard let prod = data?.salesHistorySnapshot.itemIdentifiers(inSection: 0)[indexPath.row].soldProductItem else { return }
         let editQuantityVC = EditQuantityViewController(soldItem: prod, salesHistoryDelegate: self)
         editQuantityVC.modalPresentationStyle = .custom
         editQuantityVC.transitioningDelegate = self
-        self.present(editQuantityVC, animated: true) {
-            print("Presenting Edit Screen.")
-        }
-        
+        self.present(editQuantityVC, animated: true, completion: nil)
     }
 }
 

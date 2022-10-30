@@ -95,6 +95,7 @@ final class EditQuantityView: XibView {
                 switch result {
                 case .failure(let fireErr):
                     print("firerr")
+                    
                 case .success(()):
                     print("success!")
                 }
