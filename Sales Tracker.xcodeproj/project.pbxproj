@@ -18,6 +18,10 @@
 		E932779728FAA9A900EA9E40 /* Sales_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */; };
 		E93277A128FAA9A900EA9E40 /* Sales_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */; };
 		E93277A328FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */; };
+		E9526A8C290E49F10056546E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8B290E49F10056546E /* CameraView.swift */; };
+		E9526A8E290E49FC0056546E /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A8D290E49FC0056546E /* CameraView.xib */; };
+		E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8F290E4B0D0056546E /* CameraViewController.swift */; };
+		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
 		E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */; };
 		E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */; };
@@ -101,6 +105,10 @@
 		E932779C28FAA9A900EA9E40 /* Sales TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sales TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITests.swift; sourceTree = "<group>"; };
 		E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9526A8B290E49F10056546E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E9526A8D290E49FC0056546E /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
+		E9526A8F290E4B0D0056546E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E96362BB28FE6AB900C6F3CD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexViewController.swift; sourceTree = "<group>"; };
 		E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexViewController.xib; sourceTree = "<group>"; };
@@ -243,10 +251,46 @@
 			path = "Sales TrackerUITests";
 			sourceTree = "<group>";
 		};
+		E9526A87290E49B60056546E /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				E9526A88290E49C70056546E /* Model */,
+				E9526A8A290E49D00056546E /* View */,
+				E9526A89290E49CB0056546E /* Presenter */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		E9526A88290E49C70056546E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9526A89290E49CB0056546E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E9526A8F290E4B0D0056546E /* CameraViewController.swift */,
+				E9526A90290E4B0D0056546E /* CameraViewController.xib */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E9526A8A290E49D00056546E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9526A8B290E49F10056546E /* CameraView.swift */,
+				E9526A8D290E49FC0056546E /* CameraView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E96362BD28FE70C500C6F3CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				E99C65B62907D3F10049E00D /* PresentationController.swift */,
+				E9526A87290E49B60056546E /* Camera */,
 				E9DB17E929023A98006CF900 /* Main Tab Bar */,
 				E96362C228FE724300C6F3CD /* Product Index */,
 				E99C65B12907CF0E0049E00D /* Product Select */,
@@ -694,9 +738,11 @@
 				E96362D028FE75E400C6F3CD /* ProductIndexView.xib in Resources */,
 				E99C65BC2907D66D0049E00D /* ProductSelectView.xib in Resources */,
 				E9CFE359290BA23D001693F8 /* SalesHistoryTableViewCell.xib in Resources */,
+				E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */,
 				E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */,
 				E932778928FAA9A900EA9E40 /* Assets.xcassets in Resources */,
 				E9CFE363290BFED7001693F8 /* EditQuantityViewController.xib in Resources */,
+				E9526A8E290E49FC0056546E /* CameraView.xib in Resources */,
 				E9DB17ED29023AE2006CF900 /* MainTabBarController.storyboard in Resources */,
 				E9CFE34F290A4CD8001693F8 /* ChooseBrandViewController.xib in Resources */,
 				E9DB17E829016A05006CF900 /* GoogleService-Info.plist in Resources */,
@@ -839,6 +885,7 @@
 				E9CFE369290C0237001693F8 /* EditQuantityModel.swift in Sources */,
 				E9DB17E428FFBD4E006CF900 /* NSObject+Name.swift in Sources */,
 				E9CFE362290BFED7001693F8 /* EditQuantityViewController.swift in Sources */,
+				E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */,
 				E99C65B72907D3F20049E00D /* PresentationController.swift in Sources */,
 				E96362D628FE77AA00C6F3CD /* ViewContainer.swift in Sources */,
 				E99C65A62903B76A0049E00D /* ProductIndexModel.swift in Sources */,
@@ -857,6 +904,7 @@
 				E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */,
 				E9DB17DA28FE855A006CF900 /* XibView.swift in Sources */,
 				E9CFE35B290BA590001693F8 /* UIView+.swift in Sources */,
+				E9526A8C290E49F10056546E /* CameraView.swift in Sources */,
 				E9DB17FF29025A1B006CF900 /* ProductIndexDataModel.swift in Sources */,
 				E932778228FAA9A700EA9E40 /* SceneDelegate.swift in Sources */,
 				E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */,
