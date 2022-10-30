@@ -30,11 +30,10 @@ final class ChooseBrandView: XibView {
         super.init(frame: .zero)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(for: .allCorners, radius: 10)
-        
+        slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.switchButton.addGestureRecognizer(tapGesture)
-        switchButton.roundCorners(for: .allCorners, radius: 10)
+        switchButton.roundCorners(for: .allCorners, radius: Const.switchButtonCornerRadius)
     }
     
     @available(*, unavailable)
@@ -70,7 +69,6 @@ final class ChooseBrandView: XibView {
     }
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         let selection = pickerList[pickerView.selectedRow(inComponent: 0)]
-        print("Selection!", selection)
         presenterLike?.dismissPresenter(animated: true, reloadIndexFor: selection)
     }
 }
@@ -80,12 +78,12 @@ extension ChooseBrandView: ChooseBrandViewLike {
 
 extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return Const.numberOfPickerComponents
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
-        case 0:
+        case Const.brandComponent:
             return pickerList.count
         default:
             return 0
@@ -94,7 +92,7 @@ extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
-        case 0:
+        case Const.brandComponent:
             return pickerList[row].officialBrandName
         default:
             return ""
@@ -102,3 +100,13 @@ extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+extension ChooseBrandView {
+    private enum Const {
+        static let slideIndicatorCornerRadius: CGFloat = 10
+        static let switchButtonCornerRadius: CGFloat = 10
+        
+        static let numberOfPickerComponents: Int = 1
+        static let brandComponent: Int = 0
+        
+    }
+}

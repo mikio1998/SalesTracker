@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    // roundCorners() needs to be called on .main thread, or after view's bounds has been initalized  (because we use frame radius).
+    // roundCorners() needs to be called on .main thread, or in view's layoutSubviews (because we need view's bounds radius).
     //https://stackoverflow.com/questions/35685726/uibezierpath-doesnt-work-in-topright-corner-and-bottomright-corner
     func roundCorners(for corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners,

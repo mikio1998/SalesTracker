@@ -18,7 +18,6 @@ protocol ProductIndexViewControllerDelegate: AnyObject {
 }
 
 class ProductIndexViewController: UIViewController {
-    private let brandList: [Brand] = [Brand.TestBrand, Brand.AlphaIndustries]
     private let viewContainer: ProductIndexViewLike
     private let model: ProductIndexModel
     private var data: ProductIndexDataModel?
@@ -46,7 +45,7 @@ class ProductIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
-        loadData(brand: self.brandList[0])
+        loadData(brand: Const.brandList[0])
     }
 
     private func loadData(brand: Brand) {
@@ -70,12 +69,10 @@ class ProductIndexViewController: UIViewController {
 
 extension ProductIndexViewController: ProductIndexPresenterLike {
     func didTapListButton() {
-        let chooseBrandVC = ChooseBrandViewController(list: brandList, productIndexDelegate: self)
+        let chooseBrandVC = ChooseBrandViewController(list: Const.brandList, productIndexDelegate: self)
         chooseBrandVC.modalPresentationStyle = .custom
         chooseBrandVC.transitioningDelegate = self
-        self.present(chooseBrandVC, animated: true) {
-            print("Presenting List.")
-        }
+        self.present(chooseBrandVC, animated: true, completion: nil)
     }
     
     func didSelectIndexPath(_ indexPath: IndexPath) {
@@ -83,9 +80,7 @@ extension ProductIndexViewController: ProductIndexPresenterLike {
         let productSelectVC = ProductSelectViewController(productData: prod)
         productSelectVC.modalPresentationStyle = .custom
         productSelectVC.transitioningDelegate = self
-        self.present(productSelectVC, animated: true) {
-            print("Presenting Product.")
-        }
+        self.present(productSelectVC, animated: true, completion: nil)
     }
 }
 
@@ -101,7 +96,11 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-
+extension ProductIndexViewController {
+    private enum Const {
+        static let brandList: [Brand] = [Brand.TestBrand, Brand.AlphaIndustries]
+    }
+}
 
 
 
