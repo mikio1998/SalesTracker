@@ -48,11 +48,6 @@ class ProductIndexViewController: UIViewController {
         viewContainer.presenterLike = self
         loadData(brand: self.brandList[0])
     }
-    
-    private func showLoadDataErrorAlert(error: FirestoreError) {
-        // Left off here
-        // Making error alert.
-    }
 
     private func loadData(brand: Brand) {
         SVProgressHUD.show()
@@ -60,7 +55,9 @@ class ProductIndexViewController: UIViewController {
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let fireErr):
-                print("Show an alert.")
+                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+                    .addOK()
+                    .show(fromVC: self)
                 self.viewContainer.noResults(error: fireErr)
             case .success(let dataModel):
                 self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.brandLogoUrl)

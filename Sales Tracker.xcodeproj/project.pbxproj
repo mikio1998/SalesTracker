@@ -23,6 +23,7 @@
 		E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8F290E4B0D0056546E /* CameraViewController.swift */; };
 		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
 		E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A93290E4EA90056546E /* UIAlertController+.swift */; };
+		E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* FirestoreError.swift */; };
 		E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */; };
 		E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */; };
@@ -111,6 +112,7 @@
 		E9526A8F290E4B0D0056546E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E9526A93290E4EA90056546E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		E9526A96290E59AD0056546E /* FirestoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreError.swift; sourceTree = "<group>"; };
 		E96362BB28FE6AB900C6F3CD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexViewController.swift; sourceTree = "<group>"; };
 		E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +290,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E9526A95290E59990056546E /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
+				E9526A96290E59AD0056546E /* FirestoreError.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		E96362BD28FE70C500C6F3CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +383,7 @@
 		E982B6A928FAECBB006BB72C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
+				E9526A95290E59990056546E /* Firestore */,
 				E99C65A82903B7EA0049E00D /* Entities */,
 				E99C65A92903B8750049E00D /* Data Models */,
 			);
@@ -883,6 +894,7 @@
 				E9DB17E628FFCD3E006CF900 /* FirestoreManager.swift in Sources */,
 				E9DB17F529025183006CF900 /* SalesHistoryView.swift in Sources */,
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
+				E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
 				E932778428FAA9A700EA9E40 /* ViewController.swift in Sources */,
 				E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */,

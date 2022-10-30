@@ -13,35 +13,10 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CloudKit
 
-enum FirestoreError: Error {
-    case getError
-    case setError
-    case updateError
-    case deleteError
-    case decodingError
-    
-    var message: String {
-        switch self {
-        case .getError:
-            return "Error getting documents."
-        case .setError:
-            return "Error getting documents."
-        case .updateError:
-            return "Error updating documents."
-        case .deleteError:
-            return "Error deleting document."
-        case .decodingError:
-            return "Error decoding document data."
-        }
-    }
-}
-
-
 final class FirestoreManager {
     static let shared = FirestoreManager()
     
     private init() {}
-    
     
     // MARK: Get all products from Brand collection.
     static func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
@@ -135,7 +110,8 @@ final class FirestoreManager {
         }
     }
     
-    static func soldAnItem(product: ProductItem, size: String, color: String, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
+//    static func soldAnItem(product: ProductItem, size: String, color: String, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
+    static func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
         do {
             var queryProduct = try await queryForProductOrReturnNew(product: product)
             queryProduct.quantity += quantitySold

@@ -16,7 +16,6 @@ final class ProductIndexModelImpl: ProductIndexModel {
         FirestoreManager.getProductItems(forBrand: brand) { result in
             switch result {
             case .failure(let fireErr):
-                print("Fire Error!!!! :(")
                 completion(.failure(fireErr))
             case .success(let productItems):
                 let dataModel = ProductIndexDataModel(brand: brand, productItems: productItems)

@@ -35,11 +35,12 @@ final class ProductSelectView: XibView {
         self.imageView.loadImage(with: url)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(.allCorners, radius: 10)
+        slideIndicator.roundCorners(.allCorners, radius: Const.slideIndicatorCornerRadius)
+        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.addButton.addGestureRecognizer(tapGesture)
-        addButton.roundCorners(.allCorners, radius: 10)
+        addButton.roundCorners(.allCorners, radius: Const.addButtonCornerRadius)
     }
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -75,10 +76,9 @@ final class ProductSelectView: XibView {
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         guard let data = data else { presenterLike?.dismissPresenter(animated: true); return }
-        
-        let selectedColorAndImg: ColorAndURL = data.variants.getNthColorAndImg(n: pickerView.selectedRow(inComponent: 0))
-        let selectedSize: String = data.variants.getNthSize(n: pickerView.selectedRow(inComponent: 1))
-        let selectedQuantity: Int = pickerView.selectedRow(inComponent: 2) + 1
+        let selectedColorAndImg: ColorAndURL = data.variants.getNthColorAndImg(n: pickerView.selectedRow(inComponent: Const.colorComponent))
+        let selectedSize: String = data.variants.getNthSize(n: pickerView.selectedRow(inComponent: Const.sizeComponent))
+        let selectedQuantity: Int = pickerView.selectedRow(inComponent: Const.quantityComponent) + 1
         let selectedId: String? = data.variants.searchVariantDocumentIdFor(color: selectedColorAndImg.color, size: selectedSize)
         let item: ProductItem = ProductItem(
             id: selectedId,
@@ -88,24 +88,7 @@ final class ProductSelectView: XibView {
             color: selectedColorAndImg.color,
             size: selectedSize,
             imageUrl: selectedColorAndImg.urlString)
-        Task {
-            await FirestoreManager.soldAnItem(
-                product: item,
-                size: selectedSize,
-                color: selectedColorAndImg.color,
-                quantitySold: selectedQuantity,
-                completion: { result in
-                    switch result {
-                    case .failure(let err):
-                        // TODO: error alert
-                        print("sold item, got err", err)
-                    case .success():
-                        print("wrote item success")
-                    }
-                })
-            
-        }
-        presenterLike?.dismissPresenter(animated: true)
+        presenterLike?.didTapAddButton(item: item, quantity: selectedQuantity)
     }
 }
 
@@ -113,18 +96,18 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
     // Color || Size || Quantity
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        return Const.numberOfPickerComponents
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let data = data else { return 0 }
         switch component {
-        case 0:
+        case Const.colorComponent:
             return data.variants.colorCount()
-        case 1:
+        case Const.sizeComponent:
             return data.variants.sizeCount()
-        case 2:
-            return 10
+        case Const.quantityComponent:
+            return Const.quantityCap
         default:
             return 0
         }
@@ -133,18 +116,18 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let data = data else { return "" }
         switch component {
-        case 0:
+        case Const.colorComponent:
             return data.variants.getNthColorAndImg(n: row).color
-        case 1:
+        case Const.sizeComponent:
             return data.variants.getNthSize(n: row)
-        case 2:
+        case Const.quantityComponent:
             return "\(row+1)"
         default:
             return "Title"
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 0 {
+        if component == Const.colorComponent {
             guard let url = data?.variants[row].imageUrl else { return }
             imageView.loadImage(with: url)
         }
@@ -155,3 +138,17 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
 extension ProductSelectView: ProductSelectViewLike {
 }
 
+extension ProductSelectView {
+    private enum Const {
+        static let slideIndicatorCornerRadius: CGFloat = 10
+        static let addButtonCornerRadius: CGFloat = 10
+        
+        static let numberOfPickerComponents: Int = 3
+        static let quantityCap: Int = 10
+        static let colorComponent: Int = 0
+        static let sizeComponent: Int = 1
+        static let quantityComponent = 2
+        
+        
+    }
+}

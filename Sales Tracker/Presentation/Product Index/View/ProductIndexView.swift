@@ -60,10 +60,8 @@ final class ProductIndexView: XibView {
     }
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
-        presenterLike?.didTapListButton()        
+        presenterLike?.didTapListButton()
     }
-    
-
 }
 
 extension ProductIndexView: ProductIndexViewLike {
@@ -80,7 +78,6 @@ extension ProductIndexView: ProductIndexViewLike {
     }
     
     func noResults(error: FirestoreError?) {
-        print("No results found.")
         collectionView.alpha = 0
         noResultsView.alpha = 1
         noResultLabel.alpha = 1
