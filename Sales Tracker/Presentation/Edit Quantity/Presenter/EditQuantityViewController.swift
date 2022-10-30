@@ -9,7 +9,7 @@ import UIKit
 import SVProgressHUD
 
 protocol EditQuantityPresenterLike: AnyObject {
-//    func dismissPresenter(animated: Bool)
+    func dismissPresenter(animated: Bool)
     func didTapEditButton(item: SoldProductItem, count: Int)
 }
 
@@ -32,16 +32,14 @@ final class EditQuantityViewController: UIViewController {
         super.viewDidLoad()
         viewContainer.presenterLike = self
     }
-    
-    func dismissPresenter(animated: Bool) {
-        self.dismiss(animated: true) {
-            self.salesHistoryDelegate.reloadData()
-            print("Dismissed Edit Quantity VC!")
-        }
-    }
 }
 
 extension EditQuantityViewController: EditQuantityPresenterLike {
+    func dismissPresenter(animated: Bool) {
+        self.dismiss(animated: true) {
+            self.salesHistoryDelegate.reloadData()
+        }
+    }
     func didTapEditButton(item: SoldProductItem, count: Int) {
         guard let id = item.id else { return }
         SVProgressHUD.show()

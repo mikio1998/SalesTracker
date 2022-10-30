@@ -87,39 +87,6 @@ final class EditQuantityView: XibView {
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         presenterLike?.didTapEditButton(item: soldItem, count: countNum)
-        
-        
-//        guard let id = soldItem.id else { return }
-//        SVProgressHUD.show()
-//        if countNum == 0 {
-//            FirestoreManager.deleteSaleEntry(id: id) {
-//                result in
-//                SVProgressHUD.dismiss()
-//                switch result {
-//                case .failure(let fireErr):
-//                    print("firerr")
-//
-//                case .success(()):
-//                    print("success!")
-//                }
-//                self.presenterLike?.dismissPresenter(animated: true)
-//            }
-//        } else {
-//            FirestoreManager.updateSaleCountForItem(id: id, newCount: countNum) { result in
-//                SVProgressHUD.dismiss()
-//                switch result {
-//                case .failure(let fireErr):
-//                    // TODO: Error alert
-//                    print("fireerr")
-//                case .success(()):
-//                    print("Successs!")
-//                }
-//                self.presenterLike?.dismissPresenter(animated: true)
-//            }
-//        }
-        
-        
-        
     }
     
 }
