@@ -48,10 +48,10 @@ final class EditQuantityView: XibView {
         }
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(.allCorners, radius: 10)
+        slideIndicator.roundCorners(for: .allCorners, radius: 10)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.editButton.addGestureRecognizer(tapGesture)
-        editButton.roundCorners(.allCorners, radius: 10)
+        editButton.roundCorners(for: .allCorners, radius: 10)
     }
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -30,11 +30,11 @@ final class ChooseBrandView: XibView {
         super.init(frame: .zero)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(.allCorners, radius: 10)
+        slideIndicator.roundCorners(for: .allCorners, radius: 10)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.switchButton.addGestureRecognizer(tapGesture)
-        switchButton.roundCorners(.allCorners, radius: 10)
+        switchButton.roundCorners(for: .allCorners, radius: 10)
     }
     
     @available(*, unavailable)

@@ -23,7 +23,7 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
     
     func setUpCell(model: ProductIndexCollectionSnapshotDataModel) {
         // Shade View
-        shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 10)
+        shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.shadeViewCornerRaidusDivisor)
         shadeView.giveSmallShadow()
         
         // Image View
@@ -31,14 +31,22 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         productImageView.loadImage(with: url)
         
         // Details View
-        detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / 20)
+        detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.detailsLabelCornerRaidusDivisor)
         detailsLabel.layer.masksToBounds = true
         
         // Whole View
-        wholeView.giveRoundCorners(withCornerRadius: 10)
+        wholeView.giveRoundCorners(withCornerRadius: Const.wholeViewCornerRaidus)
         wholeView.layer.masksToBounds = true
         
         // Name Label
         productNameLabel.text = model.name
+    }
+}
+
+extension ProductIndexCollectionViewCell {
+    private enum Const {
+        static let shadeViewCornerRaidusDivisor: CGFloat = 10
+        static let wholeViewCornerRaidus: CGFloat = 10
+        static let detailsLabelCornerRaidusDivisor: CGFloat = 20
     }
 }

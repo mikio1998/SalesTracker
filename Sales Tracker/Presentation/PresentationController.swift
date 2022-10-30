@@ -58,7 +58,7 @@ class PresentationController: UIPresentationController {
   
   override func containerViewWillLayoutSubviews() {
       super.containerViewWillLayoutSubviews()
-    presentedView!.roundCorners([.topLeft, .topRight], radius: 22)
+      presentedView!.roundCorners(for: [.topLeft, .topRight], radius: 22)
   }
 
   override func containerViewDidLayoutSubviews() {
@@ -81,15 +81,4 @@ extension PresentationController {
         }
         
     }
-}
-
-// MARK: Move this, also understand it.
-extension UIView {
-  func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-      let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners,
-                              cornerRadii: CGSize(width: radius, height: radius))
-      let mask = CAShapeLayer()
-      mask.path = path.cgPath
-      layer.mask = mask
-  }
 }

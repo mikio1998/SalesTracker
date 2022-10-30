@@ -35,12 +35,12 @@ final class ProductSelectView: XibView {
         self.imageView.loadImage(with: url)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
-        slideIndicator.roundCorners(.allCorners, radius: Const.slideIndicatorCornerRadius)
+        slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
         
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.addButton.addGestureRecognizer(tapGesture)
-        addButton.roundCorners(.allCorners, radius: Const.addButtonCornerRadius)
+        addButton.roundCorners(for: .allCorners, radius: Const.addButtonCornerRadius)
     }
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -155,4 +155,4 @@ extension ProductSelectView {
 
 
 // TEST
-//extension UIView where 
+//extension UIView where
