@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 enum Hello {
-    case morning, day, evening, otsukare
+    case morning, day, evening
     
     var title: String {
         switch self {
@@ -18,8 +19,17 @@ enum Hello {
             return "こんにちは。"
         case .evening:
             return "こんばんは。"
-        case .otsukare:
-            return "お疲れ様です。"
+        }
+    }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .morning:
+            return #colorLiteral(red: 0.02142922208, green: 0.08387541026, blue: 0.1793012023, alpha: 1)
+        case .day:
+            return #colorLiteral(red: 0.02142922208, green: 0.08387541026, blue: 0.1793012023, alpha: 1)
+        case .evening:
+            return #colorLiteral(red: 0.0184539333, green: 0.08078091592, blue: 0.1796725094, alpha: 1)
         }
     }
 }
@@ -30,8 +40,6 @@ extension Hello {
             self = .morning
         case Const.dayRange:
             self = .day
-        case Const.otsukareRange:
-            self = .otsukare
         default:
             self = .evening
         }
@@ -42,6 +50,5 @@ extension Hello {
         static let morningRange: Range = 5..<11
         static let dayRange: Range = 11..<17
 //        static let eveningRange: Range = [17..<18, 20..<24, 0..<5].joined()
-        static let otsukareRange: Range = 18..<20
     }
 }

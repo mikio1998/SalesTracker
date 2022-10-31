@@ -2,17 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="Sales_Tracker" customModuleProvider="target">
             <connections>
                 <outlet property="_view" destination="Dp1-PI-Unh" id="Z4c-g6-oTS"/>
+                <outlet property="backgroundImage" destination="n6J-u0-I5r" id="zDw-6I-6Pc"/>
                 <outlet property="createAccountButton" destination="ON0-8F-VD9" id="WoO-fu-Tf1"/>
                 <outlet property="emailField" destination="eeS-fb-AUp" id="qxd-oI-iT6"/>
+                <outlet property="greenView" destination="woa-1z-0W9" id="SxH-A1-TUn"/>
                 <outlet property="helloLabel" destination="zmv-3b-lB5" id="g0U-sn-v39"/>
                 <outlet property="loginButton" destination="ZfT-Yp-yPk" id="mvf-eB-w9a"/>
                 <outlet property="passwordField" destination="iqa-Zo-1Wp" id="81L-En-iuo"/>
@@ -24,9 +26,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n6J-u0-I5r">
+                    <rect key="frame" x="0.0" y="0.5" width="414" height="263"/>
+                </imageView>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woa-1z-0W9">
+                    <rect key="frame" x="0.0" y="169" width="414" height="727"/>
+                    <color key="backgroundColor" red="0.054644107820000003" green="0.13721928" blue="0.090301685039999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="おはようございます。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmv-3b-lB5">
-                    <rect key="frame" x="30" y="174" width="293.5" height="35"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                    <rect key="frame" x="30" y="180" width="243.5" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -59,7 +68,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.45490196350000001" green="0.63529413940000001" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.054644107820000003" green="0.13721928" blue="0.090301685039999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="Ebe-lG-C3N" firstAttribute="centerX" secondItem="ZfT-Yp-yPk" secondAttribute="centerX" id="Ajd-Co-Mdf"/>
                                         <constraint firstItem="Ebe-lG-C3N" firstAttribute="centerY" secondItem="ZfT-Yp-yPk" secondAttribute="centerY" id="QSP-jH-dWb"/>
@@ -80,7 +89,7 @@
                             </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="YMC-pV-FmH" firstAttribute="top" secondItem="Eeu-Kl-7YZ" secondAttribute="top" constant="40" id="MYN-3E-RMT"/>
                         <constraint firstAttribute="width" constant="414" id="QbX-U4-1kI"/>
@@ -90,21 +99,26 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="HdO-Cn-jI6"/>
-            <color key="backgroundColor" red="0.1725490093" green="0.40392160420000001" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="woa-1z-0W9" firstAttribute="top" secondItem="HdO-Cn-jI6" secondAttribute="top" constant="125" id="3bg-kM-vUJ"/>
                 <constraint firstItem="zmv-3b-lB5" firstAttribute="leading" secondItem="HdO-Cn-jI6" secondAttribute="leading" constant="30" id="6LP-md-aGw"/>
                 <constraint firstItem="Eeu-Kl-7YZ" firstAttribute="top" secondItem="zmv-3b-lB5" secondAttribute="bottom" constant="10" id="720-MW-btS"/>
+                <constraint firstItem="Eeu-Kl-7YZ" firstAttribute="top" secondItem="n6J-u0-I5r" secondAttribute="bottom" constant="-45" id="8Dg-Uf-ujD"/>
+                <constraint firstItem="n6J-u0-I5r" firstAttribute="leading" secondItem="HdO-Cn-jI6" secondAttribute="leading" id="A7p-sL-Fz3"/>
+                <constraint firstAttribute="bottom" secondItem="woa-1z-0W9" secondAttribute="bottom" id="BeS-xy-wza"/>
                 <constraint firstItem="Eeu-Kl-7YZ" firstAttribute="trailing" secondItem="HdO-Cn-jI6" secondAttribute="trailing" id="INK-GA-OQ1"/>
                 <constraint firstItem="Eeu-Kl-7YZ" firstAttribute="top" secondItem="HdO-Cn-jI6" secondAttribute="top" constant="175" id="MnY-bB-Agb"/>
                 <constraint firstAttribute="bottom" secondItem="Eeu-Kl-7YZ" secondAttribute="bottom" id="Pp0-c4-HRv"/>
                 <constraint firstItem="Eeu-Kl-7YZ" firstAttribute="leading" secondItem="HdO-Cn-jI6" secondAttribute="leading" id="VTb-sr-Nui"/>
+                <constraint firstItem="n6J-u0-I5r" firstAttribute="trailing" secondItem="HdO-Cn-jI6" secondAttribute="trailing" id="YJm-IG-PLv"/>
+                <constraint firstItem="woa-1z-0W9" firstAttribute="trailing" secondItem="HdO-Cn-jI6" secondAttribute="trailing" id="nZM-8j-L2o"/>
+                <constraint firstItem="n6J-u0-I5r" firstAttribute="top" secondItem="Dp1-PI-Unh" secondAttribute="top" id="pda-di-QHX"/>
+                <constraint firstItem="woa-1z-0W9" firstAttribute="leading" secondItem="HdO-Cn-jI6" secondAttribute="leading" id="vAV-M7-iFT"/>
             </constraints>
             <point key="canvasLocation" x="-423.1884057971015" y="2.6785714285714284"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

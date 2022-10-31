@@ -17,7 +17,11 @@ final class LoginView: XibView {
     
     weak var presenterLike: LoginPresenterLike?
     
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     @IBOutlet weak var helloLabel: UILabel!
+    
+    @IBOutlet weak var greenView: UIView!
     
     @IBOutlet weak var whiteView: UIView!
     
@@ -40,9 +44,13 @@ final class LoginView: XibView {
         createAccountButton.addGestureRecognizer(createAccTapGesture)
         
         createAccountButton.isUserInteractionEnabled = true
+        backgroundImage.loadImage(with: "https://www.nakatashoten.com/shop/ameyoko/images/thumb-2.jpg")
+        backgroundImage.contentMode = .scaleAspectFill
         DispatchQueue.main.async {
+            self.greenView.roundCorners(for: [.topRight], radius: 45)
             self.whiteView.roundCorners(for: [.topRight], radius: 45)
             self.loginButton.roundCorners(for: .allCorners, radius: 5)
+//            self.emailField.giveShadow()
         }
     }
     

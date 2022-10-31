@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if model.isAlreadyLoggedIn {
-            self.goMainTabBar()
+//            self.goMainTabBar()
         }
     }
 }
@@ -52,13 +52,14 @@ extension LoginViewController: LoginPresenterLike {
     
     func didTapLoginBtn(email: String?, pass: String?) {
         SVProgressHUD.show()
-        guard let email = email, let pass = pass , !email.isEmpty, !pass.isEmpty else {
+        guard let email = email, let pass = pass, !email.isEmpty, !pass.isEmpty else {
             SVProgressHUD.dismiss()
             UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
             return
         }
 
-        model.signIn(email: email, pass: pass) { result in
+        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
+//        model.signIn(email: email, pass: pass) { result in
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let loginErr):
