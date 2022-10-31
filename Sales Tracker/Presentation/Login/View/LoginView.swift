@@ -31,11 +31,30 @@ final class LoginView: XibView {
     init() {
         super.init(frame: .zero)
         
+        let loginTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton))
+        loginButton.addGestureRecognizer(loginTapGesture)
+        
+        
+        let createAccTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCreateAccButton))
+        createAccountButton.addGestureRecognizer(createAccTapGesture)
+        
+        createAccountButton.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func didTapLoginButton(sender: UITapGestureRecognizer) {
+        presenterLike?.didTapLoginBtn(email: emailField.text, pass: passwordField.text)
+    }
+    
+    @objc func didTapCreateAccButton(sender: UITapGestureRecognizer) {
+        presenterLike?.didTapCreateAccBtn()
+    }
+        
+        
+        
     
 }
 

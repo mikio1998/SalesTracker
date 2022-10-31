@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol LoginPresenterLike: AnyObject {
-    
+    func didTapCreateAccBtn()
+    func didTapLoginBtn(email: String?, pass: String?)
 }
 
 final class LoginViewController: UIViewController {
     
     private let viewContainer: LoginViewLike
-//    private let model:
+    private let model: LoginModel
 //    private var data: ?
     
-    init(viewContainer: LoginViewLike = LoginView()) {
+    init(viewContainer: LoginViewLike = LoginView(), model: LoginModel = LoginModelImpl()) {
         self.viewContainer = viewContainer
+        self.model = model
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
     
@@ -36,4 +39,32 @@ final class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: LoginPresenterLike {}
+extension LoginViewController: LoginPresenterLike {
+    func didTapCreateAccBtn() {
+        UIAlertController(title: "アカウント作成については、", message: "21nakatam@gmail.comへお問い合わせください", preferredStyle: .alert).addOK().show(fromVC: self)
+    }
+    
+    func didTapLoginBtn(email: String?, pass: String?) {
+        SVProgressHUD.show()
+        guard let email = email, let pass = pass , !email.isEmpty, !pass.isEmpty else {
+            SVProgressHUD.dismiss()
+            UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
+            return
+        }
+        model.signIn(email: email, pass: pass) { result in
+            SVProgressHUD.dismiss()
+            switch result {
+            case .failure(let loginErr):
+                UIAlertController(title: "エラー", message: loginErr.message, preferredStyle: .alert).addOK().show(fromVC: self)
+            case .success(()):
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainTabBarController", bundle: nil)
+                        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+                        UIApplication.shared.windows.first?.rootViewController = viewController
+                        UIApplication.shared.windows.first?.makeKeyAndVisible()
+            }
+        }
+    }
+    
+    
+    
+}

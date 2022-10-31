@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
 
+        //
+//        resetRoot()
+        //
+        
         
         return true
     }
@@ -37,6 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func resetRoot() {
+//                guard let rootVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? LoginViewController else {
+//                    return
+//                }
+        
 
+        let loginVC = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: loginVC)
+
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+         }
+    
 }
 

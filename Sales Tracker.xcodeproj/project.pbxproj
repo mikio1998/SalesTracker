@@ -28,6 +28,8 @@
 		E9526A9F290F7AC50056546E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A9E290F7AC50056546E /* LoginView.xib */; };
 		E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA0290F7AD70056546E /* LoginViewController.swift */; };
 		E9526AA3290F7AD70056546E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526AA1290F7AD70056546E /* LoginViewController.xib */; };
+		E9526AA5290F89F60056546E /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA4290F89F60056546E /* LoginError.swift */; };
+		E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA6290F8C4C0056546E /* LoginModel.swift */; };
 		E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */; };
 		E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */; };
@@ -121,6 +123,8 @@
 		E9526A9E290F7AC50056546E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		E9526AA0290F7AD70056546E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9526AA1290F7AD70056546E /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E9526AA4290F89F60056546E /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		E9526AA6290F8C4C0056546E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		E96362BB28FE6AB900C6F3CD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexViewController.swift; sourceTree = "<group>"; };
 		E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexViewController.xib; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 			children = (
 				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
 				E9526A96290E59AD0056546E /* FirestoreError.swift */,
+				E9526AA4290F89F60056546E /* LoginError.swift */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 		E9526A9B290F7AAA0056546E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9526AA6290F8C4C0056546E /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -937,6 +943,7 @@
 				E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */,
 				E9CFE352290A7EC8001693F8 /* SalesHistoryModel.swift in Sources */,
 				E9CFE354290B8999001693F8 /* SalesHistoryDataModel.swift in Sources */,
+				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
 				E9DB17E628FFCD3E006CF900 /* FirestoreManager.swift in Sources */,
 				E9DB17F529025183006CF900 /* SalesHistoryView.swift in Sources */,
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
@@ -956,6 +963,7 @@
 				E932778028FAA9A700EA9E40 /* AppDelegate.swift in Sources */,
 				E9DB17E128FFBBFB006CF900 /* UIViewController+UIStoryboard.swift in Sources */,
 				E99C65B42907CF7B0049E00D /* ProductSelectViewController.swift in Sources */,
+				E9526AA5290F89F60056546E /* LoginError.swift in Sources */,
 				E96362CA28FE748B00C6F3CD /* ProductIndexView.swift in Sources */,
 				E99C65AB2903C4C80049E00D /* Brand.swift in Sources */,
 				E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */,
@@ -1148,7 +1156,6 @@
 				INFOPLIST_FILE = "Sales Tracker/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBarController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1179,7 +1186,6 @@
 				INFOPLIST_FILE = "Sales Tracker/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBarController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
