@@ -24,6 +24,10 @@
 		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
 		E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A93290E4EA90056546E /* UIAlertController+.swift */; };
 		E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* FirestoreError.swift */; };
+		E9526A9D290F7AB90056546E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A9C290F7AB90056546E /* LoginView.swift */; };
+		E9526A9F290F7AC50056546E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A9E290F7AC50056546E /* LoginView.xib */; };
+		E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA0290F7AD70056546E /* LoginViewController.swift */; };
+		E9526AA3290F7AD70056546E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526AA1290F7AD70056546E /* LoginViewController.xib */; };
 		E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */; };
 		E96362C128FE71E900C6F3CD /* ProductIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */; };
@@ -113,6 +117,10 @@
 		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E9526A93290E4EA90056546E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		E9526A96290E59AD0056546E /* FirestoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreError.swift; sourceTree = "<group>"; };
+		E9526A9C290F7AB90056546E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E9526A9E290F7AC50056546E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		E9526AA0290F7AD70056546E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E9526AA1290F7AD70056546E /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E96362BB28FE6AB900C6F3CD /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		E96362BE28FE71E900C6F3CD /* ProductIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexViewController.swift; sourceTree = "<group>"; };
 		E96362BF28FE71E900C6F3CD /* ProductIndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexViewController.xib; sourceTree = "<group>"; };
@@ -299,10 +307,46 @@
 			path = Firestore;
 			sourceTree = "<group>";
 		};
+		E9526A98290F7A8A0056546E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9526A9B290F7AAA0056546E /* Model */,
+				E9526A9A290F7AA60056546E /* View */,
+				E9526A99290F7A9F0056546E /* Presenter */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E9526A99290F7A9F0056546E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E9526AA0290F7AD70056546E /* LoginViewController.swift */,
+				E9526AA1290F7AD70056546E /* LoginViewController.xib */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E9526A9A290F7AA60056546E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9526A9C290F7AB90056546E /* LoginView.swift */,
+				E9526A9E290F7AC50056546E /* LoginView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9526A9B290F7AAA0056546E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E96362BD28FE70C500C6F3CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				E99C65B62907D3F10049E00D /* PresentationController.swift */,
+				E9526A98290F7A8A0056546E /* Login */,
 				E9526A87290E49B60056546E /* Camera */,
 				E9DB17E929023A98006CF900 /* Main Tab Bar */,
 				E96362C228FE724300C6F3CD /* Product Index */,
@@ -743,8 +787,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9526AA3290F7AD70056546E /* LoginViewController.xib in Resources */,
 				E9DB17FB29025267006CF900 /* SalesHistoryViewController.xib in Resources */,
 				E9DB17F029025151006CF900 /* SalesHistoryView.xib in Resources */,
+				E9526A9F290F7AC50056546E /* LoginView.xib in Resources */,
 				E99C65B52907CF7B0049E00D /* ProductSelectViewController.xib in Resources */,
 				E932778C28FAA9A900EA9E40 /* LaunchScreen.storyboard in Resources */,
 				E99C65B02904FB730049E00D /* ProductIndexCollectionViewCell.xib in Resources */,
@@ -904,6 +950,7 @@
 				E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */,
 				E99C65B72907D3F20049E00D /* PresentationController.swift in Sources */,
 				E96362D628FE77AA00C6F3CD /* ViewContainer.swift in Sources */,
+				E9526A9D290F7AB90056546E /* LoginView.swift in Sources */,
 				E99C65A62903B76A0049E00D /* ProductIndexModel.swift in Sources */,
 				E9CFE358290BA23D001693F8 /* SalesHistoryTableViewCell.swift in Sources */,
 				E932778028FAA9A700EA9E40 /* AppDelegate.swift in Sources */,
@@ -911,6 +958,7 @@
 				E99C65B42907CF7B0049E00D /* ProductSelectViewController.swift in Sources */,
 				E96362CA28FE748B00C6F3CD /* ProductIndexView.swift in Sources */,
 				E99C65AB2903C4C80049E00D /* Brand.swift in Sources */,
+				E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */,
 				E9CFE36B290D2613001693F8 /* UIImageView+URL.swift in Sources */,
 				E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */,
 				E9DB17EB29023AD1006CF900 /* MainTabBarController.swift in Sources */,
