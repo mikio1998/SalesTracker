@@ -16,14 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         // Override point for customization after application launch.
-//        window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
-
-        //
-//        resetRoot()
-        //
-        
-        
         return true
     }
 
@@ -39,20 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-    func resetRoot() {
-//                guard let rootVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? LoginViewController else {
-//                    return
-//                }
-        
-
-        let loginVC = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: loginVC)
-
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-         }
-    
+    }    
 }
 

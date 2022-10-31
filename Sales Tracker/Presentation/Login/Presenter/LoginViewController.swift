@@ -51,7 +51,8 @@ extension LoginViewController: LoginPresenterLike {
             UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
             return
         }
-        model.signIn(email: email, pass: pass) { result in
+//        model.signIn(email: email, pass: pass) { result in
+        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let loginErr):
