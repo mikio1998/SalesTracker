@@ -11,6 +11,7 @@ import UIKit
 protocol SalesHistoryViewLike: ViewContainer {
     var presenterLike: SalesHistoryPresenterLike? { get set }
     func setSnapshot(_ snapshot: SalesHistorySnapshot)
+    func setTitle(_ text: String)
     func noResults(error: FirestoreError?)
 }
 
@@ -77,6 +78,9 @@ extension SalesHistoryView: UITableViewDelegate {
 }
 
 extension SalesHistoryView: SalesHistoryViewLike {
+    func setTitle(_ text: String) {
+        self.titleLabel.text = text
+    }
     func setSnapshot(_ snapshot: SalesHistorySnapshot) {
         dataSource.apply(snapshot)
     }

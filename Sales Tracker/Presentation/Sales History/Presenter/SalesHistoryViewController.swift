@@ -59,6 +59,7 @@ final class SalesHistoryViewController: UIViewController {
                 self.viewContainer.noResults(error: fireErr)
             case .success(let dataModel):
                 self.viewContainer.setSnapshot(dataModel.salesHistorySnapshot)
+                self.viewContainer.setTitle("在庫補充　(\(dataModel.itemCount)点)")
                 self.data = dataModel
             }
         }

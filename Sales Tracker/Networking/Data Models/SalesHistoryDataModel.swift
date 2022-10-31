@@ -11,8 +11,10 @@ import UIKit
 typealias SalesHistorySnapshot = NSDiffableDataSourceSnapshot<Int, SalesHistoryTableSnapshotDataModel>
 
 struct SalesHistoryDataModel {
+    var itemCount: Int
     var salesHistorySnapshot: SalesHistorySnapshot
     init(soldProductItems: [SoldProductItem]) {
+        self.itemCount = soldProductItems.reduce(0) { $0 + $1.quantity }
         self.salesHistorySnapshot = SalesHistorySnapshot()
         // TODO: Section, by Brand if you want.
 //        var categories = [String: [SoldProductItem]]()
@@ -32,8 +34,6 @@ struct SalesHistoryDataModel {
         }
         self.salesHistorySnapshot.appendItems(models, toSection: 0)
     }
-    
-    
 }
 
 struct SalesHistoryTableSnapshotDataModel: Hashable {
