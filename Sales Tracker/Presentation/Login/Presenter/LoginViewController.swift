@@ -37,6 +37,12 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         viewContainer.presenterLike = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if model.isAlreadyLoggedIn {
+            self.goMainTabBar()
+        }
+    }
 }
 
 extension LoginViewController: LoginPresenterLike {
@@ -51,21 +57,23 @@ extension LoginViewController: LoginPresenterLike {
             UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
             return
         }
-//        model.signIn(email: email, pass: pass) { result in
-        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
+//        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
+        model.signIn(email: email, pass: pass) { result in
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let loginErr):
                 UIAlertController(title: "エラー", message: loginErr.message, preferredStyle: .alert).addOK().show(fromVC: self)
             case .success(()):
-                let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainTabBarController", bundle: nil)
-                        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
-                        UIApplication.shared.windows.first?.rootViewController = viewController
-                        UIApplication.shared.windows.first?.makeKeyAndVisible()
+                self.goMainTabBar()
             }
         }
     }
     
-    
+    func goMainTabBar() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainTabBarController", bundle: nil)
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+                UIApplication.shared.windows.first?.rootViewController = viewController
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
     
 }
