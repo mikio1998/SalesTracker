@@ -58,6 +58,7 @@ class ProductIndexViewController: UIViewController {
                     .addOK()
                     .show(fromVC: self)
                 self.viewContainer.noResults(error: fireErr)
+
             case .success(let dataModel):
                 self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.brandLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)

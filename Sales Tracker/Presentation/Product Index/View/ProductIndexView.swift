@@ -71,9 +71,7 @@ extension ProductIndexView: ProductIndexViewLike {
     }
     
     func setSnapshot(_ snapshot: ProductIndexSnapshot) {
-        if snapshot.itemIdentifiers.isEmpty {
-            noResults(error: nil)
-        }
+        snapshot.itemIdentifiers.isEmpty ? noResults(error: nil) : showCollection()
         dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
     }
     
@@ -83,6 +81,13 @@ extension ProductIndexView: ProductIndexViewLike {
         noResultLabel.alpha = 1
         noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
     }
+    
+    func showCollection() {
+        collectionView.alpha = 1
+        noResultsView.alpha = 0
+        noResultLabel.alpha = 0
+    }
+    
 }
 
 extension ProductIndexView: UICollectionViewDelegateFlowLayout {

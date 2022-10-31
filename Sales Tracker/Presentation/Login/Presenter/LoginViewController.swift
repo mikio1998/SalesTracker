@@ -40,14 +40,14 @@ final class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if model.isAlreadyLoggedIn {
-//            self.goMainTabBar()
+            self.goMainTabBar()
         }
     }
 }
 
 extension LoginViewController: LoginPresenterLike {
     func didTapCreateAccBtn() {
-        UIAlertController(title: "アカウント作成については、", message: "21nakatam@gmail.comへお問い合わせください", preferredStyle: .alert).addOK().show(fromVC: self)
+        UIAlertController(title: "アカウント作成については、", message: "21nakatam@gmail.comへお問い合わせください！", preferredStyle: .alert).addOK().show(fromVC: self)
     }
     
     func didTapLoginBtn(email: String?, pass: String?) {
@@ -57,7 +57,7 @@ extension LoginViewController: LoginPresenterLike {
             UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
             return
         }
-//        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
+
         model.signIn(email: email, pass: pass) { result in
             SVProgressHUD.dismiss()
             switch result {
