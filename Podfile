@@ -7,6 +7,7 @@ target 'Sales Tracker' do
 
   # Pods for Sales Tracker
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
 pod 'SVProgressHUD'
