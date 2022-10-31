@@ -17,7 +17,6 @@ final class LoginViewController: UIViewController {
     
     private let viewContainer: LoginViewLike
     private let model: LoginModel
-//    private var data: ?
     
     init(viewContainer: LoginViewLike = LoginView(), model: LoginModel = LoginModelImpl()) {
         self.viewContainer = viewContainer
@@ -36,11 +35,12 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
+        viewContainer.setHelloTitle(model.helloTitle)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if model.isAlreadyLoggedIn {
-            self.goMainTabBar()
+//            self.goMainTabBar()
         }
     }
 }

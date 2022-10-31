@@ -9,11 +9,16 @@ import Foundation
 import FirebaseAuth
 
 protocol LoginModel {
+    var helloTitle: String { get }
     var isAlreadyLoggedIn: Bool { get }
     func signIn(email: String, pass: String, completion: @escaping (Result<(), LoginError>) -> ())
 }
 
 final class LoginModelImpl: LoginModel {
+    var helloTitle: String {
+        return Hello(hour: Date().currentHoursAndMins.hours).title
+    }
+    
     var isAlreadyLoggedIn: Bool {
         if FirebaseAuth.Auth.auth().currentUser != nil {
             return true

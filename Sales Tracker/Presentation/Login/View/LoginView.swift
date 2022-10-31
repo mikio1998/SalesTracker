@@ -10,6 +10,7 @@ import UIKit
 
 protocol LoginViewLike: ViewContainer {
     var presenterLike: LoginPresenterLike? { get set }
+    func setHelloTitle(_ text: String)
 }
 
 final class LoginView: XibView {
@@ -39,6 +40,10 @@ final class LoginView: XibView {
         createAccountButton.addGestureRecognizer(createAccTapGesture)
         
         createAccountButton.isUserInteractionEnabled = true
+        DispatchQueue.main.async {
+            self.whiteView.roundCorners(for: [.topRight], radius: 45)
+            self.loginButton.roundCorners(for: .allCorners, radius: 5)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -59,4 +64,8 @@ final class LoginView: XibView {
 }
 
 
-extension LoginView: LoginViewLike {}
+extension LoginView: LoginViewLike {
+    func setHelloTitle(_ text: String) {
+        self.helloLabel.text = text
+    }
+}
