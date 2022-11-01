@@ -11,6 +11,7 @@ import UIKit
 protocol LoginViewLike: ViewContainer {
     var presenterLike: LoginPresenterLike? { get set }
     func setHelloTitle(_ text: String)
+    func setBackgroundImg(withURL: String)
 }
 
 final class LoginView: XibView {
@@ -39,12 +40,9 @@ final class LoginView: XibView {
         let loginTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton))
         loginButton.addGestureRecognizer(loginTapGesture)
         
-        
         let createAccTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCreateAccButton))
         createAccountButton.addGestureRecognizer(createAccTapGesture)
-        
         createAccountButton.isUserInteractionEnabled = true
-        backgroundImage.loadImage(with: "https://www.nakatashoten.com/shop/ameyoko/images/thumb-2.jpg")
         backgroundImage.contentMode = .scaleAspectFill
         DispatchQueue.main.async {
             self.greenView.roundCorners(for: [.topRight], radius: 45)
@@ -75,5 +73,8 @@ final class LoginView: XibView {
 extension LoginView: LoginViewLike {
     func setHelloTitle(_ text: String) {
         self.helloLabel.text = text
+    }
+    func setBackgroundImg(withURL urlStr: String) {
+        backgroundImage.loadImage(with: urlStr)
     }
 }

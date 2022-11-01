@@ -36,6 +36,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         viewContainer.presenterLike = self
         viewContainer.setHelloTitle(model.helloTitle)
+        viewContainer.setHelloTitle(model.backgroundImgUrl)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -355,6 +355,7 @@
 		E96362BD28FE70C500C6F3CD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E9A3AC622910B0190065460C /* Settings */,
 				E99C65B62907D3F10049E00D /* PresentationController.swift */,
 				E9526A98290F7A8A0056546E /* Login */,
 				E9526A87290E49B60056546E /* Camera */,
@@ -512,6 +513,37 @@
 				E99C65BD2907D9D80049E00D /* ProductSelectView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E9A3AC622910B0190065460C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E9A3AC632910B03C0065460C /* Model */,
+				E9A3AC642910B0430065460C /* View */,
+				E9A3AC652910B0490065460C /* Presenter */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E9A3AC632910B03C0065460C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9A3AC642910B0430065460C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9A3AC652910B0490065460C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E9CFE3442909526E001693F8 /* Choose Brand */ = {
