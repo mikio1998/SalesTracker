@@ -20,11 +20,16 @@ final class MainTabBarController: UITabBarController {
         // Dependencies inited within class.
         let productIndexViewController = ProductIndexViewController()
         let salesHistoryViewController = SalesHistoryViewController()
+        let settingsViewController = SettingsViewController()
+        
         if let navigationController = viewControllers?[0] as? UINavigationController {
             navigationController.setViewControllers([productIndexViewController], animated: false)
         }
         if let navigationController = viewControllers?[1] as? UINavigationController {
             navigationController.setViewControllers([salesHistoryViewController], animated: false)
+        }
+        if let navigationController = viewControllers?[2] as? UINavigationController {
+            navigationController.setViewControllers([settingsViewController], animated: false)
         }
     }
     

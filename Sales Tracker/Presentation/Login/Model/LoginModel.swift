@@ -11,7 +11,7 @@ import FirebaseAuth
 protocol LoginModel {
     var helloTitle: String { get }
     var isAlreadyLoggedIn: Bool { get }
-    func signIn(email: String, pass: String, completion: @escaping (Result<(), LoginError>) -> ())
+    func signIn(email: String, pass: String, completion: @escaping (Result<(), AuthError>) -> ())
     var backgroundImgUrl: String { get }
 }
 
@@ -31,10 +31,10 @@ final class LoginModelImpl: LoginModel {
         }
     }
     
-    func signIn(email: String, pass: String, completion: @escaping (Result<(), LoginError>) -> ()) {
+    func signIn(email: String, pass: String, completion: @escaping (Result<(), AuthError>) -> ()) {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: pass) { result, err in
             if err != nil {
-                completion(.failure(LoginError.loginError))
+                completion(.failure(AuthError.loginError))
             } else {
                 completion(.success(()))
             }

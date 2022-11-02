@@ -1,5 +1,5 @@
 //
-//  LoginError.swift
+//  AuthError.swift
 //  Sales Tracker
 //
 //  Created by Mikio Nakata on 2022/10/31.
@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum LoginError: Error {
+enum AuthError: Error {
     case emptyFieldError
     case loginError
+    case logoutError
     
     var message: String {
         switch self {
@@ -17,6 +18,8 @@ enum LoginError: Error {
             return "メールとパスを入力してください！"
         case .loginError:
             return "ログインが失敗しました。"
+        case .logoutError:
+            return "ログアウトが失敗しました。"
         }
     }
 }

@@ -25,7 +25,7 @@ enum Brand {
         case .AlphaIndustries:
             return "Alpha Industries"
         case .Avirex:
-            return "Avirex"
+            return "AVIREX"
         case .HelikonTex:
             return "Helikon Tex"
         case .Houston:
@@ -38,6 +38,8 @@ enum Brand {
             return "Valley Apparel"
         }
     }
+    
+    
     var officialBrandName: String {
         switch self {
         case .TestBrand:

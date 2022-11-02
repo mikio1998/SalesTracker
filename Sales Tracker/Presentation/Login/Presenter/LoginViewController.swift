@@ -36,12 +36,12 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         viewContainer.presenterLike = self
         viewContainer.setHelloTitle(model.helloTitle)
-        viewContainer.setHelloTitle(model.backgroundImgUrl)
+        viewContainer.setBackgroundImg(withURL: model.backgroundImgUrl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if model.isAlreadyLoggedIn {
-//            self.goMainTabBar()
+            self.goMainTabBar()
         }
     }
 }
@@ -55,7 +55,7 @@ extension LoginViewController: LoginPresenterLike {
         SVProgressHUD.show()
         guard let email = email, let pass = pass, !email.isEmpty, !pass.isEmpty else {
             SVProgressHUD.dismiss()
-            UIAlertController(title: nil, message: LoginError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
+            UIAlertController(title: nil, message: AuthError.emptyFieldError.message, preferredStyle: .alert).addOK().show(fromVC: self)
             return
         }
 
@@ -77,5 +77,4 @@ extension LoginViewController: LoginPresenterLike {
                 UIApplication.shared.windows.first?.rootViewController = viewController
                 UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
-    
 }

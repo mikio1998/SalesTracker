@@ -21,8 +21,11 @@ final class FirestoreManager {
     // MARK: Get all products from Brand collection.
     static func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
-        let path = db.collection(brand.collectionName)
-        path.getDocuments { _snapshot, err in
+//        let path = db.collection(brand.collectionName)
+        
+        let query = db.collection("products").whereField("brand", isEqualTo: brand.collectionName)
+        query.getDocuments { _snapshot, err in
+//        path.getDocuments { _snapshot, err in
             if err != nil {
                 completion(.failure(.getError))
             } else {
@@ -64,9 +67,41 @@ final class FirestoreManager {
             return
         }
     }
+    
+    // MARK: Scanned a barcode.
+    //      1. Get product by barcode.
+    //      2. queryForProductOrReturnNew -> SoldProductItem.
+    enum QueryMethod {
+        case productId(Product)
+        case barcode(String)
+    }
+    
+//    private static func queryForProduct(by method: QueryMethod) async throws -> ProductItem? {
+//        let db = Firestore.firestore()
+//
+//        switch method {
+//        case .product(let productItem):
+//            guard let id = productItem.id else {
+//                throw FirestoreError.getError }
+////            query = db.collection(productItem.brand).document(id).getDocument()
+//        case .barcode(let barcode):
+//            let query = db.collection("barcode").whereField("barcode", arrayContains: barcode)
+//            query.getDocuments { _snapshot, err in
+//                if err != nil {
+//                    completion(.failure(.getError))
+//                } else {
+//                    Task {
+//                        queryForProduct(by: .product(<#T##ProductItem#>))
+//                    }
+//
+//
+//                }
+//            }
+//
+//        }
+//    }
 
-
-    // MARK: Search sales by name, size, color.
+    // MARK: Search sales by id.
     private static func queryForProductOrReturnNew(product: ProductItem) async throws -> SoldProductItem {
         let db = Firestore.firestore()
         guard let id = product.id else {
