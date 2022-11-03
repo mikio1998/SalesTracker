@@ -56,13 +56,13 @@ struct ProductIndexCollectionSnapshotDataModel: Hashable {
 }
 
 // TODO: Maybe make a [ProductItem] type to make this extension safer.
-typealias ColorAndURL = (color: String, urlString: String)
+typealias ColorURLProductNum = (color: String, urlString: String, productNum: String)
 extension Array where Element == ProductItem {
-    private var colorAndImgArray: [ColorAndURL] {
-        var uniques = [ColorAndURL]()
+    private var colorImgProductNumArray: [ColorURLProductNum] {
+        var uniques = [ColorURLProductNum]()
         for i in self {
             if !uniques.contains(where: { $0.color == i.color }) {
-                uniques.append(ColorAndURL(color: i.color, urlString: i.imageUrl))
+                uniques.append(ColorURLProductNum(color: i.color, urlString: i.imageUrl, productNum: i.productNum))
             }
         }
         return uniques
@@ -76,19 +76,44 @@ extension Array where Element == ProductItem {
         }
         return uniques
     }
+    
+//    private var productNumsArray: [String] {
+//        var uniques = [String]()
+//        for i in self {
+//            if !uniques.contains(i.productNum) {
+//                uniques.append(i.productNum)
+//            }
+//        }
+//        return uniques
+//    }
     func colorCount() -> Int {
-        colorAndImgArray.count
+        colorImgProductNumArray.count
     }
     func sizeCount() -> Int {
         return sizeArray.count
     }
-    func getNthColorAndImg(n: Int) -> ColorAndURL {
-        colorAndImgArray[n]
+    func getNthColorAndImg(n: Int) -> ColorURLProductNum {
+        colorImgProductNumArray[n]
     }
+    
+    
+    func getNthColor(n: Int) -> String {
+        colorImgProductNumArray[n].color
+    }
+    func getNthImg(n: Int) -> String {
+        colorImgProductNumArray[n].urlString
+    }
+    func getNthProductNum(n: Int) -> String {
+        colorImgProductNumArray[n].productNum
+    }
+    
     func getNthSize(n: Int) -> String {
         sizeArray[n]
     }
     func searchVariantDocumentIdFor(color:String, size: String) -> String? {
         self.first(where: { $0.color == color && $0.size == size })?.id
+    }
+    func searchVariantBarcodesFor(color:String, size: String) -> [String] {
+        self.first(where: { $0.color == color && $0.size == size })?.barcodes ?? []
     }
 }

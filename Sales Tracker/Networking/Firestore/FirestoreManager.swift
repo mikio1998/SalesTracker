@@ -123,7 +123,7 @@ final class FirestoreManager {
                         }
                     } else {
                         print("New item.")
-                        let newItem = SoldProductItem(id: product.id, brand: product.brand, name: product.name, price: product.price, color: product.color, size: product.size, quantity: 0, imageUrl: product.imageUrl)
+                        let newItem = SoldProductItem(id: product.id, brand: product.brand, name: product.name, price: product.price, color: product.color, size: product.size, quantity: 0, imageUrl: product.imageUrl, productNum: product.productNum, barcodes: product.barcodes)
                         continuation.resume(returning: newItem)
                         return
                     }

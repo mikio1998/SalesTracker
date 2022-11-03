@@ -33,10 +33,10 @@ final class ProductSelectView: XibView {
     init(data: ProductIndexCollectionSnapshotDataModel) {
         super.init(frame: .zero)
         self.data = data
-        guard let url = data.variants.first?.imageUrl else { return }
+        guard let first = data.variants.first else { return }
         self.titleLabel.text = data.name
-        self.priceAndCodeLabel.text = "AI-12 ｜ ¥\(data.price)"
-        self.imageView.loadImage(with: url)
+        self.priceAndCodeLabel.text = "\(first.productNum) ｜ ¥\(data.price)"
+        self.imageView.loadImage(with: first.imageUrl)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
         slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
@@ -79,18 +79,31 @@ final class ProductSelectView: XibView {
     
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         guard let data = data else { presenterLike?.dismissPresenter(animated: true); return }
-        let selectedColorAndImg: ColorAndURL = data.variants.getNthColorAndImg(n: pickerView.selectedRow(inComponent: Const.colorComponent))
-        let selectedSize: String = data.variants.getNthSize(n: pickerView.selectedRow(inComponent: Const.sizeComponent))
-        let selectedQuantity: Int = pickerView.selectedRow(inComponent: Const.quantityComponent) + 1
-        let selectedId: String? = data.variants.searchVariantDocumentIdFor(color: selectedColorAndImg.color, size: selectedSize)
+        let colorRow: Int = pickerView.selectedRow(inComponent: Const.colorComponent)
+        let sizeRow: Int = pickerView.selectedRow(inComponent: Const.sizeComponent)
+        let quantityRow: Int = pickerView.selectedRow(inComponent: Const.quantityComponent)
+        
+        
+        
+        let selectedColor: String = data.variants.getNthColor(n: colorRow)
+        let selectedImage: String = data.variants.getNthImg(n: colorRow)
+        let selectedProductNum: String = data.variants.getNthProductNum(n: colorRow)
+        let selectedSize: String = data.variants.getNthSize(n: sizeRow)
+        let selectedQuantity: Int = quantityRow + 1
+        
+        let selectedId: String? = data.variants.searchVariantDocumentIdFor(color: selectedColor, size: selectedSize)
+        let selectedBarcodes: [String] = data.variants.searchVariantBarcodesFor(color: selectedColor, size: selectedSize)
+
         let item: ProductItem = ProductItem(
             id: selectedId,
             brand: data.brand.officialBrandName,
             name: data.name,
             price: data.price,
-            color: selectedColorAndImg.color,
+            color: selectedColor,
             size: selectedSize,
-            imageUrl: selectedColorAndImg.urlString)
+            imageUrl: selectedImage,
+            productNum: selectedProductNum,
+            barcodes: selectedBarcodes)
         presenterLike?.didTapAddButton(item: item, quantity: selectedQuantity)
     }
 }

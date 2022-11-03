@@ -15,6 +15,8 @@ protocol Product {
     var color: String { get set }
     var size: String { get set }
     var imageUrl: String { get set }
+    var productNum: String { get set }
+    var barcodes: [String] { get set }
 }
 
 
@@ -26,6 +28,8 @@ struct ProductItem: Codable, Hashable, Product {
     var color: String
     var size: String
     var imageUrl: String
+    var productNum: String
+    var barcodes: [String]
 }
 
 
@@ -38,6 +42,8 @@ struct SoldProductItem: Codable, Hashable, Product {
     var size: String
     var quantity: Int
     var imageUrl: String
+    var productNum: String
+    var barcodes: [String]
 }
 
 
