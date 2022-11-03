@@ -29,6 +29,7 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         // Image View
         guard let url = model.variants.first?.imageUrl else { return }
         productImageView.loadImage(with: url)
+        productImageView.contentMode = .scaleAspectFit
         
         // Details View
         detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.detailsLabelCornerRaidusDivisor)

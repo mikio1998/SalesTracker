@@ -92,7 +92,7 @@ extension ProductIndexView: ProductIndexViewLike {
 
 extension ProductIndexView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.width * 5 / 18 + 100)
+        CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.width * 5 / 18 + 90)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
