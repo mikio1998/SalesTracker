@@ -49,9 +49,6 @@ struct ProductIndexDataModel {
 }
 
 struct ProductIndexCollectionSnapshotDataModel: Hashable {
-    static func == (lhs: ProductIndexCollectionSnapshotDataModel, rhs: ProductIndexCollectionSnapshotDataModel) -> Bool {
-        return lhs.name == rhs.name
-    }
     let brand: Brand
     let name: String
     let price: String

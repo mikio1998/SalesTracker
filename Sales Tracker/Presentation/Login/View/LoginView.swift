@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 protocol LoginViewLike: ViewContainer {
     var presenterLike: LoginPresenterLike? { get set }
@@ -48,7 +49,6 @@ final class LoginView: XibView {
             self.greenView.roundCorners(for: [.topRight], radius: 45)
             self.whiteView.roundCorners(for: [.topRight], radius: 45)
             self.loginButton.roundCorners(for: .allCorners, radius: 5)
-//            self.emailField.giveShadow()
         }
     }
     
@@ -63,12 +63,7 @@ final class LoginView: XibView {
     @objc func didTapCreateAccButton(sender: UITapGestureRecognizer) {
         presenterLike?.didTapCreateAccBtn()
     }
-        
-        
-        
-    
 }
-
 
 extension LoginView: LoginViewLike {
     func setHelloTitle(_ text: String) {
