@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
 
 protocol SettingsModel {
     var settingsSnapshot: SettingsSnapshot { get }
@@ -20,7 +21,7 @@ final class SettingsModelImpl: SettingsModel {
         
         let logoutModel = LogoutDataModel(
             title: "ログアウト",
-            icon: .add,
+            icon: UIImage(systemName: "rectangle.portrait.and.arrow.right") ?? .actions,
             backgroundColor: .white)
         
 //        let logoutModel = SettingsTableSnapshotDataModel(
