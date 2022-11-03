@@ -15,7 +15,7 @@
                 <outlet property="addButton" destination="iOE-CV-sg8" id="PHn-J4-7T5"/>
                 <outlet property="imageView" destination="jWb-EB-CPf" id="dZb-1U-1Xf"/>
                 <outlet property="pickerView" destination="Kef-oV-FOJ" id="4mg-Jq-Fcb"/>
-                <outlet property="priceLabel" destination="Frj-RE-Yhs" id="PQX-w3-CI0"/>
+                <outlet property="priceAndCodeLabel" destination="Frj-RE-Yhs" id="PQX-w3-CI0"/>
                 <outlet property="slideIndicator" destination="9CY-KY-oTv" id="4l6-6D-dfa"/>
                 <outlet property="titleLabel" destination="TBd-UX-3Dc" id="Gx9-tr-mdQ"/>
             </connections>
@@ -66,7 +66,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-RE-Yhs">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code | Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-RE-Yhs">
                     <rect key="frame" x="16" y="80.5" width="378" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <nil key="textColor"/>

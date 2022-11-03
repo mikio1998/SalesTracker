@@ -19,7 +19,7 @@ final class ProductSelectView: XibView {
     
     @IBOutlet weak var slideIndicator: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceAndCodeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView! {
         didSet {
@@ -35,7 +35,7 @@ final class ProductSelectView: XibView {
         self.data = data
         guard let url = data.variants.first?.imageUrl else { return }
         self.titleLabel.text = data.name
-        self.priceLabel.text = "AI-12 ｜ ¥\(data.price)"
+        self.priceAndCodeLabel.text = "AI-12 ｜ ¥\(data.price)"
         self.imageView.loadImage(with: url)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
