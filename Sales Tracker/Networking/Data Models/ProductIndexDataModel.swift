@@ -74,18 +74,22 @@ extension Array where Element == ProductItem {
                 uniques.append(i.size)
             }
         }
-        return uniques
+
+        let order: [String: Int] = [
+            "XXS": 0,
+            "XS": 1,
+            "S": 2,
+            "M": 3,
+            "L": 4,
+            "XL": 5,
+            "XXL": 6,
+            "XXXL": 7
+        ]
+        return uniques.sorted { a, b in
+            return order[a] ?? order.keys.count < order[b] ?? order.keys.count
+        }
     }
-    
-//    private var productNumsArray: [String] {
-//        var uniques = [String]()
-//        for i in self {
-//            if !uniques.contains(i.productNum) {
-//                uniques.append(i.productNum)
-//            }
-//        }
-//        return uniques
-//    }
+
     func colorCount() -> Int {
         colorImgProductNumArray.count
     }
