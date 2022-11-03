@@ -128,8 +128,9 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == Const.colorComponent {
-            guard let url = data?.variants[row].imageUrl else { return }
-            imageView.loadImage(with: url)
+            guard let url = data?.variants.getNthColorAndImg(n: row).urlString else { return }
+            
+            self.imageView.loadImage(with: url)
         }
     }
     

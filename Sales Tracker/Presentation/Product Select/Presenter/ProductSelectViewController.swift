@@ -17,10 +17,12 @@ final class ProductSelectViewController: UIViewController {
     
     private let viewContainer: ProductSelectViewLike
 //    private let model: ProductSelectModel
+    private let dataModel: ProductIndexCollectionSnapshotDataModel
 //    private let navigator: ProductIndexNavigatorLike
     
     init(productData: ProductIndexCollectionSnapshotDataModel) {
         self.viewContainer = ProductSelectView(data: productData)
+        self.dataModel = productData
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
     
@@ -38,6 +40,7 @@ final class ProductSelectViewController: UIViewController {
     }
 }
 extension ProductSelectViewController: ProductSelectPresenterLike {
+    
     func didTapAddButton(item: ProductItem, quantity: Int) {
         SVProgressHUD.show()
         Task {
