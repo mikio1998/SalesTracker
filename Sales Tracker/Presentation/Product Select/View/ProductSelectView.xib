@@ -44,7 +44,7 @@
                     </constraints>
                 </view>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-oV-FOJ">
-                    <rect key="frame" x="0.0" y="361" width="410" height="170"/>
+                    <rect key="frame" x="16" y="361" width="378" height="170"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="170" id="kzF-Om-9c8"/>
                     </constraints>
@@ -82,8 +82,7 @@
                 <constraint firstItem="Frj-RE-Yhs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AVk-Hj-aG0"/>
                 <constraint firstItem="TBd-UX-3Dc" firstAttribute="top" secondItem="9CY-KY-oTv" secondAttribute="bottom" constant="25" id="Dob-f0-alu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Frj-RE-Yhs" secondAttribute="trailing" constant="16" id="GSM-DG-uuh"/>
-                <constraint firstItem="Kef-oV-FOJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="JuG-XM-m8U"/>
-                <constraint firstItem="Kef-oV-FOJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RPs-R2-YoD"/>
+                <constraint firstItem="Kef-oV-FOJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="RPs-R2-YoD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iOE-CV-sg8" secondAttribute="bottom" constant="20" id="Xvo-nd-SHx"/>
                 <constraint firstItem="iOE-CV-sg8" firstAttribute="top" secondItem="Kef-oV-FOJ" secondAttribute="bottom" constant="20" id="bHe-gf-dWm"/>
                 <constraint firstItem="Kef-oV-FOJ" firstAttribute="top" secondItem="jWb-EB-CPf" secondAttribute="bottom" constant="16" id="gey-Pl-Ax8"/>
@@ -91,6 +90,7 @@
                 <constraint firstItem="9CY-KY-oTv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i4V-E2-Mqs"/>
                 <constraint firstItem="jWb-EB-CPf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="jDK-CW-paU"/>
                 <constraint firstItem="iOE-CV-sg8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="o9s-jG-z80"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Kef-oV-FOJ" secondAttribute="trailing" constant="16" id="vLo-Sy-mcw"/>
                 <constraint firstItem="jWb-EB-CPf" firstAttribute="top" secondItem="Frj-RE-Yhs" secondAttribute="bottom" constant="10" id="yEl-VL-ot3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TBd-UX-3Dc" secondAttribute="trailing" constant="16" id="z8k-P0-9My"/>
             </constraints>

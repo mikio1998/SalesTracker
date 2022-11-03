@@ -74,7 +74,6 @@ extension Array where Element == ProductItem {
                 uniques.append(i.size)
             }
         }
-
         let order: [String: Int] = [
             "XXS": 0,
             "XS": 1,

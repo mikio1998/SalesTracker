@@ -38,6 +38,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
         
         // Image View
         productImageView.loadImage(with: model.soldProductItem.imageUrl)
+        productImageView.contentMode = .scaleAspectFit
         
         // Main View
         mainView.giveRoundCorners(withCornerRadius: Const.mainViewCornerRadius)
@@ -56,7 +57,8 @@ class SalesHistoryTableViewCell: UITableViewCell {
         sizeLabel.text = model.soldProductItem.size
         
         // Quantity Label
-        quantityLabel.text = String(model.soldProductItem.quantity)
+//        quantityLabel.text = String(model.soldProductItem.quantity)
+        quantityLabel.text = "\(model.soldProductItem.quantity)点"
     }
 }
 

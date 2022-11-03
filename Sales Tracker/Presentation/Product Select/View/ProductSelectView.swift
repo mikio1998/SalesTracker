@@ -137,7 +137,7 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
         case Const.sizeComponent:
             return data.variants.getNthSize(n: row)
         case Const.quantityComponent:
-            return "\(row+1)"
+            return "\(row+1)点"
         default:
             return "Title"
         }
@@ -150,7 +150,35 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+////        var pickerLabel = view as? UILabel
+////        pickerLabel?.minimumScaleFactor = 0.5
+////        return pickerLabel
+//
+//        var label = UILabel()
+//        if let v = view as? UILabel {
+//            label = v
+//        }
+//        label.text = "lol"
+////        label.font = UIFont (name: "Helvetica Neue", size: 10)
+////        label.text =  dataArray[row]
+////        label.textAlignment = .center
+//        label.minimumScaleFactor = 0.5
+//        return label
+//    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        switch component {
+        case Const.colorComponent:
+            return pickerView.frame.size.width * (Const.colorComponentWidthRatio)
+        default:
+            return pickerView.frame.size.width * (Const.nonColorComponentWidthRatio)
+        }
+    }
+    
 }
+
+
 
 extension ProductSelectView: ProductSelectViewLike {
 }
@@ -165,5 +193,8 @@ extension ProductSelectView {
         static let colorComponent: Int = 0
         static let sizeComponent: Int = 1
         static let quantityComponent = 2
+        
+        static let colorComponentWidthRatio: CGFloat = 0.4
+        static let nonColorComponentWidthRatio: CGFloat = 0.3
     }
 }
