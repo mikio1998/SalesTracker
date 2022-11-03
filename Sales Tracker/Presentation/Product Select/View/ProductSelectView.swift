@@ -18,6 +18,8 @@ final class ProductSelectView: XibView {
     private var data: ProductIndexCollectionSnapshotDataModel?
     
     @IBOutlet weak var slideIndicator: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView! {
         didSet {
@@ -32,11 +34,12 @@ final class ProductSelectView: XibView {
         super.init(frame: .zero)
         self.data = data
         guard let url = data.variants.first?.imageUrl else { return }
+        self.titleLabel.text = data.name
+        self.priceLabel.text = "AI-12 ｜ ¥\(data.price)"
         self.imageView.loadImage(with: url)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
         slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
-        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.addButton.addGestureRecognizer(tapGesture)
@@ -149,7 +152,5 @@ extension ProductSelectView {
         static let colorComponent: Int = 0
         static let sizeComponent: Int = 1
         static let quantityComponent = 2
-        
-        
     }
 }
