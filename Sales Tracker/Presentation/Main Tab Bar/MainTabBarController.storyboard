@@ -21,6 +21,7 @@
                         <segue destination="O9V-2o-B1D" kind="relationship" relationship="viewControllers" id="5sr-sb-KKh"/>
                         <segue destination="9nN-eD-V1l" kind="relationship" relationship="viewControllers" id="UDT-C0-JBl"/>
                         <segue destination="d3b-oq-8Co" kind="relationship" relationship="viewControllers" id="8fp-JS-9Js"/>
+                        <segue destination="YBd-mZ-CG3" kind="relationship" relationship="viewControllers" id="gFY-Wc-LH8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fc4-wc-yhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -68,6 +69,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsC-L9-EXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632" y="82"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bpp-g4-Qt6">
+            <objects>
+                <navigationController id="YBd-mZ-CG3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="wrench.fill" catalog="system" id="uWu-YZ-Vfx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cJo-sZ-E7A">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgy-uF-EAw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="82"/>
         </scene>
     </scenes>
     <resources>

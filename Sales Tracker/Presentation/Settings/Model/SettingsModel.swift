@@ -24,11 +24,6 @@ final class SettingsModelImpl: SettingsModel {
             icon: UIImage(systemName: "rectangle.portrait.and.arrow.right") ?? .actions,
             backgroundColor: .white)
         
-//        let logoutModel = SettingsTableSnapshotDataModel(
-//            title: "ログアウト",
-//            icon: .add,
-//            backgroundColor: .white)
-        
         snap.appendItems([.logout(logoutModel)], toSection: 0)
         return snap
     }
