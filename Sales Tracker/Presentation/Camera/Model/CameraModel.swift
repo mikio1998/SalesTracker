@@ -11,6 +11,8 @@ import AVFoundation
 protocol CameraModel {
     var previewLayer: AVCaptureVideoPreviewLayer { get }
     func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> ())
+    func startSession()
+    func stopSession()
 }
 
 final class CameraModelImpl: CameraModel {
@@ -63,11 +65,13 @@ final class CameraModelImpl: CameraModel {
         }
     }
     
-    private func stopSession() {
+    func startSession() {
+        guard let session = session, session.isRunning == false else { return }
+        session.startRunning()
+    }
+    
+    func stopSession() {
         guard let session = session, session.isRunning == true else { return }
         session.stopRunning()
     }
-    
-    
-    
 }

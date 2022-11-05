@@ -30,10 +30,12 @@ final class CameraViewController: UIViewController {
         self.view = viewContainer.view
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        model.startSession()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        model.stopSession()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

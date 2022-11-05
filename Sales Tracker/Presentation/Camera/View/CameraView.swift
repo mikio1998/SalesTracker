@@ -15,8 +15,7 @@ protocol CameraViewLike: ViewContainer {
 
 final class CameraView: XibView {
     weak var presenterLike: CameraViewPresenterLike?
-    var videoLayer = AVCaptureVideoPreviewLayer()
-    // Outlets
+    private var videoLayer = AVCaptureVideoPreviewLayer()
     
     init() {
         super.init(frame: .zero)
@@ -31,7 +30,6 @@ final class CameraView: XibView {
 
 extension CameraView: CameraViewLike {
     func showVideo(layer: AVCaptureVideoPreviewLayer) {
-        print("show")
         self.videoLayer = layer
         DispatchQueue.main.async {
             self.videoLayer.frame = self.layer.bounds
