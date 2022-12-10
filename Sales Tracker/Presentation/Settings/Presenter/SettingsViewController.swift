@@ -33,7 +33,6 @@ final class SettingsViewController: UIViewController {
         viewContainer.presenterLike = self
         viewContainer.setSnapshot(model.settingsSnapshot)
     }
-
 }
 extension SettingsViewController: SettingsPresenterLike {
     func didSelectIndexPath(_ indexPath: IndexPath) {

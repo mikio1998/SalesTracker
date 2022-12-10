@@ -17,6 +17,7 @@ enum Brand {
     case Sessler
     case TruSpec
     case ValleyApparel
+    case Cockpit
     case USSurplus
     
     init(name: String) {
@@ -37,6 +38,8 @@ enum Brand {
             self = .ValleyApparel
         case "US Surplus":
             self = .USSurplus
+        case "Cockpit":
+            self = .Cockpit
         default:
             self = .TestBrand
         }
@@ -60,6 +63,8 @@ enum Brand {
             return "Tru Spec"
         case .ValleyApparel:
             return "Valley Apparel"
+        case .Cockpit:
+            return "Cockpit"
         case .USSurplus:
             return "US Surplus"
         }
@@ -83,6 +88,8 @@ enum Brand {
             return "トルースペック"
         case .ValleyApparel:
             return "バレーアパレル"
+        case .Cockpit:
+            return "コックピット"
         case .USSurplus:
             return "米軍放出品"
         }
@@ -105,6 +112,8 @@ enum Brand {
         case .TruSpec:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
         case .ValleyApparel:
+            return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
+        case .Cockpit:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
         case .USSurplus:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
@@ -129,6 +138,8 @@ enum Brand {
             return "https://www.nakatashoten.com/img-item/logo-tru-spec-atlanco.gif"
         case .ValleyApparel:
             return "https://www.nakatashoten.com/img-item/logo-va.gif"
+        case .Cockpit:
+            return "https://www.nakatashoten.com/img-item/logo-cockpit-2.gif"
         case .USSurplus:
             return "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/US_Army_Star_Logo_SSI.png/1200px-US_Army_Star_Logo_SSI.png"
         }

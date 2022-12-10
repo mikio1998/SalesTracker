@@ -58,7 +58,10 @@ final class CameraModelImpl: CameraModel {
                 output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr, AVMetadataObject.ObjectType.ean13]
             }
             previewLayer.session = session
-            session.startRunning()
+            DispatchQueue.global(qos: .userInitiated).async {
+                session.startRunning()
+            }
+            
             self.session = session
             completion(nil)
         } catch {
@@ -68,7 +71,9 @@ final class CameraModelImpl: CameraModel {
     
     func startSession() {
         guard let session = session, session.isRunning == false else { return }
-        session.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.startRunning()
+        }
     }
     
     func stopSession() {
