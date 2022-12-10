@@ -76,7 +76,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Frj-RE-Yhs" firstAttribute="top" secondItem="TBd-UX-3Dc" secondAttribute="bottom" constant="10" id="1b2-KM-2Fi"/>
+                <constraint firstItem="Frj-RE-Yhs" firstAttribute="top" secondItem="TBd-UX-3Dc" secondAttribute="bottom" constant="5" id="1b2-KM-2Fi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jWb-EB-CPf" secondAttribute="trailing" constant="16" id="4Hs-Am-TDo"/>
                 <constraint firstItem="9CY-KY-oTv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="ADy-mo-Iz7"/>
                 <constraint firstItem="Frj-RE-Yhs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AVk-Hj-aG0"/>

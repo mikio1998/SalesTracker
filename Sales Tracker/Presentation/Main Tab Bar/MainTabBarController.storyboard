@@ -46,7 +46,7 @@
         <scene sceneID="PVQ-Nh-uuP">
             <objects>
                 <navigationController id="9nN-eD-V1l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="shippingbox.fill" catalog="system" id="bxF-K1-6lF"/>
+                    <tabBarItem key="tabBarItem" title="" image="barcode" catalog="system" id="bxF-K1-6lF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfd-Lj-8CV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,7 +60,7 @@
         <scene sceneID="DGb-fT-ZSa">
             <objects>
                 <navigationController id="d3b-oq-8Co" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="barcode" catalog="system" id="fI8-w9-3ml"/>
+                    <tabBarItem key="tabBarItem" title="" image="shippingbox.fill" catalog="system" id="fI8-w9-3ml"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VKN-t8-J7W">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -99,7 +99,7 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
 
 extension ProductIndexViewController {
     private enum Const {
-        static let brandList: [Brand] = [Brand.AlphaIndustries, Brand.Avirex, Brand.HelikonTex, Brand.Houston, Brand.Sessler, Brand.TruSpec, Brand.ValleyApparel, Brand.USSurplus, Brand.Cockpit]
+        static let brandList: [Brand] = [Brand.AlphaIndustries, Brand.Avirex, Brand.HelikonTex, Brand.Houston, Brand.Sessler, Brand.TruSpec, Brand.ValleyApparel, Brand.Cockpit, Brand.USSurplus]
     }
 }
 

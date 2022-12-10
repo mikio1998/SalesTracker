@@ -13,7 +13,6 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
          setUpViewControllers()
-//        UITabBar.appearance().tintColor = #colorLiteral(red: 0.9242072701, green: 0.9741521478, blue: 0.8562057018, alpha: 1)
     }
     
     private func setUpViewControllers() {
@@ -27,10 +26,10 @@ final class MainTabBarController: UITabBarController {
             navigationController.setViewControllers([productIndexViewController], animated: false)
         }
         if let navigationController = viewControllers?[1] as? UINavigationController {
-            navigationController.setViewControllers([salesHistoryViewController], animated: false)
+            navigationController.setViewControllers([cameraViewController], animated: false)
         }
         if let navigationController = viewControllers?[2] as? UINavigationController {
-            navigationController.setViewControllers([cameraViewController], animated: false)
+            navigationController.setViewControllers([salesHistoryViewController], animated: false)
         }
         if let navigationController = viewControllers?[3] as? UINavigationController {
             navigationController.setViewControllers([settingsViewController], animated: false)
