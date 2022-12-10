@@ -71,11 +71,10 @@ final class FirestoreManager {
     // MARK: Scanned a barcode.
     //      1. Get product by barcode.
     //      2. queryForProductOrReturnNew -> SoldProductItem.
-    enum QueryMethod {
-        case productId(Product)
-        case barcode(String)
-    }
-    
+//    enum QueryMethod {
+//        case productId(Product)
+//        case barcode(String)
+//    }
 //    private static func queryForProduct(by method: QueryMethod) async throws -> ProductItem? {
 //        let db = Firestore.firestore()
 //
@@ -100,6 +99,34 @@ final class FirestoreManager {
 //
 //        }
 //    }
+    
+    static func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+        let db = Firestore.firestore()
+        let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
+
+        query.getDocuments { _snapshot, err in
+            if err != nil {
+                completion(.failure(.getError))
+            } else {
+                if let snapshot = _snapshot {
+                    let products = snapshot.documents.compactMap {
+                        return try? $0.data(as: ProductItem.self)
+                    }
+                    if let first = products.first {
+                        completion(.success(first))
+                    } else {
+                        completion(.success(nil))
+                    }
+                } else {
+                    completion(.failure(.getError))
+                }
+            }
+        }
+        
+        
+    }
+    
+    
 
     // MARK: Search sales by id.
     private static func queryForProductOrReturnNew(product: ProductItem) async throws -> SoldProductItem {

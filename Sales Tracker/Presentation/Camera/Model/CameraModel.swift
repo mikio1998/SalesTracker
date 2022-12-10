@@ -13,6 +13,7 @@ protocol CameraModel {
     func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> ())
     func startSession()
     func stopSession()
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> ())
 }
 
 final class CameraModelImpl: CameraModel {
@@ -73,5 +74,29 @@ final class CameraModelImpl: CameraModel {
     func stopSession() {
         guard let session = session, session.isRunning == true else { return }
         session.stopRunning()
+    }
+    
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+        
+        guard let obj = objects.first as? AVMetadataMachineReadableCodeObject,
+            let objStringValue = obj.stringValue else { return
+        }
+        print("obssv", objStringValue)
+        FirestoreManager.queryFromProduct(barcode: objStringValue, completion: completion)
+        
+        
+        
+        
+//        FirestoreManager.queryFromProduct(barcode: objectStringVal) { result in
+//            switch result {
+//            case .failure(let fireErr):
+//                print("err", fireErr)
+//                // todo, show error on presenter.
+//            case .success(let productItem):
+//
+//            }
+//        }
+        
+        
     }
 }

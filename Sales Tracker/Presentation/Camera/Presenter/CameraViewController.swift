@@ -43,9 +43,9 @@ final class CameraViewController: UIViewController {
         model.startCam(delegate: self) { err in
             if let err = err {
                 print("err", err)
+                // MARK: TODO, camera err alert.
                 return
             } else {
-                print("set up the cam")
                 self.viewContainer.showVideo(layer: self.model.previewLayer)
             }
         }
@@ -55,6 +55,33 @@ final class CameraViewController: UIViewController {
 extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         print("output")
+        
+        
+        // MARK: just pass AVCaptureMetadataOutput to model method, later.
+        model.queryWithObjects(metadataObjects) { result in
+            switch result {
+            case .failure(let fireErr):
+                print("err", fireErr)
+                // todo, show error on presenter.
+                
+            case .success(let productItem):
+                let model = ProductIndexCollectionSnapshotDataModel(brand: Brand(name: productItem!.brand), name: productItem!.name, price: productItem!.price, variants: [productItem!])
+
+                let productSelectVC = ProductSelectViewController(productData: model)
+
+                productSelectVC.modalPresentationStyle = .custom
+                productSelectVC.transitioningDelegate = self
+                self.present(productSelectVC, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
+}
+
+extension CameraViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
 
