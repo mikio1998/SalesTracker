@@ -65,7 +65,6 @@ enum Brand {
         }
     }
     
-    
     var officialBrandName: String {
         switch self {
         case .TestBrand:
