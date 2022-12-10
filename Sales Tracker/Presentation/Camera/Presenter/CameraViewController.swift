@@ -54,7 +54,6 @@ final class CameraViewController: UIViewController {
 
 extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        print("output")
         
         
         // MARK: just pass AVCaptureMetadataOutput to model method, later.

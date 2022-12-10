@@ -37,9 +37,8 @@ enum Brand {
             self = .ValleyApparel
         case "US Surplus":
             self = .USSurplus
-            
         default:
-            self = .ValleyApparel
+            self = .TestBrand
         }
     }
     
