@@ -45,6 +45,7 @@ final class LoginView: XibView {
         createAccountButton.addGestureRecognizer(createAccTapGesture)
         createAccountButton.isUserInteractionEnabled = true
         backgroundImage.contentMode = .scaleAspectFill
+        passwordField.isSecureTextEntry = true
         DispatchQueue.main.async {
             self.greenView.roundCorners(for: [.topRight], radius: 45)
             self.whiteView.roundCorners(for: [.topRight], radius: 45)
