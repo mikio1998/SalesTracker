@@ -15,14 +15,14 @@
 
 ## 機能一覧
 #### ユーザーログイン  
-・FirebaseAuthを使用してメールとパスワードでログインを実施した。
+・FirebaseAuthを使用してメールとパスワードでログインを実施した。　　
 ![](https://github.com/mikio1998/mikio1998.github.io/blob/master/images/Gifs/AppDemo5_AdobeExpress.gif?raw=true)
 
 #### 商品検索  
 ・Cloud Firestoreを使用してデータを取得し、商品一覧を表示した。  
 ![](https://github.com/mikio1998/mikio1998.github.io/blob/master/images/Gifs/AppDemo1_MP4_AdobeExpress.gif?raw=true) 
 
-・Nukeを使用して商品の画像を表示した。選択された商品のカラーの画像を表示した。
+・Nukeを使用して商品の画像を表示した。選択された商品のカラーの画像を表示した。  
 ![](https://github.com/mikio1998/mikio1998.github.io/blob/master/images/Gifs/AppDemo2_AdobeExpress%20(2).gif?raw=true)      
 
 #### 在庫補充依頼一覧  
