@@ -15,7 +15,7 @@
 
 ## 機能一覧
 #### ユーザーログイン  
-・FirebaseAuthを使用してメールとパスワードでログインを実施した。　　
+・FirebaseAuthを使用してメールとパスワードでログインを実施した。  
 ![](https://github.com/mikio1998/mikio1998.github.io/blob/master/images/Gifs/AppDemo5_AdobeExpress.gif?raw=true)
 
 #### 商品検索  
