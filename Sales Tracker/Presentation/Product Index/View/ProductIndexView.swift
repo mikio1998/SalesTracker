@@ -4,7 +4,7 @@
 //
 //  Created by Mikio Nakata on 2022/10/18.
 //
-// https://qiita.com/uhooi/items/ce1b8f56fe7d3eaca325
+// Xib help https://qiita.com/uhooi/items/ce1b8f56fe7d3eaca325
 
 import Foundation
 import UIKit
@@ -87,7 +87,6 @@ extension ProductIndexView: ProductIndexViewLike {
         noResultsView.alpha = 0
         noResultLabel.alpha = 0
     }
-    
 }
 
 extension ProductIndexView: UICollectionViewDelegateFlowLayout {
@@ -99,20 +98,3 @@ extension ProductIndexView: UICollectionViewDelegateFlowLayout {
         presenterLike?.didSelectIndexPath(indexPath)
     }
 }
-
-// Notes:
-// Diffable data source
-//      typealias of datasource
-//      init the datasource
-//      cell provider
-
-
-// IBOutlet tableview
-//      when set,
-//          set delegate to self. register cells.
-//          tableView.tableFooterView = UIView()
-//
-// Other view IBOutlets if necessary
-
-
-// init() and required init

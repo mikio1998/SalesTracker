@@ -14,11 +14,10 @@ protocol ProductSelectPresenterLike: AnyObject {
 }
 
 final class ProductSelectViewController: UIViewController {
-    
     private let viewContainer: ProductSelectViewLike
+    // TODO: Model
 //    private let model: ProductSelectModel
     private let dataModel: ProductIndexCollectionSnapshotDataModel
-//    private let navigator: ProductIndexNavigatorLike
     
     init(productData: ProductIndexCollectionSnapshotDataModel) {
         self.viewContainer = ProductSelectView(data: productData)
@@ -40,7 +39,6 @@ final class ProductSelectViewController: UIViewController {
     }
 }
 extension ProductSelectViewController: ProductSelectPresenterLike {
-    
     func didTapAddButton(item: ProductItem, quantity: Int) {
         SVProgressHUD.show()
         Task {

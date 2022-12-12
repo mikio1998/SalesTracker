@@ -43,7 +43,6 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
     func didTapEditButton(item: SoldProductItem, count: Int) {
         guard let id = item.id else { return }
         SVProgressHUD.show()
-        
         if count == 0 {
             FirestoreManager.deleteSaleEntry(id: id) {
                 result in

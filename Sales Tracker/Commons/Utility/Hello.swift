@@ -49,6 +49,5 @@ extension Hello {
     private enum Const {
         static let morningRange: Range = 5..<11
         static let dayRange: Range = 11..<17
-//        static let eveningRange: Range = [17..<18, 20..<24, 0..<5].joined()
     }
 }

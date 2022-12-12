@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol ProductSelectModel {
-    
-}
+protocol ProductSelectModel {}
 
-final class ProductSelectModelImpl: ProductSelectModel {
-    
-}
+final class ProductSelectModelImpl: ProductSelectModel {}

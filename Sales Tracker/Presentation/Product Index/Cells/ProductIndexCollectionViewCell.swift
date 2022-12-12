@@ -9,7 +9,6 @@ import UIKit
 
 class ProductIndexCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var shadeView: UIView!
     @IBOutlet weak var wholeView: UIView!
     @IBOutlet weak var productImageView: UIImageView!

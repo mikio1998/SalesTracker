@@ -58,7 +58,6 @@ class ProductIndexViewController: UIViewController {
                     .addOK()
                     .show(fromVC: self)
                 self.viewContainer.noResults(error: fireErr)
-
             case .success(let dataModel):
                 self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.brandLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)
@@ -102,39 +101,3 @@ extension ProductIndexViewController {
         static let brandList: [Brand] = [Brand.AlphaIndustries, Brand.Avirex, Brand.HelikonTex, Brand.Houston, Brand.Sessler, Brand.TruSpec, Brand.ValleyApparel, Brand.Cockpit, Brand.USSurplus]
     }
 }
-
-
-
-
-
-
-// Notes
-
-// typealias of a snapshot
-
-// Init
-//       viewContainer (ViewLike)
-//       model
-//       navigator
-//   super.init nibname is nil, bundle is Self.self
-
-// required Init
-
-// loadView
-//      view is viewContainers .view
-
-// viewDidLoad
-//      set viewContainers presenterLike to self.
-//      UI stuff, like title or button
-//      model networking, getting data.
-//          create the data snapshot
-
-// viewWillAppear
-//      stuff to do everytime it shows
-// viewWillDisappear
-
-
-// Conform to PresenterLike
-//      delegate methods
-//      ie. the view's tableview taps a cell.
-

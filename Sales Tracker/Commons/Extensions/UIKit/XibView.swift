@@ -37,14 +37,12 @@ class XibView: UIView {
     
 }
 
-
 // MARK: - Notes
 
 // Inherits UIView
 
-
-// "class" var
-// Look up diff between class and static.
+// "class var" ?
+// Look up diff between class and static. <- **
 // We're able to have view instances, with respective nibName variables with strings.
 // Contexually speaking, variable nibName is owned by the instances, not the class itself (static).
 // overridable var, nibName (a string describing self)

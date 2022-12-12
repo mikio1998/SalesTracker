@@ -19,7 +19,6 @@ protocol Product {
     var barcodes: [String] { get set }
 }
 
-
 struct ProductItem: Codable, Hashable, Product {
     @DocumentID var id: String?
     var brand: String
@@ -31,7 +30,6 @@ struct ProductItem: Codable, Hashable, Product {
     var productNum: String
     var barcodes: [String]
 }
-
 
 struct SoldProductItem: Codable, Hashable, Product {
     @DocumentID var id: String?
@@ -45,33 +43,6 @@ struct SoldProductItem: Codable, Hashable, Product {
     var productNum: String
     var barcodes: [String]
 }
-
-
-
-
-
-
-
-//struct ProductItem: Codable {
-//    @DocumentID var id: String?
-//    var brand: String
-//    var color: [String]
-//    var name: String
-//    var price: Int
-//    var size: [String]
-//    var type: String
-//    var quantity: Int?
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case brand
-//        case color
-//        case name
-//        case price
-//        case size
-//        case type
-//        case quantity
-//    }
-//}
 
 struct SalesTrack: Codable {
     @DocumentID var id: String?

@@ -21,11 +21,8 @@ final class FirestoreManager {
     // MARK: Get all products from Brand collection.
     static func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
-//        let path = db.collection(brand.collectionName)
-        
         let query = db.collection("products").whereField("brand", isEqualTo: brand.collectionName)
         query.getDocuments { _snapshot, err in
-//        path.getDocuments { _snapshot, err in
             if err != nil {
                 completion(.failure(.getError))
             } else {
@@ -33,7 +30,6 @@ final class FirestoreManager {
                     let products = snapshot.documents.compactMap {
                         return try? $0.data(as: ProductItem.self)
                     }
-                    
                     completion(.success(products))
                     return
                 } else {
@@ -56,7 +52,6 @@ final class FirestoreManager {
                     let products = snapshot.documents.compactMap {
                         return try? $0.data(as: SoldProductItem.self)
                     }
-                    
                     completion(.success(products))
                     return
                 } else {
@@ -68,42 +63,9 @@ final class FirestoreManager {
         }
     }
     
-    // MARK: Scanned a barcode.
-    //      1. Get product by barcode.
-    //      2. queryForProductOrReturnNew -> SoldProductItem.
-//    enum QueryMethod {
-//        case productId(Product)
-//        case barcode(String)
-//    }
-//    private static func queryForProduct(by method: QueryMethod) async throws -> ProductItem? {
-//        let db = Firestore.firestore()
-//
-//        switch method {
-//        case .product(let productItem):
-//            guard let id = productItem.id else {
-//                throw FirestoreError.getError }
-////            query = db.collection(productItem.brand).document(id).getDocument()
-//        case .barcode(let barcode):
-//            let query = db.collection("barcode").whereField("barcode", arrayContains: barcode)
-//            query.getDocuments { _snapshot, err in
-//                if err != nil {
-//                    completion(.failure(.getError))
-//                } else {
-//                    Task {
-//                        queryForProduct(by: .product(<#T##ProductItem#>))
-//                    }
-//
-//
-//                }
-//            }
-//
-//        }
-//    }
-    
     static func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
         let db = Firestore.firestore()
         let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
-
         query.getDocuments { _snapshot, err in
             if err != nil {
                 completion(.failure(.getError))
@@ -122,11 +84,7 @@ final class FirestoreManager {
                 }
             }
         }
-        
-        
     }
-    
-    
 
     // MARK: Search sales by id.
     private static func queryForProductOrReturnNew(product: ProductItem) async throws -> SoldProductItem {
@@ -140,16 +98,14 @@ final class FirestoreManager {
                     continuation.resume(throwing: FirestoreError.getError)
                     return
                 } else {
-                    if let snapshot = _snapshot, snapshot.exists {
-                        print("Not new item.")
+                    if let snapshot = _snapshot, snapshot.exists { // *Already in sales track.*
                         do {
                             let item = try snapshot.data(as: SoldProductItem.self)
                             continuation.resume(returning: item)
                         } catch {
                             continuation.resume(throwing: FirestoreError.decodingError)
                         }
-                    } else {
-                        print("New item.")
+                    } else { // *New to sales track*
                         let newItem = SoldProductItem(id: product.id, brand: product.brand, name: product.name, price: product.price, color: product.color, size: product.size, quantity: 0, imageUrl: product.imageUrl, productNum: product.productNum, barcodes: product.barcodes)
                         continuation.resume(returning: newItem)
                         return
@@ -172,16 +128,13 @@ final class FirestoreManager {
         }
     }
     
-//    static func soldAnItem(product: ProductItem, size: String, color: String, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
     static func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
         do {
             var queryProduct = try await queryForProductOrReturnNew(product: product)
             queryProduct.quantity += quantitySold
-            
             try setSoldProductItem(product: queryProduct)
             completion(.success(()))
-        } catch let error {
-            print("Error soldAnItem:", error)
+        } catch _ {
             completion(.failure(.setError))
         }
     }
@@ -207,7 +160,6 @@ final class FirestoreManager {
             if err != nil {
                 completion(.failure(.updateError))
             } else {
-                print("Wrote new count to ", id)
                 completion(.success(()))
             }
         }

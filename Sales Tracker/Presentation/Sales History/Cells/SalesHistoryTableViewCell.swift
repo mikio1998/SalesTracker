@@ -57,7 +57,6 @@ class SalesHistoryTableViewCell: UITableViewCell {
         sizeLabel.text = model.soldProductItem.size
         
         // Quantity Label
-//        quantityLabel.text = String(model.soldProductItem.quantity)
         quantityLabel.text = "\(model.soldProductItem.quantity)点"
     }
 }

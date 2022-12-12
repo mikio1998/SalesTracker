@@ -38,9 +38,8 @@ class ChooseBrandViewController: UIViewController {
 extension ChooseBrandViewController: ChooseBrandPresenterLike {
     func dismissPresenter(animated: Bool, reloadIndexFor brand: Brand?) {
         self.dismiss(animated: true) {
-            if let brand = brand {
-                self.productIndexDelegate.reloadIndex(forBrand: brand)
-            }
+            guard let brand = brand else { return }
+            self.productIndexDelegate.reloadIndex(forBrand: brand)
         }
     }
 }

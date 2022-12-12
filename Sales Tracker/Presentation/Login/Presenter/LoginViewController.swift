@@ -14,7 +14,6 @@ protocol LoginPresenterLike: AnyObject {
 }
 
 final class LoginViewController: UIViewController {
-    
     private let viewContainer: LoginViewLike
     private let model: LoginModel
     
@@ -59,8 +58,7 @@ extension LoginViewController: LoginPresenterLike {
             return
         }
 
-        model.signIn(email: "21nakatam@gmail.com", pass: "tester") { result in
-//        model.signIn(email: email, pass: pass) { result in
+        model.signIn(email: email, pass: pass) { result in
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let loginErr):

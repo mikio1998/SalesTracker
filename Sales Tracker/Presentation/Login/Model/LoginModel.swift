@@ -17,27 +17,25 @@ protocol LoginModel {
 
 final class LoginModelImpl: LoginModel {
     var helloTitle: String {
-        return Hello(hour: Date().currentHoursAndMins.hours).title
+        Hello(hour: Date().currentHoursAndMins.hours).title
     }
     var backgroundImgUrl: String {
-        return "https://images.microcms-assets.io/assets/1775a3633c8b428d9f011c6a758a8a5c/6d7c315622b94651bb19cf48e610e49c/2004%20%E3%82%A2%E3%83%A1%E6%A8%AA%E5%BA%97.JPG?w=2400"
+        Const.backgroundImgUrl
     }
     
     var isAlreadyLoggedIn: Bool {
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            return true
-        } else {
-            return false
-        }
+        FirebaseAuth.Auth.auth().currentUser != nil ? true : false
     }
     
     func signIn(email: String, pass: String, completion: @escaping (Result<(), AuthError>) -> ()) {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: pass) { result, err in
-            if err != nil {
-                completion(.failure(AuthError.loginError))
-            } else {
-                completion(.success(()))
-            }
+            err != nil ? completion(.failure(AuthError.loginError)) : completion(.success(()))
         }
+    }
+}
+
+extension LoginModelImpl {
+    private enum Const {
+        static let backgroundImgUrl: String = "https://images.microcms-assets.io/assets/1775a3633c8b428d9f011c6a758a8a5c/6d7c315622b94651bb19cf48e610e49c/2004%20%E3%82%A2%E3%83%A1%E6%A8%AA%E5%BA%97.JPG?w=2400"
     }
 }

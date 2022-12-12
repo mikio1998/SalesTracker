@@ -15,8 +15,6 @@ extension ViewContainer where Self: UIView {
     var view: UIView { self }
 }
 
-
-// Notes
-
+// Notes:
 // This ViewContainer protocol is conformed by "ViewLike" protocols.
-//      It gives each one the view: UIView property.
+//      It gives each one a view: UIView property as such.

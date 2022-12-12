@@ -21,8 +21,6 @@ final class EditQuantityView: XibView {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var editButton: UIView!
-    
-    
     @IBAction func tapMinus(_ sender: Any) {
         guard countNum > 0 else { return }
         self.countNum -= 1
@@ -30,9 +28,7 @@ final class EditQuantityView: XibView {
     @IBAction func tapPlus(_ sender: Any) {
         self.countNum += 1
     }
-    
     private var soldItem: SoldProductItem
-    
     private var countNum: Int {
         didSet {
             counterLabel.text = String(countNum)
@@ -62,7 +58,6 @@ final class EditQuantityView: XibView {
         // Original Y point of View.
         let y = (self.superview?.frame.height)! - self.frame.height
         
-//        let translation = sender.translation(in: view)
         let translation = sender.translation(in: self)
         
         // Not allowing the user to drag the view upward
@@ -70,7 +65,6 @@ final class EditQuantityView: XibView {
         
         // setting x as 0 because we don't want users to move the frame side ways!! Only want straight up or down
         self.frame.origin = CGPoint(x: 0, y: y + translation.y)
-        
         
         if sender.state == .ended {
             let dragVelocity = sender.velocity(in: self)
@@ -88,8 +82,8 @@ final class EditQuantityView: XibView {
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         presenterLike?.didTapEditButton(item: soldItem, count: countNum)
     }
-    
 }
+
 extension EditQuantityView: EditQuantityViewLike {}
 
 extension EditQuantityView {

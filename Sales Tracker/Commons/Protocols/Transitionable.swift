@@ -5,8 +5,6 @@
 //  Created by Mikio Nakata on 2022/10/19.
 //
 
-//    https://stackoverflow.com/questions/46018677/what-is-where-self-in-protocol-extension
-
 import Foundation
 import UIKit
 
@@ -78,3 +76,5 @@ extension Presentable where Self: UIViewController {
         fromVC.present(vc, animated: true, completion: nil)
     }
 }
+
+//    https://stackoverflow.com/questions/46018677/what-is-where-self-in-protocol-extension

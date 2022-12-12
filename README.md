@@ -7,7 +7,7 @@
 ## 環境
 ・MacbookPro M1 version.12.4  
 ・Swift 5  
-・Xcode ver.13.4.1  
+・Xcode ver.14.1  
 実機  
 ・iPhone11 Pro iOS 15.3
 

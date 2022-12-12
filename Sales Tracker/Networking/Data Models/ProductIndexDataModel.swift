@@ -13,27 +13,19 @@ typealias ProductIndexSnapshot = NSDiffableDataSourceSnapshot<Int, ProductIndexC
 
 struct ProductIndexDataModel {
     let brand: Brand
-//    let productItemsData: [ProductItem]
     var productIndexSnapshot: ProductIndexSnapshot
-    
     init(brand: Brand, productItems: [ProductItem]) {
         self.brand = brand
-//        self.productItemsData = productItems // dont really need to keep anymore?
         self.productIndexSnapshot = ProductIndexSnapshot()
         self.productIndexSnapshot.appendSections([0])
         var variants = [String: [ProductItem]]()
         for item in productItems {
-            guard let id = item.id else { continue }
+            guard item.id != nil else { continue }
             if variants.contains(where: { $0.key == item.name }) {
                 variants[item.name]?.append(item)
             } else {
                 variants[item.name] = [item]
             }
-//            if variants.keys.contains(item.name) == false {
-//                variants[item.name] = [item]
-//            } else {
-//                variants[item.name]?.append(item)
-//            }
         }
         var models = [ProductIndexCollectionSnapshotDataModel]()
         for variant in variants {
@@ -88,7 +80,6 @@ extension Array where Element == ProductItem {
             return order[a] ?? order.keys.count < order[b] ?? order.keys.count
         }
     }
-
     func colorCount() -> Int {
         colorImgProductNumArray.count
     }
@@ -98,8 +89,6 @@ extension Array where Element == ProductItem {
     func getNthColorAndImg(n: Int) -> ColorURLProductNum {
         colorImgProductNumArray[n]
     }
-    
-    
     func getNthColor(n: Int) -> String {
         colorImgProductNumArray[n].color
     }
@@ -109,7 +98,6 @@ extension Array where Element == ProductItem {
     func getNthProductNum(n: Int) -> String {
         colorImgProductNumArray[n].productNum
     }
-    
     func getNthSize(n: Int) -> String {
         sizeArray[n]
     }

@@ -18,12 +18,10 @@ final class SettingsModelImpl: SettingsModel {
     var settingsSnapshot: SettingsSnapshot {
         var snap = SettingsSnapshot()
         snap.appendSections([0])
-        
         let logoutModel = LogoutDataModel(
             title: "ログアウト",
             icon: UIImage(systemName: "rectangle.portrait.and.arrow.right") ?? .actions,
             backgroundColor: .white)
-        
         snap.appendItems([.logout(logoutModel)], toSection: 0)
         return snap
     }
@@ -40,7 +38,3 @@ final class SettingsModelImpl: SettingsModel {
         }
     }
 }
-
-
-// MARK: left off here
-//  make log out btn work, somewhere

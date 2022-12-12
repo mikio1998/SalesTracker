@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class PresentationController: UIPresentationController {
-
   let blurEffectView: UIVisualEffectView!
   var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
   
@@ -79,6 +78,5 @@ extension PresentationController {
             static let chooseBrand: Double = 0.4
             static let editQuantity: Double = 0.35
         }
-        
     }
 }

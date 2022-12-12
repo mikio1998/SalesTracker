@@ -64,8 +64,8 @@ final class SalesHistoryViewController: UIViewController {
             }
         }
     }
-    
 }
+
 extension SalesHistoryViewController: SalesHistoryPresenterLike, SalesHistoryViewControllerDelegate {
     func reloadData() {
         self.loadData()
@@ -73,7 +73,6 @@ extension SalesHistoryViewController: SalesHistoryPresenterLike, SalesHistoryVie
     
     func didSelectDeleteFor(_ indexPath: IndexPath) {
         guard let prodId = data?.salesHistorySnapshot.itemIdentifiers(inSection: 0)[indexPath.row].soldProductItem.id else { return }
-        
         
         FirestoreManager.deleteSaleEntry(id: prodId) { result in
             switch result {

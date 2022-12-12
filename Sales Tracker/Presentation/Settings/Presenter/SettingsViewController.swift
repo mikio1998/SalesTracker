@@ -24,10 +24,11 @@ final class SettingsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func loadView() {
         self.view = viewContainer.view
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
@@ -36,7 +37,6 @@ final class SettingsViewController: UIViewController {
 }
 extension SettingsViewController: SettingsPresenterLike {
     func didSelectIndexPath(_ indexPath: IndexPath) {
-        
         let cellModel = model.settingsSnapshot.itemIdentifiers(inSection: 0)[indexPath.row]
         switch cellModel {
         case .logout(let _):
@@ -46,13 +46,12 @@ extension SettingsViewController: SettingsPresenterLike {
                 }.addCancel()
                 .show(fromVC: self)
         }
-
     }
     
     private func signOut() {
         self.model.signOut { result in
             switch result {
-            case .failure(let authErr):
+            case .failure(_):
                 UIAlertController(title: "エラー", message: "ログアウトが失敗しました。", preferredStyle: .alert).addOK().show(fromVC: self)
             case .success(()):
                 self.goLoginScreen()

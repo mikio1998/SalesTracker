@@ -15,7 +15,6 @@ protocol ChooseBrandViewLike: ViewContainer {
 final class ChooseBrandView: XibView {
     weak var presenterLike: ChooseBrandPresenterLike?
     private var pickerList: [Brand]
-    
     @IBOutlet weak var slideIndicator: UIView!
     @IBOutlet weak var pickerView: UIPickerView! {
         didSet {
@@ -24,7 +23,7 @@ final class ChooseBrandView: XibView {
         }
     }
     @IBOutlet weak var switchButton: UIView!
-    
+
     init(list: [Brand]) {
         self.pickerList = list
         super.init(frame: .zero)
@@ -45,7 +44,6 @@ final class ChooseBrandView: XibView {
         // Original Y point of View.
         let y = (self.superview?.frame.height)! - self.frame.height
         
-//        let translation = sender.translation(in: view)
         let translation = sender.translation(in: self)
         
         // Not allowing the user to drag the view upward
@@ -73,14 +71,12 @@ final class ChooseBrandView: XibView {
     }
 }
 
-extension ChooseBrandView: ChooseBrandViewLike {
-}
+extension ChooseBrandView: ChooseBrandViewLike {}
 
 extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Const.numberOfPickerComponents
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case Const.brandComponent:
@@ -89,7 +85,6 @@ extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
             return 0
         }
     }
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case Const.brandComponent:
@@ -104,7 +99,6 @@ extension ChooseBrandView {
     private enum Const {
         static let slideIndicatorCornerRadius: CGFloat = 10
         static let switchButtonCornerRadius: CGFloat = 10
-        
         static let numberOfPickerComponents: Int = 1
         static let brandComponent: Int = 0
         

@@ -20,9 +20,7 @@ final class SettingsView: XibView {
     }()
     
     private lazy var cellProvider: DataSource.CellProvider = { tableView, indexPath, item in
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as! SettingsTableViewCell
-        
         switch item {
         case .logout(let model):
             cell.setUpCell(title: model.title, image: model.icon)
@@ -46,8 +44,6 @@ final class SettingsView: XibView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 extension SettingsView: UITableViewDelegate {

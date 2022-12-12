@@ -52,7 +52,6 @@ final class CameraModelImpl: CameraModel {
             if session.canAddInput(input) {
                 session.addInput(input)
             }
-            
             if session.canAddOutput(output) {
                 session.addOutput(output)
                 output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr, AVMetadataObject.ObjectType.ean13]
@@ -61,7 +60,6 @@ final class CameraModelImpl: CameraModel {
             DispatchQueue.global(qos: .userInitiated).async {
                 session.startRunning()
             }
-            
             self.session = session
             completion(nil)
         } catch {
@@ -82,26 +80,9 @@ final class CameraModelImpl: CameraModel {
     }
     
     func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
-        
         guard let obj = objects.first as? AVMetadataMachineReadableCodeObject,
             let objStringValue = obj.stringValue else { return
         }
-        print("obssv", objStringValue)
         FirestoreManager.queryFromProduct(barcode: objStringValue, completion: completion)
-        
-        
-        
-        
-//        FirestoreManager.queryFromProduct(barcode: objectStringVal) { result in
-//            switch result {
-//            case .failure(let fireErr):
-//                print("err", fireErr)
-//                // todo, show error on presenter.
-//            case .success(let productItem):
-//
-//            }
-//        }
-        
-        
     }
 }
