@@ -6,6 +6,8 @@ target 'Sales Tracker' do
   use_frameworks!
 
   # Pods for Sales Tracker
+pod 'RxSwift'
+pod 'RxCocoa'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
