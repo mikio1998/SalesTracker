@@ -33,9 +33,9 @@ final class SalesHistoryView: XibView {
     @IBOutlet weak var reloadButtonLabel: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.delegate = self
-            tableView.separatorStyle = .none
-            tableView.register(UINib(nibName: Const.salesHistoryTableViewCellClassName, bundle: nil), forCellReuseIdentifier: Const.salesHistoryTableViewCellClassName)
+            self.tableView.delegate = self
+            self.tableView.separatorStyle = .none
+            self.tableView.register(UINib(nibName: Const.salesHistoryTableViewCellClassName, bundle: nil), forCellReuseIdentifier: Const.salesHistoryTableViewCellClassName)
         }
     }
     @IBOutlet weak var noResultsView: UIView!
@@ -73,8 +73,6 @@ extension SalesHistoryView: UITableViewDelegate {
         swipeActionConfig.performsFirstActionWithFullSwipe = false
         return swipeActionConfig
     }
-    
-    
 }
 
 extension SalesHistoryView: SalesHistoryViewLike {
@@ -82,7 +80,7 @@ extension SalesHistoryView: SalesHistoryViewLike {
         self.titleLabel.text = text
     }
     func setSnapshot(_ snapshot: SalesHistorySnapshot) {
-        dataSource.apply(snapshot)
+        dataSource.apply(snapshot, animatingDifferences: false, completion: nil)
     }
     func noResults(error: FirestoreError?) {
         tableView.alpha = 0

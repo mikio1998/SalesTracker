@@ -33,7 +33,7 @@ final class ProductIndexView: XibView {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             self.collectionView.delegate = self
-            self.collectionView.register(UINib(nibName: "ProductIndexCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductIndexCollectionViewCell")
+            self.collectionView.register(UINib(nibName: Const.productIndexCollectionViewCellClassName, bundle: nil), forCellWithReuseIdentifier: Const.productIndexCollectionViewCellClassName)
         }
     }
     
@@ -49,7 +49,7 @@ final class ProductIndexView: XibView {
     
     init() {
         super.init(frame: .zero)
-        self.dropdownLabel.text = "変更"
+        self.dropdownLabel.text = Const.dropdownLabelText
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.listButton.addGestureRecognizer(tapGesture)
         self.listButton.giveRoundCorners(withCornerRadius: 20)
@@ -96,5 +96,12 @@ extension ProductIndexView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenterLike?.didSelectIndexPath(indexPath)
+    }
+}
+
+extension ProductIndexView {
+    private enum Const {
+        static let productIndexCollectionViewCellClassName: String = "ProductIndexCollectionViewCell"
+        static let dropdownLabelText: String = "変更"
     }
 }
