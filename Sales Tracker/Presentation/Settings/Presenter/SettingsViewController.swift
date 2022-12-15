@@ -40,7 +40,7 @@ extension SettingsViewController: SettingsPresenterLike {
         let cellModel = model.settingsSnapshot.itemIdentifiers(inSection: 0)[indexPath.row]
         switch cellModel {
         case .logout(let _):
-            UIAlertController(title: "ログアウトします？", message: nil, preferredStyle: .alert)
+            UIAlertController(title: "ログアウトしますか？", message: nil, preferredStyle: .alert)
                 .addOK { action in
                     self.signOut()
                 }.addCancel()
