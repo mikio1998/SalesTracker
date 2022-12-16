@@ -17,6 +17,7 @@ final class EditQuantityViewController: UIViewController {
     private let viewContainer: EditQuantityViewLike
     private let salesHistoryDelegate: SalesHistoryViewControllerDelegate
     
+//    init(soldItem: SoldProductItem) {
     init(soldItem: SoldProductItem, salesHistoryDelegate: SalesHistoryViewControllerDelegate) {
         self.viewContainer = EditQuantityView(soldItem: soldItem)
         self.salesHistoryDelegate = salesHistoryDelegate

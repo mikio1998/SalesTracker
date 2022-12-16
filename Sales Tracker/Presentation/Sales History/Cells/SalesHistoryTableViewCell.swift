@@ -18,9 +18,37 @@ class SalesHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
+    class var identifier: String { return String(describing: self) }
+    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+    
+    var cellViewModel: SalesHistoryCellViewModel? {
+        didSet {
+            guard let item = cellViewModel?.soldProductItem else { return }
+            
+            // Image View
+            productImageView.loadImage(with: item.imageUrl)
+            
+            // Brand label
+            brandLabel.text = item.brand
+            
+            // Product Label
+            productLabel.text = item.name
+            
+            // Color Label
+            colorLabel.text = item.color
+            
+            // Size Label
+            sizeLabel.text = item.size
+            
+            // Quantity Label
+            quantityLabel.text = "\(item.quantity)点"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        initView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +56,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpCell(model: SalesHistoryTableSnapshotDataModel) {
+    func initView() {
         self.selectionStyle = .none
         
         // Shade View
@@ -37,27 +65,21 @@ class SalesHistoryTableViewCell: UITableViewCell {
         shadeView.giveShadow()
         
         // Image View
-        productImageView.loadImage(with: model.soldProductItem.imageUrl)
         productImageView.contentMode = .scaleAspectFit
         
         // Main View
         mainView.giveRoundCorners(withCornerRadius: Const.mainViewCornerRadius)
         mainView.clipsToBounds = true
-        
-        // Brand Label
-        brandLabel.text = model.soldProductItem.brand
-        
-        // Product Label
-        productLabel.text = model.soldProductItem.name
-        
-        // Color Label
-        colorLabel.text = model.soldProductItem.color
-        
-        // Size Label
-        sizeLabel.text = model.soldProductItem.size
-        
-        // Quantity Label
-        quantityLabel.text = "\(model.soldProductItem.quantity)点"
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
+        brandLabel.text = nil
+        productLabel.text = nil
+        colorLabel.text = nil
+        sizeLabel.text = nil
+        quantityLabel.text = nil
     }
 }
 
