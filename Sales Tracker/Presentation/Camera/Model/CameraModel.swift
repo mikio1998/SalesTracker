@@ -21,6 +21,11 @@ final class CameraModelImpl: CameraModel {
     var session: AVCaptureSession?
     let output = AVCaptureMetadataOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
+    private let engine: NetworkEngine
+    
+    init(engine: NetworkEngine = FirestoreManager.shared) {
+        self.engine = engine
+    }
     
     func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> ()) {
         self.captureDelegate = delegate
@@ -83,6 +88,6 @@ final class CameraModelImpl: CameraModel {
         guard let obj = objects.first as? AVMetadataMachineReadableCodeObject,
             let objStringValue = obj.stringValue else { return
         }
-        FirestoreManager.queryFromProduct(barcode: objStringValue, completion: completion)
+        engine.queryFromProduct(barcode: objStringValue, completion: completion)
     }
 }

@@ -34,10 +34,14 @@ class SalesHistoryViewModel {
         }
     }
     
-    init() {}
+    private let engine: NetworkEngine
     
-    func getSalesHistory() {
-        FirestoreManager.getSoldProductItems { [weak self] result in
+    init(engine: NetworkEngine = FirestoreManager.shared) {
+        self.engine = engine
+    }
+    
+    func getSalesHistory() {        
+        engine.getSoldProductItems { [weak self] result in
             switch result {
             case .failure(let fireErr):
                 self?.presentAlert?("エラー発生", fireErr.message)
@@ -64,7 +68,7 @@ class SalesHistoryViewModel {
     
     func didSelectDeleteFor(_ indexPath: IndexPath) {
         guard let productId = salesHistoryCellViewModels[indexPath.row].soldProductItem.id else { return }
-        FirestoreManager.deleteSaleEntry(id: productId) { [weak self] result in
+        engine.deleteSaleEntry(id: productId) { [weak self] result in
             switch result {
             case .failure(let fireErr):
                 self?.presentAlert?("失敗", fireErr.message)

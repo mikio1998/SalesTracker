@@ -16,7 +16,8 @@ protocol ProductSelectPresenterLike: AnyObject {
 final class ProductSelectViewController: UIViewController {
     private let viewContainer: ProductSelectViewLike
     // TODO: Model
-//    private let model: ProductSelectModel
+    let engine: NetworkEngine = FirestoreManager.shared // temp
+    
     private let dataModel: ProductIndexCollectionSnapshotDataModel
     
     init(productData: ProductIndexCollectionSnapshotDataModel) {
@@ -42,7 +43,7 @@ extension ProductSelectViewController: ProductSelectPresenterLike {
     func didTapAddButton(item: ProductItem, quantity: Int) {
         SVProgressHUD.show()
         Task {
-            await FirestoreManager.soldAnItem(product: item, quantitySold: quantity, completion: { result in
+            await engine.soldAnItem(product: item, quantitySold: quantity, completion: { result in
                 SVProgressHUD.dismiss()
                 switch result {
                 case .failure(let fireErr):

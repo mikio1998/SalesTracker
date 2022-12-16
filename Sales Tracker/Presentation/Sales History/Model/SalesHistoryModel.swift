@@ -6,10 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-// Left Off Here:
-//. Tryna figure out how to refactor this part...
-struct SalesHistoryItem {
-    var itemCount: Int
-    var salesHistorySnapshot: SalesHistorySnapshot
-}
+//struct SoldProductItem: Codable, Hashable, Product {
+//    @DocumentID var id: String?
+//    var brand: String
+//    var name: String
+//    var price: String
+//    var color: String
+//    var size: String
+//    var quantity: Int
+//    var imageUrl: String
+//    var productNum: String
+//    var barcodes: [String]
+//}
