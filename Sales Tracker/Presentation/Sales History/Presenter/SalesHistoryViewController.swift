@@ -18,6 +18,7 @@ final class SalesHistoryViewController: UIViewController {
     @IBOutlet weak var reloadButton: UIView!
     @IBOutlet weak var reloadButtonLabel: UILabel!
     @IBOutlet weak var noResultsView: UIView!
+    @IBOutlet weak var noResultsImage: UIImageView!
     @IBOutlet weak var noResultsLabel: UILabel!
     
     lazy var viewModel = {
@@ -37,11 +38,12 @@ final class SalesHistoryViewController: UIViewController {
     
     func initView() {
         // Tableview
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.register(SalesHistoryTableViewCell.nib, forCellReuseIdentifier: SalesHistoryTableViewCell.identifier)
-        titleLabel.text = "在庫補充"
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
+        self.tableView.register(SalesHistoryTableViewCell.nib, forCellReuseIdentifier: SalesHistoryTableViewCell.identifier)
+        self.titleLabel.text = "在庫補充"
+        self.noResultsLabel.text = ""
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         self.reloadButton.addGestureRecognizer(tapGesture)
         self.reloadButton.giveRoundCorners(withCornerRadius: 20)
@@ -50,12 +52,11 @@ final class SalesHistoryViewController: UIViewController {
         reloadData()
     }
     
-    
     func initViewModel() {
         // Reload tableView closure
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
+                self?.hideTableViewForNoResults(false)
                 self?.tableView.reloadData()
             }
         }
@@ -78,10 +79,10 @@ final class SalesHistoryViewController: UIViewController {
         // Show no results
         viewModel.showNoResults = { [weak self] error in
             DispatchQueue.main.async {
-                self?.tableView.alpha = 0
-                self?.noResultsView.alpha = 1
-                self?.noResultsLabel.alpha = 1
-                self?.noResultsLabel.text = error != nil ? error?.message : "検索結果がありません。"
+                self?.hideTableViewForNoResults(true)
+                self?.noResultsLabel.text = error != nil ? error?.message : "補充完了"
+                
+                self?.noResultsImage.image = error != nil ? Const.noResultsWithErrorImage : Const.noResultsWithoutErrorImage
             }
         }
         
@@ -94,6 +95,10 @@ final class SalesHistoryViewController: UIViewController {
             self.present(editQuantityVC, animated: true, completion: nil)
         }
         
+        viewModel.toggleSVProgressHUD = { [weak self] in
+            self?.viewModel.isLoading == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        }
+        
         // Get sales history data
         reloadData()
     }
@@ -101,8 +106,22 @@ final class SalesHistoryViewController: UIViewController {
 
 extension SalesHistoryViewController: SalesHistoryViewControllerDelegate {
     func reloadData() {
-        SVProgressHUD.show() // Dismissed in reload tableView closure.
         self.viewModel.getSalesHistory()
+    }
+    
+    func hideTableViewForNoResults(_ bool: Bool) {
+        switch bool {
+        case true:
+            self.tableView.alpha = 0
+            self.noResultsView.alpha = 1
+            self.noResultsImage.alpha = 1
+            self.noResultsLabel.alpha = 1
+        case false:
+            self.tableView.alpha = 1
+            self.noResultsView.alpha = 0
+            self.noResultsImage.alpha = 0
+            self.noResultsLabel.alpha = 0
+        }
     }
 }
 
@@ -110,6 +129,7 @@ extension SalesHistoryViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.viewModel.salesHistoryCellViewModels.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SalesHistoryTableViewCell.identifier, for: indexPath) as? SalesHistoryTableViewCell else {
             fatalError("xib does not exist")
@@ -118,6 +138,7 @@ extension SalesHistoryViewController: UITableViewDelegate, UITableViewDataSource
         cell.cellViewModel = cellVM
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         Const.tableViewRowHeight
     }
@@ -141,10 +162,13 @@ extension SalesHistoryViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         PresentationController(presentedViewController: presented, presenting: presenting)
     }
+    
 }
 
 extension SalesHistoryViewController {
     private enum Const {
         static let tableViewRowHeight: CGFloat = 130
+        static let noResultsWithoutErrorImage: UIImage = UIImage(systemName: "checkmark")!
+        static let noResultsWithErrorImage: UIImage = UIImage(systemName: "xmark")!
     }
 }

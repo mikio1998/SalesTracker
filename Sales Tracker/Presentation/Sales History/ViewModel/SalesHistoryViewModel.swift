@@ -18,6 +18,8 @@ class SalesHistoryViewModel {
     
     var presentEditQuantityVC: ((_ product: SoldProductItem) -> Void)?
     
+    var toggleSVProgressHUD: (() -> Void)?
+    
     var soldProductItems = [SoldProductItem]() {
         didSet {
             let count = soldProductItems.reduce(0) { partialResult, item in
@@ -35,7 +37,8 @@ class SalesHistoryViewModel {
     
     var salesHistoryCellViewModels = [SalesHistoryCellViewModel]() {
         didSet {
-            self.reloadTableView?()
+            salesHistoryCellViewModels.isEmpty == false ? self.reloadTableView?() : self.showNoResults?(nil)
+            self.isLoading = false
         }
     }
     
@@ -45,13 +48,20 @@ class SalesHistoryViewModel {
         }
     }
     
+    var isLoading: Bool = false {
+        didSet {
+            self.toggleSVProgressHUD?()
+        }
+    }
+    
     private let engine: NetworkEngine
     
     init(engine: NetworkEngine = FirestoreManager.shared) {
         self.engine = engine
     }
     
-    func getSalesHistory() {        
+    func getSalesHistory() {
+        self.isLoading = true
         engine.getSoldProductItems { [weak self] result in
             switch result {
             case .failure(let fireErr):
@@ -61,7 +71,6 @@ class SalesHistoryViewModel {
                 self?.processFetchedItems(soldProductItems: soldProductItems)
             }
         }
-        
     }
     
     func processFetchedItems(soldProductItems: [SoldProductItem]) {
@@ -77,7 +86,6 @@ class SalesHistoryViewModel {
         return salesHistoryCellViewModels[indexPath.row]
     }
     
-    
     func didSelectDeleteFor(_ indexPath: IndexPath) {
         guard let productId = salesHistoryCellViewModels[indexPath.row].soldProductItem.id else { return }
         engine.deleteSaleEntry(id: productId) { [weak self] result in
@@ -89,10 +97,10 @@ class SalesHistoryViewModel {
             }
         }
     }
+    
     func didSelectEditFor(_ indexPath: IndexPath) {
         guard salesHistoryCellViewModels.indices.contains(indexPath.row) else { return }
         let product = salesHistoryCellViewModels[indexPath.row].soldProductItem
         self.presentEditQuantityVC?(product)
     }
-    
 }

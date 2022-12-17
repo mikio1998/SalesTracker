@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SalesHistoryViewController" customModule="Sales_Tracker" customModuleProvider="target">
             <connections>
+                <outlet property="noResultsImage" destination="JvV-CM-3Ff" id="vmi-XO-LRD"/>
                 <outlet property="noResultsLabel" destination="VQ4-d2-OAV" id="suP-9s-Ytc"/>
                 <outlet property="noResultsView" destination="8x7-Us-3pf" id="SJ6-HX-owh"/>
                 <outlet property="reloadButton" destination="5jJ-pn-cBB" id="hiG-Ru-1PO"/>
@@ -72,15 +73,31 @@
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x7-Us-3pf">
                     <rect key="frame" x="0.0" y="124.5" width="414" height="737.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No results label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-d2-OAV">
-                            <rect key="frame" x="121" y="356" width="171" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Wfx-HI-wGd">
+                            <rect key="frame" x="137" y="313.5" width="140" height="110"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JvV-CM-3Ff">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="5Zz-2a-U9C"/>
+                                        <constraint firstAttribute="width" constant="60" id="mJf-1t-wya"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results label." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-d2-OAV">
+                                    <rect key="frame" x="0.0" y="86" width="140" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Wfx-HI-wGd" firstAttribute="centerX" secondItem="8x7-Us-3pf" secondAttribute="centerX" id="9Gp-PN-Idl"/>
+                        <constraint firstItem="Wfx-HI-wGd" firstAttribute="centerY" secondItem="8x7-Us-3pf" secondAttribute="centerY" id="yud-jd-PKA"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ijT-mr-sZ9"/>
@@ -100,7 +117,7 @@
                 <constraint firstItem="8x7-Us-3pf" firstAttribute="trailing" secondItem="ijT-mr-sZ9" secondAttribute="trailing" id="v02-ar-i4l"/>
                 <constraint firstItem="8x7-Us-3pf" firstAttribute="top" secondItem="5jJ-pn-cBB" secondAttribute="bottom" constant="20" id="ygg-nX-Ahz"/>
             </constraints>
-            <point key="canvasLocation" x="-628" y="80"/>
+            <point key="canvasLocation" x="-628.98550724637687" y="79.6875"/>
         </view>
     </objects>
     <resources>

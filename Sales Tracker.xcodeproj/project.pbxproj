@@ -70,7 +70,6 @@
 		E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */; };
 		E9CFE34F290A4CD8001693F8 /* ChooseBrandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE34D290A4CD8001693F8 /* ChooseBrandViewController.xib */; };
 		E9CFE352290A7EC8001693F8 /* SalesHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */; };
-		E9CFE354290B8999001693F8 /* SalesHistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */; };
 		E9CFE358290BA23D001693F8 /* SalesHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE356290BA23D001693F8 /* SalesHistoryTableViewCell.swift */; };
 		E9CFE359290BA23D001693F8 /* SalesHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE357290BA23D001693F8 /* SalesHistoryTableViewCell.xib */; };
 		E9CFE35B290BA590001693F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE35A290BA590001693F8 /* UIView+.swift */; };
@@ -180,7 +179,6 @@
 		E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandViewController.swift; sourceTree = "<group>"; };
 		E9CFE34D290A4CD8001693F8 /* ChooseBrandViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseBrandViewController.xib; sourceTree = "<group>"; };
 		E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryModel.swift; sourceTree = "<group>"; };
-		E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryDataModel.swift; sourceTree = "<group>"; };
 		E9CFE356290BA23D001693F8 /* SalesHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		E9CFE357290BA23D001693F8 /* SalesHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		E9CFE35A290BA590001693F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 			isa = PBXGroup;
 			children = (
 				E9DB17FE29025A1B006CF900 /* ProductIndexDataModel.swift */,
-				E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */,
 				E9A3AC682910B2620065460C /* SettingsDataModel.swift */,
 			);
 			path = "Data Models";
@@ -1043,7 +1040,6 @@
 				E9A3AC6B2910B5570065460C /* SettingsView.swift in Sources */,
 				E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */,
 				E9CFE352290A7EC8001693F8 /* SalesHistoryModel.swift in Sources */,
-				E9CFE354290B8999001693F8 /* SalesHistoryDataModel.swift in Sources */,
 				E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */,
 				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
 				E9526AA9290FB67D0056546E /* Hello.swift in Sources */,
