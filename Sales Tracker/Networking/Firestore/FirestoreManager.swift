@@ -13,7 +13,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CloudKit
 
-final class FirestoreManager: NetworkEngine {
+class FirestoreManager: NetworkEngine {
     
     static let shared = FirestoreManager()
     
@@ -165,8 +165,4 @@ final class FirestoreManager: NetworkEngine {
             }
         }
     }
-    
-    
-    
-    
 }

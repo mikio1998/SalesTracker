@@ -61,7 +61,6 @@ class SalesHistoryTableViewCell: UITableViewCell {
         
         // Shade View
         shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
-//        shadeView.giveSmallShadow()
         shadeView.giveShadow()
         
         // Image View

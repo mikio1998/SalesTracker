@@ -15,7 +15,6 @@
 		E932778428FAA9A700EA9E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932778328FAA9A700EA9E40 /* ViewController.swift */; };
 		E932778928FAA9A900EA9E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E932778828FAA9A900EA9E40 /* Assets.xcassets */; };
 		E932778C28FAA9A900EA9E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E932778A28FAA9A900EA9E40 /* LaunchScreen.storyboard */; };
-		E932779728FAA9A900EA9E40 /* Sales_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */; };
 		E93277A128FAA9A900EA9E40 /* Sales_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */; };
 		E93277A328FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */; };
 		E9526A8C290E49F10056546E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8B290E49F10056546E /* CameraView.swift */; };
@@ -47,14 +46,10 @@
 		E99172B9294C5312002F6272 /* SalesHistoryCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B8294C5312002F6272 /* SalesHistoryCellViewModelTests.swift */; };
 		E99172BC294C548A002F6272 /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172BB294C548A002F6272 /* MockModels.swift */; };
 		E99172BE294C550B002F6272 /* SalesHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */; };
-		E99172C0294C5C81002F6272 /* SalesHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */; };
-		E99172C1294C5E44002F6272 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362BB28FE6AB900C6F3CD /* ProductItem.swift */; };
 		E99172C3294C61D9002F6272 /* SalesHistoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C2294C61D9002F6272 /* SalesHistoryViewModelTests.swift */; };
-		E99172C5294C6449002F6272 /* MockFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C4294C6449002F6272 /* MockFirestoreManager.swift */; };
-		E99172C7294C6C2A002F6272 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */; };
 		E99172C8294C6DEE002F6272 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */; };
 		E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C9294C770A002F6272 /* NetworkEngine.swift */; };
-		E99172CB294C7788002F6272 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C9294C770A002F6272 /* NetworkEngine.swift */; };
+		E99172D3294C934B002F6272 /* MockFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C4294C6449002F6272 /* MockFirestoreManager.swift */; };
 		E99C65A62903B76A0049E00D /* ProductIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65A52903B76A0049E00D /* ProductIndexModel.swift */; };
 		E99C65AB2903C4C80049E00D /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AA2903C4C80049E00D /* Brand.swift */; };
 		E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AD2904FB730049E00D /* ProductIndexCollectionViewCell.swift */; };
@@ -131,7 +126,6 @@
 		E932778B28FAA9A900EA9E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E932778D28FAA9A900EA9E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E932779228FAA9A900EA9E40 /* Sales TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sales TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerTests.swift; sourceTree = "<group>"; };
 		E932779C28FAA9A900EA9E40 /* Sales TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sales TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITests.swift; sourceTree = "<group>"; };
 		E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -294,7 +288,6 @@
 			children = (
 				E99172BA294C5468002F6272 /* Mock */,
 				E99172B7294C51A0002F6272 /* Model */,
-				E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */,
 			);
 			path = "Sales TrackerTests";
 			sourceTree = "<group>";
@@ -1105,16 +1098,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E99172C1294C5E44002F6272 /* ProductItem.swift in Sources */,
 				E99172BC294C548A002F6272 /* MockModels.swift in Sources */,
 				E99172BE294C550B002F6272 /* SalesHistoryModel.swift in Sources */,
 				E99172B9294C5312002F6272 /* SalesHistoryCellViewModelTests.swift in Sources */,
 				E99172C3294C61D9002F6272 /* SalesHistoryViewModelTests.swift in Sources */,
-				E99172C5294C6449002F6272 /* MockFirestoreManager.swift in Sources */,
-				E99172CB294C7788002F6272 /* NetworkEngine.swift in Sources */,
-				E932779728FAA9A900EA9E40 /* Sales_TrackerTests.swift in Sources */,
-				E99172C7294C6C2A002F6272 /* FirestoreManager.swift in Sources */,
-				E99172C0294C5C81002F6272 /* SalesHistoryCellViewModel.swift in Sources */,
+				E99172D3294C934B002F6272 /* MockFirestoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

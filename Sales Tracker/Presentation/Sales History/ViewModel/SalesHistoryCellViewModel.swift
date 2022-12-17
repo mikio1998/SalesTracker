@@ -8,6 +8,5 @@
 import Foundation
 
 struct SalesHistoryCellViewModel {
-//    var snapshot: SalesHistoryTableSnapshotDataModel
     var soldProductItem: SoldProductItem
 }

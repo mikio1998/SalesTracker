@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
 class SalesHistoryViewModel {
     var reloadTableView: (() -> Void)?
     
-    var updateTitleCount: ((_ count: Int) -> Void)?
+    var updateTitle: ((_ string: String) -> Void)?
     
-    var presentAlert: ((_ title: String, _ msg: String) -> Void)?
+    var presentAlert: (() -> Void)?
     
     var showNoResults: ((FirestoreError?) -> Void)?
     
@@ -24,13 +23,25 @@ class SalesHistoryViewModel {
             let count = soldProductItems.reduce(0) { partialResult, item in
                 return partialResult + item.quantity
             }
-            updateTitleCount?(count)
+            titleItemCount = count
+        }
+    }
+    
+    var titleItemCount: Int? {
+        didSet {
+            self.updateTitle?("在庫補充 (\(titleItemCount!)点)")
         }
     }
     
     var salesHistoryCellViewModels = [SalesHistoryCellViewModel]() {
         didSet {
-            reloadTableView?()
+            self.reloadTableView?()
+        }
+    }
+    
+    var alert: (title: String, msg: String)? {
+        didSet {
+            self.presentAlert?()
         }
     }
     
@@ -44,15 +55,16 @@ class SalesHistoryViewModel {
         engine.getSoldProductItems { [weak self] result in
             switch result {
             case .failure(let fireErr):
-                self?.presentAlert?("エラー発生", fireErr.message)
+                self?.alert = ("エラー発生", fireErr.message)
                 self?.showNoResults?(fireErr)
             case .success(let soldProductItems):
-                self?.fetchData(soldProductItems: soldProductItems)
+                self?.processFetchedItems(soldProductItems: soldProductItems)
             }
         }
+        
     }
     
-    func fetchData(soldProductItems: [SoldProductItem]) {
+    func processFetchedItems(soldProductItems: [SoldProductItem]) {
         self.soldProductItems = soldProductItems // cache
         var vms = [SalesHistoryCellViewModel]() //create VMs of cells.
         for item in soldProductItems {
@@ -71,7 +83,7 @@ class SalesHistoryViewModel {
         engine.deleteSaleEntry(id: productId) { [weak self] result in
             switch result {
             case .failure(let fireErr):
-                self?.presentAlert?("失敗", fireErr.message)
+                self?.alert = ("失敗", fireErr.message)
             case .success():
                 self?.getSalesHistory()
             }

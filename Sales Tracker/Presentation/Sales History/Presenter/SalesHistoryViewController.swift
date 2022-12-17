@@ -60,17 +60,17 @@ final class SalesHistoryViewController: UIViewController {
             }
         }
         
-        // Update title count
-        viewModel.updateTitleCount = { [weak self] count in
+        // Update title
+        viewModel.updateTitle = { [weak self] title in
             DispatchQueue.main.async {
-                self?.titleLabel.text = "在庫補充 (\(count)点)"
+                self?.titleLabel.text = title
             }
         }
         
         // Present alert
-        viewModel.presentAlert = { [weak self] title, msg in
+        viewModel.presentAlert = { [weak self] in
             guard let self = self else { return }
-            UIAlertController(title: "失敗", message: msg, preferredStyle: .alert)
+            UIAlertController(title: self.viewModel.alert?.title, message: self.viewModel.alert?.msg, preferredStyle: .alert)
                 .addOK()
                 .show(fromVC: self)
         }
