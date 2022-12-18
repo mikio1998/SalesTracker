@@ -12,8 +12,13 @@ protocol ProductIndexModel {
 }
 
 final class ProductIndexModelImpl: ProductIndexModel {
+    private let engine: NetworkEngine
+    init(engine: NetworkEngine = FirestoreManager.shared) {
+        self.engine = engine
+    }
+    
     func loadDataModel(brand: Brand, completion: @escaping (Result<ProductIndexDataModel, FirestoreError>) -> ()) {
-        FirestoreManager.getProductItems(forBrand: brand) { result in
+        engine.getProductItems(forBrand: brand) { result in
             switch result {
             case .failure(let fireErr):
                 completion(.failure(fireErr))

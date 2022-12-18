@@ -6,21 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-protocol SalesHistoryModel {
-    func loadDataModel(completion: @escaping (Result<SalesHistoryDataModel, FirestoreError>) -> ())
-}
-
-final class SalesHistoryModelImpl: SalesHistoryModel {
-    func loadDataModel(completion: @escaping (Result<SalesHistoryDataModel, FirestoreError>) -> ()) {
-        FirestoreManager.getSoldProductItems { result in
-            switch result {
-            case .failure(let fireErr):
-                completion(.failure(fireErr))
-            case .success(let soldProductItems):
-                let dataModel = SalesHistoryDataModel(soldProductItems: soldProductItems)
-                completion(.success(dataModel))
-            }
-        }
-    }
-}
+//struct SoldProductItem: Codable, Hashable, Product {
+//    @DocumentID var id: String?
+//    var brand: String
+//    var name: String
+//    var price: String
+//    var color: String
+//    var size: String
+//    var quantity: Int
+//    var imageUrl: String
+//    var productNum: String
+//    var barcodes: [String]
+//}

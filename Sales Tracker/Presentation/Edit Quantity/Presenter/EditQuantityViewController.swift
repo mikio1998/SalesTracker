@@ -16,10 +16,12 @@ protocol EditQuantityPresenterLike: AnyObject {
 final class EditQuantityViewController: UIViewController {
     private let viewContainer: EditQuantityViewLike
     private let salesHistoryDelegate: SalesHistoryViewControllerDelegate
-    
-    init(soldItem: SoldProductItem, salesHistoryDelegate: SalesHistoryViewControllerDelegate) {
+    // MARK: TODO model
+    private let engine: NetworkEngine
+    init(soldItem: SoldProductItem, salesHistoryDelegate: SalesHistoryViewControllerDelegate, engine: NetworkEngine = FirestoreManager.shared) {
         self.viewContainer = EditQuantityView(soldItem: soldItem)
         self.salesHistoryDelegate = salesHistoryDelegate
+        self.engine = engine
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
     required init?(coder: NSCoder) {
@@ -44,7 +46,7 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
         guard let id = item.id else { return }
         SVProgressHUD.show()
         if count == 0 {
-            FirestoreManager.deleteSaleEntry(id: id) {
+            engine.deleteSaleEntry(id: id) {
                 result in
                 SVProgressHUD.dismiss()
                 switch result {
@@ -62,7 +64,7 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
                 }
             }
         } else {
-            FirestoreManager.updateSaleCountForItem(id: id, newCount: count) { result in
+            engine.updateSaleCountForItem(id: id, newCount: count) { result in
                 SVProgressHUD.dismiss()
                 switch result {
                 case .failure(let fireErr):

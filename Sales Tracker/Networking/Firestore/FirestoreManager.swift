@@ -13,13 +13,14 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import CloudKit
 
-final class FirestoreManager {
+class FirestoreManager: NetworkEngine {
+    
     static let shared = FirestoreManager()
     
     private init() {}
     
     // MARK: Get all products from Brand collection.
-    static func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
+    func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let query = db.collection("products").whereField("brand", isEqualTo: brand.collectionName)
         query.getDocuments { _snapshot, err in
@@ -41,7 +42,7 @@ final class FirestoreManager {
     }
     
     // MARK: Get Sales Collection
-    static func getSoldProductItems(completion: @escaping (Result<[SoldProductItem], FirestoreError>) -> Void) {
+    func getSoldProductItems(completion: @escaping (Result<[SoldProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track")
         path.getDocuments { _snapshot, err in
@@ -63,7 +64,7 @@ final class FirestoreManager {
         }
     }
     
-    static func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
         let db = Firestore.firestore()
         let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
         query.getDocuments { _snapshot, err in
@@ -85,7 +86,7 @@ final class FirestoreManager {
             }
         }
     }
-
+    
     // MARK: Search sales by id.
     private static func queryForProductOrReturnNew(product: ProductItem) async throws -> SoldProductItem {
         let db = Firestore.firestore()
@@ -128,11 +129,11 @@ final class FirestoreManager {
         }
     }
     
-    static func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
+    func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
         do {
-            var queryProduct = try await queryForProductOrReturnNew(product: product)
+            var queryProduct = try await FirestoreManager.queryForProductOrReturnNew(product: product)
             queryProduct.quantity += quantitySold
-            try setSoldProductItem(product: queryProduct)
+            try FirestoreManager.setSoldProductItem(product: queryProduct)
             completion(.success(()))
         } catch _ {
             completion(.failure(.setError))
@@ -140,7 +141,7 @@ final class FirestoreManager {
     }
     
     // MARK: Delete Sale
-    static func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> ()) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(id)
         path.delete() { err in
@@ -153,7 +154,7 @@ final class FirestoreManager {
     }
 
     // MARK: Update sale item count
-    static func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(id)
         path.updateData(["quantity" : newCount]) { err in

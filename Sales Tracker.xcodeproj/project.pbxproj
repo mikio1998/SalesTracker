@@ -15,7 +15,6 @@
 		E932778428FAA9A700EA9E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932778328FAA9A700EA9E40 /* ViewController.swift */; };
 		E932778928FAA9A900EA9E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E932778828FAA9A900EA9E40 /* Assets.xcassets */; };
 		E932778C28FAA9A900EA9E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E932778A28FAA9A900EA9E40 /* LaunchScreen.storyboard */; };
-		E932779728FAA9A900EA9E40 /* Sales_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */; };
 		E93277A128FAA9A900EA9E40 /* Sales_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */; };
 		E93277A328FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */; };
 		E9526A8C290E49F10056546E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8B290E49F10056546E /* CameraView.swift */; };
@@ -42,6 +41,15 @@
 		E970671929122AA500FDD1D7 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */; };
 		E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9898B0A2913A052000F2622 /* ProductSelectModel.swift */; };
 		E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E246D291653BD00CFFC18 /* CameraModel.swift */; };
+		E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */; };
+		E99172B5294B1436002F6272 /* SalesHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B4294B1436002F6272 /* SalesHistoryViewModel.swift */; };
+		E99172B9294C5312002F6272 /* SalesHistoryCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B8294C5312002F6272 /* SalesHistoryCellViewModelTests.swift */; };
+		E99172BC294C548A002F6272 /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172BB294C548A002F6272 /* MockModels.swift */; };
+		E99172BE294C550B002F6272 /* SalesHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */; };
+		E99172C3294C61D9002F6272 /* SalesHistoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C2294C61D9002F6272 /* SalesHistoryViewModelTests.swift */; };
+		E99172C8294C6DEE002F6272 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */; };
+		E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C9294C770A002F6272 /* NetworkEngine.swift */; };
+		E99172D3294C934B002F6272 /* MockFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C4294C6449002F6272 /* MockFirestoreManager.swift */; };
 		E99C65A62903B76A0049E00D /* ProductIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65A52903B76A0049E00D /* ProductIndexModel.swift */; };
 		E99C65AB2903C4C80049E00D /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AA2903C4C80049E00D /* Brand.swift */; };
 		E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AD2904FB730049E00D /* ProductIndexCollectionViewCell.swift */; };
@@ -62,7 +70,6 @@
 		E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */; };
 		E9CFE34F290A4CD8001693F8 /* ChooseBrandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE34D290A4CD8001693F8 /* ChooseBrandViewController.xib */; };
 		E9CFE352290A7EC8001693F8 /* SalesHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */; };
-		E9CFE354290B8999001693F8 /* SalesHistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */; };
 		E9CFE358290BA23D001693F8 /* SalesHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE356290BA23D001693F8 /* SalesHistoryTableViewCell.swift */; };
 		E9CFE359290BA23D001693F8 /* SalesHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE357290BA23D001693F8 /* SalesHistoryTableViewCell.xib */; };
 		E9CFE35B290BA590001693F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE35A290BA590001693F8 /* UIView+.swift */; };
@@ -77,12 +84,9 @@
 		E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17DE28FFB02B006CF900 /* Transitionable.swift */; };
 		E9DB17E128FFBBFB006CF900 /* UIViewController+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E028FFBBFB006CF900 /* UIViewController+UIStoryboard.swift */; };
 		E9DB17E428FFBD4E006CF900 /* NSObject+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E328FFBD4E006CF900 /* NSObject+Name.swift */; };
-		E9DB17E628FFCD3E006CF900 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */; };
 		E9DB17E829016A05006CF900 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9DB17E729016A05006CF900 /* GoogleService-Info.plist */; };
 		E9DB17EB29023AD1006CF900 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17EA29023AD1006CF900 /* MainTabBarController.swift */; };
 		E9DB17ED29023AE2006CF900 /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DB17EC29023AE2006CF900 /* MainTabBarController.storyboard */; };
-		E9DB17F029025151006CF900 /* SalesHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9DB17EF29025150006CF900 /* SalesHistoryView.xib */; };
-		E9DB17F529025183006CF900 /* SalesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17F429025183006CF900 /* SalesHistoryView.swift */; };
 		E9DB17FA29025267006CF900 /* SalesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17F829025267006CF900 /* SalesHistoryViewController.swift */; };
 		E9DB17FB29025267006CF900 /* SalesHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9DB17F929025267006CF900 /* SalesHistoryViewController.xib */; };
 		E9DB17FF29025A1B006CF900 /* ProductIndexDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB17FE29025A1B006CF900 /* ProductIndexDataModel.swift */; };
@@ -121,7 +125,6 @@
 		E932778B28FAA9A900EA9E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E932778D28FAA9A900EA9E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E932779228FAA9A900EA9E40 /* Sales TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sales TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerTests.swift; sourceTree = "<group>"; };
 		E932779C28FAA9A900EA9E40 /* Sales TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sales TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93277A028FAA9A900EA9E40 /* Sales_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITests.swift; sourceTree = "<group>"; };
 		E93277A228FAA9A900EA9E40 /* Sales_TrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales_TrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -149,6 +152,13 @@
 		E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		E9898B0A2913A052000F2622 /* ProductSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectModel.swift; sourceTree = "<group>"; };
 		E98E246D291653BD00CFFC18 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryCellViewModel.swift; sourceTree = "<group>"; };
+		E99172B4294B1436002F6272 /* SalesHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryViewModel.swift; sourceTree = "<group>"; };
+		E99172B8294C5312002F6272 /* SalesHistoryCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryCellViewModelTests.swift; sourceTree = "<group>"; };
+		E99172BB294C548A002F6272 /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
+		E99172C2294C61D9002F6272 /* SalesHistoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryViewModelTests.swift; sourceTree = "<group>"; };
+		E99172C4294C6449002F6272 /* MockFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirestoreManager.swift; sourceTree = "<group>"; };
+		E99172C9294C770A002F6272 /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		E99C65A52903B76A0049E00D /* ProductIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexModel.swift; sourceTree = "<group>"; };
 		E99C65AA2903C4C80049E00D /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		E99C65AD2904FB730049E00D /* ProductIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -169,7 +179,6 @@
 		E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandViewController.swift; sourceTree = "<group>"; };
 		E9CFE34D290A4CD8001693F8 /* ChooseBrandViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseBrandViewController.xib; sourceTree = "<group>"; };
 		E9CFE351290A7EC8001693F8 /* SalesHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryModel.swift; sourceTree = "<group>"; };
-		E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryDataModel.swift; sourceTree = "<group>"; };
 		E9CFE356290BA23D001693F8 /* SalesHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		E9CFE357290BA23D001693F8 /* SalesHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		E9CFE35A290BA590001693F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -188,8 +197,6 @@
 		E9DB17E729016A05006CF900 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9DB17EA29023AD1006CF900 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E9DB17EC29023AE2006CF900 /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
-		E9DB17EF29025150006CF900 /* SalesHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesHistoryView.xib; sourceTree = "<group>"; };
-		E9DB17F429025183006CF900 /* SalesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryView.swift; sourceTree = "<group>"; };
 		E9DB17F829025267006CF900 /* SalesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryViewController.swift; sourceTree = "<group>"; };
 		E9DB17F929025267006CF900 /* SalesHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesHistoryViewController.xib; sourceTree = "<group>"; };
 		E9DB17FE29025A1B006CF900 /* ProductIndexDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexDataModel.swift; sourceTree = "<group>"; };
@@ -277,7 +284,8 @@
 		E932779528FAA9A900EA9E40 /* Sales TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				E932779628FAA9A900EA9E40 /* Sales_TrackerTests.swift */,
+				E99172BA294C5468002F6272 /* Mock */,
+				E99172B7294C51A0002F6272 /* Model */,
 			);
 			path = "Sales TrackerTests";
 			sourceTree = "<group>";
@@ -330,6 +338,7 @@
 		E9526A95290E59990056546E /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
+				E99172C9294C770A002F6272 /* NetworkEngine.swift */,
 				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
 				E9526A96290E59AD0056546E /* FirestoreError.swift */,
 				E9526AA4290F89F60056546E /* AuthError.swift */,
@@ -467,6 +476,33 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		E99172B1294B101D002F6272 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */,
+				E99172B4294B1436002F6272 /* SalesHistoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E99172B7294C51A0002F6272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E99172B8294C5312002F6272 /* SalesHistoryCellViewModelTests.swift */,
+				E99172C2294C61D9002F6272 /* SalesHistoryViewModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E99172BA294C5468002F6272 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E99172BB294C548A002F6272 /* MockModels.swift */,
+				E99172C4294C6449002F6272 /* MockFirestoreManager.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		E99C65A42903B7570049E00D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,7 +523,6 @@
 			isa = PBXGroup;
 			children = (
 				E9DB17FE29025A1B006CF900 /* ProductIndexDataModel.swift */,
-				E9CFE353290B8999001693F8 /* SalesHistoryDataModel.swift */,
 				E9A3AC682910B2620065460C /* SettingsDataModel.swift */,
 			);
 			path = "Data Models";
@@ -713,10 +748,9 @@
 		E9DB17EE2902512C006CF900 /* Sales History */ = {
 			isa = PBXGroup;
 			children = (
+				E99172B1294B101D002F6272 /* ViewModel */,
 				E9CFE355290BA217001693F8 /* Cells */,
-				E9DB17F229025161006CF900 /* Navigator */,
 				E9CFE350290A7EB7001693F8 /* Model */,
-				E9DB17F32902516C006CF900 /* View */,
 				E9DB17F12902515B006CF900 /* Presenter */,
 			);
 			path = "Sales History";
@@ -729,22 +763,6 @@
 				E9DB17F929025267006CF900 /* SalesHistoryViewController.xib */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		E9DB17F229025161006CF900 /* Navigator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Navigator;
-			sourceTree = "<group>";
-		};
-		E9DB17F32902516C006CF900 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E9DB17EF29025150006CF900 /* SalesHistoryView.xib */,
-				E9DB17F429025183006CF900 /* SalesHistoryView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F389DE2F2B5D2CD098FC15D3 /* Pods */ = {
@@ -871,7 +889,6 @@
 			files = (
 				E9526AA3290F7AD70056546E /* LoginViewController.xib in Resources */,
 				E9DB17FB29025267006CF900 /* SalesHistoryViewController.xib in Resources */,
-				E9DB17F029025151006CF900 /* SalesHistoryView.xib in Resources */,
 				E9526A9F290F7AC50056546E /* LoginView.xib in Resources */,
 				E99C65B52907CF7B0049E00D /* ProductSelectViewController.xib in Resources */,
 				E932778C28FAA9A900EA9E40 /* LaunchScreen.storyboard in Resources */,
@@ -1023,11 +1040,9 @@
 				E9A3AC6B2910B5570065460C /* SettingsView.swift in Sources */,
 				E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */,
 				E9CFE352290A7EC8001693F8 /* SalesHistoryModel.swift in Sources */,
-				E9CFE354290B8999001693F8 /* SalesHistoryDataModel.swift in Sources */,
+				E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */,
 				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
 				E9526AA9290FB67D0056546E /* Hello.swift in Sources */,
-				E9DB17E628FFCD3E006CF900 /* FirestoreManager.swift in Sources */,
-				E9DB17F529025183006CF900 /* SalesHistoryView.swift in Sources */,
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
 				E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
@@ -1046,6 +1061,7 @@
 				E932778028FAA9A700EA9E40 /* AppDelegate.swift in Sources */,
 				E9DB17E128FFBBFB006CF900 /* UIViewController+UIStoryboard.swift in Sources */,
 				E99C65B42907CF7B0049E00D /* ProductSelectViewController.swift in Sources */,
+				E99172B5294B1436002F6272 /* SalesHistoryViewModel.swift in Sources */,
 				E970671829122AA500FDD1D7 /* SettingsTableViewCell.swift in Sources */,
 				E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */,
 				E9A3AC672910B0E60065460C /* SettingsModel.swift in Sources */,
@@ -1065,9 +1081,11 @@
 				E9CFE35B290BA590001693F8 /* UIView+.swift in Sources */,
 				E9526A8C290E49F10056546E /* CameraView.swift in Sources */,
 				E9DB17FF29025A1B006CF900 /* ProductIndexDataModel.swift in Sources */,
+				E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */,
 				E932778228FAA9A700EA9E40 /* SceneDelegate.swift in Sources */,
 				E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */,
 				E9DB17DD28FFAE2B006CF900 /* ProductIndexNavigator.swift in Sources */,
+				E99172C8294C6DEE002F6272 /* FirestoreManager.swift in Sources */,
 				E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,7 +1094,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E932779728FAA9A900EA9E40 /* Sales_TrackerTests.swift in Sources */,
+				E99172BC294C548A002F6272 /* MockModels.swift in Sources */,
+				E99172BE294C550B002F6272 /* SalesHistoryModel.swift in Sources */,
+				E99172B9294C5312002F6272 /* SalesHistoryCellViewModelTests.swift in Sources */,
+				E99172C3294C61D9002F6272 /* SalesHistoryViewModelTests.swift in Sources */,
+				E99172D3294C934B002F6272 /* MockFirestoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
