@@ -85,7 +85,7 @@ class SalesHistoryViewModel {
     func getCellViewModel(at indexPath: IndexPath) -> SalesHistoryCellViewModel {
         return salesHistoryCellViewModels[indexPath.row]
     }
-    
+     
     func didSelectDeleteFor(_ indexPath: IndexPath) {
         guard let productId = salesHistoryCellViewModels[indexPath.row].soldProductItem.id else { return }
         engine.deleteSaleEntry(id: productId) { [weak self] result in
