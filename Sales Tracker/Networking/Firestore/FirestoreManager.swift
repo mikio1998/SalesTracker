@@ -6,6 +6,7 @@
 //
 // Codable Firestore cheat sheet
 // https://peterfriese.dev/posts/firestore-codable-the-comprehensive-guide/
+// swiftlint:disable identifier_name
 
 import Foundation
 import Firebase
@@ -63,7 +64,7 @@ class FirestoreManager: NetworkEngine {
         }
     }
 
-    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
         query.getDocuments { _snapshot, err in

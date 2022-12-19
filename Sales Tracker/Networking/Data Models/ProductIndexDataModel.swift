@@ -101,10 +101,10 @@ extension Array where Element == ProductItem {
     func getNthSize(n: Int) -> String {
         sizeArray[n]
     }
-    func searchVariantDocumentIdFor(color:String, size: String) -> String? {
+    func searchVariantDocumentIdFor(color: String, size: String) -> String? {
         self.first(where: { $0.color == color && $0.size == size })?.id
     }
-    func searchVariantBarcodesFor(color:String, size: String) -> [String] {
+    func searchVariantBarcodesFor(color: String, size: String) -> [String] {
         self.first(where: { $0.color == color && $0.size == size })?.barcodes ?? []
     }
 }
