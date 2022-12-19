@@ -11,7 +11,20 @@
 実機  
 ・iPhone11 Pro iOS 15.3
 
+## Tech Stack
+・Firebase  
+・Firebase/Auth  
+・Firebase/Firestore  
+・FirebaseFirestoreSwift  
+・SVProgressHUD  
+・Nuke  
+・AVFoundation
+・XCTest
 
+
+## 工夫している点
+コードベースの全体はMVPで作りましたが、リアクティブプログラミングを試したかったので、そのためにアプリの一部をMVPからMVVMにリファクタを試みました (Sales Tracker画面辺りです)。
+アプリの規模が拡大し、ステートが頻繁に変わる画面では、MVPよりMVVM+バインディングが有利になると感じました。
 
 ## 機能一覧
 #### ユーザーログイン  
@@ -37,16 +50,3 @@
 
 #### Firebaseログアウト  
 ・FirebaseAuthのログアウト機能を実装した。
-
-
-
-
-## Tech Stack
-・Firebase  
-・Firebase/Auth  
-・Firebase/Firestore  
-・FirebaseFirestoreSwift  
-・SVProgressHUD  
-・Nuke  
-・AVFoundation
-
