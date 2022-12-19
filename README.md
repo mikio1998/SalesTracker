@@ -18,8 +18,8 @@
 ・FirebaseFirestoreSwift  
 ・SVProgressHUD  
 ・Nuke  
-・AVFoundation
-・XCTest
+・AVFoundation  
+・XCTest  
 
 
 ## 工夫している点
