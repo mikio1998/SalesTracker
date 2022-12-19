@@ -34,25 +34,24 @@ final class ChooseBrandView: XibView {
         self.switchButton.addGestureRecognizer(tapGesture)
         switchButton.roundCorners(for: .allCorners, radius: Const.switchButtonCornerRadius)
     }
-    
+
     @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     @objc func panGestureRecognizerAction(sender: UIPanGestureRecognizer) {
         // Original Y point of View.
         let y = (self.superview?.frame.height)! - self.frame.height
-        
+
         let translation = sender.translation(in: self)
-        
+
         // Not allowing the user to drag the view upward
         guard translation.y >= 0 else { return }
-        
+
         // setting x as 0 because we don't want users to move the frame side ways!! Only want straight up or down
         self.frame.origin = CGPoint(x: 0, y: y + translation.y)
-        
-        
+
         if sender.state == .ended {
             let dragVelocity = sender.velocity(in: self)
             if dragVelocity.y >= 1300 {
@@ -101,6 +100,5 @@ extension ChooseBrandView {
         static let switchButtonCornerRadius: CGFloat = 10
         static let numberOfPickerComponents: Int = 1
         static let brandComponent: Int = 0
-        
     }
 }
