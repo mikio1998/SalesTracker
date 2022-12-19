@@ -14,6 +14,7 @@ pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
 pod 'SVProgressHUD'
 pod 'Nuke'
+pod 'SwiftLint'
 
   target 'Sales TrackerTests' do
     inherit! :search_paths

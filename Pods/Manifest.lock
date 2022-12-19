@@ -780,6 +780,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.50.3)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -790,6 +791,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -819,6 +821,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SVProgressHUD
+    - SwiftLint
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -847,7 +850,8 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
 
-PODFILE CHECKSUM: 3f1c9bf31fdf2bed474a883e68634b33fe0dcfb2
+PODFILE CHECKSUM: 784bc9220924d85b49f7714cc91e8ef5a1f407a9
 
 COCOAPODS: 1.11.3
