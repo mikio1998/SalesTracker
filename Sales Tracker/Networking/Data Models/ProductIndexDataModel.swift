@@ -47,7 +47,6 @@ struct ProductIndexCollectionSnapshotDataModel: Hashable {
     let variants: [ProductItem]
 }
 
-// TODO: Maybe make a [ProductItem] type to make this extension safer.
 typealias ColorURLProductNum = (color: String, urlString: String, productNum: String)
 extension Array where Element == ProductItem {
     private var colorImgProductNumArray: [ColorURLProductNum] {

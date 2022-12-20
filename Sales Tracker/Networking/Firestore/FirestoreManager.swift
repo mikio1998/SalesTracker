@@ -107,7 +107,17 @@ class FirestoreManager: NetworkEngine {
                             continuation.resume(throwing: FirestoreError.decodingError)
                         }
                     } else { // *New to sales track*
-                        let newItem = SoldProductItem(id: product.id, brand: product.brand, name: product.name, price: product.price, color: product.color, size: product.size, quantity: 0, imageUrl: product.imageUrl, productNum: product.productNum, barcodes: product.barcodes)
+                        let newItem = SoldProductItem(
+                            id: product.id,
+                            brand: product.brand,
+                            name: product.name,
+                            price: product.price,
+                            color: product.color,
+                            size: product.size,
+                            quantity: 0,
+                            imageUrl: product.imageUrl,
+                            productNum: product.productNum,
+                            barcodes: product.barcodes)
                         continuation.resume(returning: newItem)
                         return
                     }

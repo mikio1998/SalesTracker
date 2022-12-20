@@ -46,21 +46,18 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
         guard let id = item.id else { return }
         SVProgressHUD.show()
         if count == 0 {
-            engine.deleteSaleEntry(id: id) {
-                result in
+            engine.deleteSaleEntry(id: id) { result in
                 SVProgressHUD.dismiss()
                 switch result {
                 case .failure(let fireErr):
                     UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
                         .addOK()
                         .show(fromVC: self)
-                    
                 case .success(()):
                     UIAlertController(title: "削除！", message: nil, preferredStyle: .alert)
                         .showAndDismiss(fromVC: self, deadline: .now() + 0.7) {
                             self.dismissPresenter(animated: true)
                         }
-                    
                 }
             }
         } else {

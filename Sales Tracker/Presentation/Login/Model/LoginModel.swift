@@ -28,7 +28,7 @@ final class LoginModelImpl: LoginModel {
     }
 
     func signIn(email: String, pass: String, completion: @escaping (Result<(), AuthError>) -> Void) {
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: pass) { result, err in
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: pass) { _, err in
             err != nil ? completion(.failure(AuthError.loginError)) : completion(.success(()))
         }
     }

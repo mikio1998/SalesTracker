@@ -26,7 +26,7 @@ final class ProductSelectView: XibView {
             pickerView.delegate = self
         }
     }
-    
+
     @IBOutlet weak var addButton: UIView!
 
     init(data: ProductIndexCollectionSnapshotDataModel) {
