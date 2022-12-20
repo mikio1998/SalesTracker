@@ -11,7 +11,7 @@ import UIKit
 
 protocol SettingsModel {
     var settingsSnapshot: SettingsSnapshot { get }
-    func signOut(completion: @escaping (Result<(), AuthError>) -> ())
+    func signOut(completion: @escaping (Result<(), AuthError>) -> Void)
 }
 
 final class SettingsModelImpl: SettingsModel {
@@ -25,7 +25,7 @@ final class SettingsModelImpl: SettingsModel {
         snap.appendItems([.logout(logoutModel)], toSection: 0)
         return snap
     }
-    func signOut(completion: @escaping (Result<(), AuthError>) -> ()) {
+    func signOut(completion: @escaping (Result<(), AuthError>) -> Void) {
         guard FirebaseAuth.Auth.auth().currentUser != nil else {
             completion(.failure(AuthError.logoutError))
             return

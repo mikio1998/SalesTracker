@@ -4,10 +4,10 @@
 //
 //  Created by Mikio Nakata on 2022/10/21.
 //
+// swiftlint:disable large_tuple
 
 import Foundation
 import UIKit
-
 
 typealias ProductIndexSnapshot = NSDiffableDataSourceSnapshot<Int, ProductIndexCollectionSnapshotDataModel>
 
@@ -52,19 +52,15 @@ typealias ColorURLProductNum = (color: String, urlString: String, productNum: St
 extension Array where Element == ProductItem {
     private var colorImgProductNumArray: [ColorURLProductNum] {
         var uniques = [ColorURLProductNum]()
-        for i in self {
-            if !uniques.contains(where: { $0.color == i.color }) {
-                uniques.append(ColorURLProductNum(color: i.color, urlString: i.imageUrl, productNum: i.productNum))
-            }
+        for i in self where !uniques.contains(where: { $0.color == i.color }) {
+            uniques.append(ColorURLProductNum(color: i.color, urlString: i.imageUrl, productNum: i.productNum))
         }
         return uniques
     }
     private var sizeArray: [String] {
         var uniques = [String]()
-        for i in self {
-            if !uniques.contains(i.size) {
-                uniques.append(i.size)
-            }
+        for i in self where !uniques.contains(i.size) {
+            uniques.append(i.size)
         }
         let order: [String: Int] = [
             "XXS": 0,

@@ -16,11 +16,11 @@ protocol CameraViewLike: ViewContainer {
 final class CameraView: XibView {
     weak var presenterLike: CameraViewPresenterLike?
     private var videoLayer = AVCaptureVideoPreviewLayer()
-    
+
     init() {
         super.init(frame: .zero)
     }
-    
+
     @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

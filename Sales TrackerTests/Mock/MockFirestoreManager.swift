@@ -31,19 +31,19 @@ class MockFirestoreManager: NetworkEngine {
         getSoldProductItemsComplete = completion
     }
 
-    func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> Void) {
         completion(.success(()))
     }    
     
-    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void) {
         let item: ProductItem = ProductItem.mock1()
         completion(.success(item))
     }
-    func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) {
         completion(.success(()))
     }
     
-    func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) {
         completion(.success(()))
     }
 }

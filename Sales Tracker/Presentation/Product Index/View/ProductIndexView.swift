@@ -22,12 +22,15 @@ final class ProductIndexView: XibView {
     private lazy var dataSource: DataSource = {
         .init(collectionView: collectionView, cellProvider: cellProvider)
     }()
-    
+
     private lazy var cellProvider: DataSource.CellProvider = { collectionView, indexPath, item in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductIndexCollectionViewCell", for: indexPath) as! ProductIndexCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductIndexCollectionViewCell.identifier, for: indexPath) as? ProductIndexCollectionViewCell else {
+            fatalError("xib does not exist")
+        }
         cell.setUpCell(model: item)
         return cell
     }
+
     weak var presenterLike: ProductIndexPresenterLike?
     @IBOutlet weak var listButton: UIView!
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -36,17 +39,17 @@ final class ProductIndexView: XibView {
             self.collectionView.register(UINib(nibName: Const.productIndexCollectionViewCellClassName, bundle: nil), forCellWithReuseIdentifier: Const.productIndexCollectionViewCellClassName)
         }
     }
-    
+
     @IBOutlet weak var logoImageView: UIImageView!
-    
+
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     @IBOutlet weak var dropdownLabel: UILabel!
-    
+
     @IBOutlet weak var noResultsView: UIView!
-    
+
     @IBOutlet weak var noResultLabel: UILabel!
-    
+
     init() {
         super.init(frame: .zero)
         self.dropdownLabel.text = Const.dropdownLabelText
@@ -58,7 +61,7 @@ final class ProductIndexView: XibView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     @objc func tapGestureRecognizerAction(sender: UITapGestureRecognizer) {
         presenterLike?.didTapListButton()
     }
@@ -69,19 +72,23 @@ extension ProductIndexView: ProductIndexViewLike {
         self.titleLabel.text = title
         self.logoImageView.loadImage(with: imageUrl)
     }
-    
+
     func setSnapshot(_ snapshot: ProductIndexSnapshot) {
-        snapshot.itemIdentifiers.isEmpty ? noResults(error: nil) : showCollection()
+        if snapshot.itemIdentifiers.isEmpty {
+            noResults(error: nil)
+        } else {
+            showCollection()
+        }
         dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
     }
-    
+
     func noResults(error: FirestoreError?) {
         collectionView.alpha = 0
         noResultsView.alpha = 1
         noResultLabel.alpha = 1
         noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
     }
-    
+
     func showCollection() {
         collectionView.alpha = 1
         noResultsView.alpha = 0
@@ -93,7 +100,7 @@ extension ProductIndexView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.width * 5 / 18 + 90)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenterLike?.didSelectIndexPath(indexPath)
     }

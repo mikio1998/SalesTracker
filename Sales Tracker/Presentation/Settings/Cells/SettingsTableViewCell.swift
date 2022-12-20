@@ -11,7 +11,10 @@ class SettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImaageView: UIImageView!
     @IBOutlet weak var title: UILabel!
-    
+
+    class var identifier: String { return String(describing: self) }
+    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,7 +24,7 @@ class SettingsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     func setUpCell(title: String, image: UIImage) {
         self.title.text = title
         self.iconImaageView.image = image

@@ -10,7 +10,6 @@ import UIKit
 
 enum Hello {
     case morning, day, evening
-    
     var title: String {
         switch self {
         case .morning:
@@ -21,7 +20,6 @@ enum Hello {
             return "こんばんは。"
         }
     }
-    
     var backgroundColor: UIColor {
         switch self {
         case .morning:
