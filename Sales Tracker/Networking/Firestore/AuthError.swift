@@ -11,7 +11,7 @@ enum AuthError: Error {
     case emptyFieldError
     case loginError
     case logoutError
-    
+
     var message: String {
         switch self {
         case .emptyFieldError:

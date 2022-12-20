@@ -13,7 +13,7 @@ enum FirestoreError: Error {
     case updateError
     case deleteError
     case decodingError
-    
+
     var message: String {
         switch self {
         case .getError:

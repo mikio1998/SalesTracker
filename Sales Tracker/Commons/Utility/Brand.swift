@@ -9,138 +9,138 @@ import Foundation
 import UIKit
 
 enum Brand {
-    case TestBrand
-    case AlphaIndustries
-    case Avirex
-    case HelikonTex
-    case Houston
-    case Sessler
-    case TruSpec
-    case ValleyApparel
-    case Cockpit
-    case USSurplus
-    
+    case testBrand
+    case alphaIndustries
+    case avirex
+    case helikonTex
+    case houston
+    case sessler
+    case truSpec
+    case valleyApparel
+    case cockpit
+    case usSurplus
+
     init(name: String) {
         switch name {
         case "Alpha Industries":
-            self = .AlphaIndustries
+            self = .alphaIndustries
         case "AVIREX":
-            self = .Avirex
+            self = .avirex
         case "Helikon Tex":
-            self = .HelikonTex
+            self = .helikonTex
         case "Houston":
-            self = .Houston
+            self = .houston
         case "Sessler":
-            self = .Sessler
+            self = .sessler
         case "TruSpec":
-            self = .TruSpec
+            self = .truSpec
         case "Valley Apparel":
-            self = .ValleyApparel
+            self = .valleyApparel
         case "US Surplus":
-            self = .USSurplus
+            self = .usSurplus
         case "Cockpit":
-            self = .Cockpit
+            self = .cockpit
         default:
-            self = .TestBrand
+            self = .testBrand
         }
     }
-    
+
     var collectionName: String {
         switch self {
-        case .TestBrand:
+        case .testBrand:
             return "products"
-        case .AlphaIndustries:
+        case .alphaIndustries:
             return "Alpha Industries"
-        case .Avirex:
+        case .avirex:
             return "AVIREX"
-        case .HelikonTex:
+        case .helikonTex:
             return "Helikon Tex"
-        case .Houston:
+        case .houston:
             return "Houston"
-        case .Sessler:
+        case .sessler:
             return "Sessler"
-        case .TruSpec:
+        case .truSpec:
             return "Tru Spec"
-        case .ValleyApparel:
+        case .valleyApparel:
             return "Valley Apparel"
-        case .Cockpit:
+        case .cockpit:
             return "Cockpit"
-        case .USSurplus:
+        case .usSurplus:
             return "US Surplus"
         }
     }
-    
+
     var officialBrandName: String {
         switch self {
-        case .TestBrand:
+        case .testBrand:
             return "Test Brand"
-        case .AlphaIndustries:
+        case .alphaIndustries:
             return "アルファ"
-        case .Avirex:
+        case .avirex:
             return "アビレックス"
-        case .HelikonTex:
+        case .helikonTex:
             return "ヘリコンテックス"
-        case .Houston:
+        case .houston:
             return "ヒューストン"
-        case .Sessler:
+        case .sessler:
             return "セスラー"
-        case .TruSpec:
+        case .truSpec:
             return "トルースペック"
-        case .ValleyApparel:
+        case .valleyApparel:
             return "バレーアパレル"
-        case .Cockpit:
+        case .cockpit:
             return "コックピット"
-        case .USSurplus:
+        case .usSurplus:
             return "米軍放出品"
         }
     }
-    
+
     var brandColor: UIColor {
         switch self {
-        case .TestBrand:
+        case .testBrand:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .AlphaIndustries:
+        case .alphaIndustries:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .Avirex:
+        case .avirex:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .HelikonTex:
+        case .helikonTex:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .Houston:
+        case .houston:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .Sessler:
+        case .sessler:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .TruSpec:
+        case .truSpec:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .ValleyApparel:
+        case .valleyApparel:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .Cockpit:
+        case .cockpit:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
-        case .USSurplus:
+        case .usSurplus:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
         }
     }
-    
+
     var brandLogoUrl: String {
         switch self {
-        case .TestBrand:
+        case .testBrand:
             return "https://user-images.githubusercontent.com/1567433/114792417-57c1d080-9d56-11eb-8035-dc07cfd7557f.png"
-        case .AlphaIndustries:
+        case .alphaIndustries:
             return "https://www.nakatashoten.com/img-item/logomark-alpha.gif"
-        case .Avirex:
+        case .avirex:
             return "https://www.nakatashoten.com/img/logo-avirex_s.gif"
-        case .HelikonTex:
+        case .helikonTex:
             return "https://www.nakatashoten.com/images/helikontex/logo_helikontex.png"
-        case .Houston:
+        case .houston:
             return "https://www.nakatashoten.com/img-item/icon-houston.gif"
-        case .Sessler:
+        case .sessler:
             return "https://www.nakatashoten.com/img-item/logo-sessler2.gif"
-        case .TruSpec:
+        case .truSpec:
             return "https://www.nakatashoten.com/img-item/logo-tru-spec-atlanco.gif"
-        case .ValleyApparel:
+        case .valleyApparel:
             return "https://www.nakatashoten.com/img-item/logo-va.gif"
-        case .Cockpit:
+        case .cockpit:
             return "https://www.nakatashoten.com/img-item/logo-cockpit-2.gif"
-        case .USSurplus:
+        case .usSurplus:
             return "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/US_Army_Star_Logo_SSI.png/1200px-US_Army_Star_Logo_SSI.png"
         }
     }

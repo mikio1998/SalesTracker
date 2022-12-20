@@ -6,6 +6,7 @@
 //
 // Codable Firestore cheat sheet
 // https://peterfriese.dev/posts/firestore-codable-the-comprehensive-guide/
+// swiftlint:disable identifier_name
 
 import Foundation
 import Firebase
@@ -14,11 +15,10 @@ import FirebaseFirestoreSwift
 import CloudKit
 
 class FirestoreManager: NetworkEngine {
-    
     static let shared = FirestoreManager()
-    
+
     private init() {}
-    
+
     // MARK: Get all products from Brand collection.
     func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
@@ -40,7 +40,7 @@ class FirestoreManager: NetworkEngine {
             return
         }
     }
-    
+
     // MARK: Get Sales Collection
     func getSoldProductItems(completion: @escaping (Result<[SoldProductItem], FirestoreError>) -> Void) {
         let db = Firestore.firestore()
@@ -63,8 +63,8 @@ class FirestoreManager: NetworkEngine {
             return
         }
     }
-    
-    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+
+    func queryFromProduct(barcode: String, completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
         query.getDocuments { _snapshot, err in
@@ -86,7 +86,7 @@ class FirestoreManager: NetworkEngine {
             }
         }
     }
-    
+
     // MARK: Search sales by id.
     private static func queryForProductOrReturnNew(product: ProductItem) async throws -> SoldProductItem {
         let db = Firestore.firestore()
@@ -107,7 +107,17 @@ class FirestoreManager: NetworkEngine {
                             continuation.resume(throwing: FirestoreError.decodingError)
                         }
                     } else { // *New to sales track*
-                        let newItem = SoldProductItem(id: product.id, brand: product.brand, name: product.name, price: product.price, color: product.color, size: product.size, quantity: 0, imageUrl: product.imageUrl, productNum: product.productNum, barcodes: product.barcodes)
+                        let newItem = SoldProductItem(
+                            id: product.id,
+                            brand: product.brand,
+                            name: product.name,
+                            price: product.price,
+                            color: product.color,
+                            size: product.size,
+                            quantity: 0,
+                            imageUrl: product.imageUrl,
+                            productNum: product.productNum,
+                            barcodes: product.barcodes)
                         continuation.resume(returning: newItem)
                         return
                     }
@@ -116,7 +126,7 @@ class FirestoreManager: NetworkEngine {
         })
         return prod
     }
-    
+
     // MARK: Setting a sale.
     private static func setSoldProductItem(product: SoldProductItem) throws {
         let db = Firestore.firestore()
@@ -128,8 +138,8 @@ class FirestoreManager: NetworkEngine {
             print(error)
         }
     }
-    
-    func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) async {
+
+    func soldAnItem(product: ProductItem, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) async {
         do {
             var queryProduct = try await FirestoreManager.queryForProductOrReturnNew(product: product)
             queryProduct.quantity += quantitySold
@@ -139,12 +149,12 @@ class FirestoreManager: NetworkEngine {
             completion(.failure(.setError))
         }
     }
-    
+
     // MARK: Delete Sale
-    func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func deleteSaleEntry(id: String, completion: @escaping (Result<(), FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(id)
-        path.delete() { err in
+        path.delete { err in
             if err != nil {
                 completion(.failure(.deleteError))
             } else {
@@ -154,10 +164,10 @@ class FirestoreManager: NetworkEngine {
     }
 
     // MARK: Update sale item count
-    func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> ()) {
+    func updateSaleCountForItem(id: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(id)
-        path.updateData(["quantity" : newCount]) { err in
+        path.updateData(["quantity": newCount]) { err in
             if err != nil {
                 completion(.failure(.updateError))
             } else {

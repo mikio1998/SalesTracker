@@ -8,9 +8,8 @@
 import UIKit
 
 extension UIView {
-    
     // roundCorners() needs to be called on .main thread, or in view's layoutSubviews (because we need view's bounds radius).
-    //https://stackoverflow.com/questions/35685726/uibezierpath-doesnt-work-in-topright-corner-and-bottomright-corner
+    // https://stackoverflow.com/questions/35685726/uibezierpath-doesnt-work-in-topright-corner-and-bottomright-corner
     func roundCorners(for corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners,
                                 cornerRadii: CGSize(width: radius, height: radius))
@@ -20,7 +19,7 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
-    
+
     func giveRoundCorners(withCornerRadius: CGFloat) {
         layer.cornerRadius = withCornerRadius
     }
@@ -40,5 +39,3 @@ extension UIView {
         self.layer.shadowOpacity = 0.3
     }
 }
-
-

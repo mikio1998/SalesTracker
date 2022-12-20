@@ -17,19 +17,19 @@ final class ProductSelectViewController: UIViewController {
     private let viewContainer: ProductSelectViewLike
     // TODO: Model
     let engine: NetworkEngine = FirestoreManager.shared // temp
-    
+
     private let dataModel: ProductIndexCollectionSnapshotDataModel
-    
+
     init(productData: ProductIndexCollectionSnapshotDataModel) {
         self.viewContainer = ProductSelectView(data: productData)
         self.dataModel = productData
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         self.view = viewContainer.view
     }
@@ -63,7 +63,7 @@ extension ProductSelectViewController: ProductSelectPresenterLike {
             })
         }
     }
-    
+
     func dismissPresenter(animated: Bool) {
         self.dismiss(animated: true) {
             print("Dismissed Product Select VC!")

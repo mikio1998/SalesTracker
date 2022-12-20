@@ -22,7 +22,7 @@ class ProductIndexViewController: UIViewController {
     private let model: ProductIndexModel
     private var data: ProductIndexDataModel?
     private let navigator: ProductIndexNavigatorLike
-    
+
     init(viewContainer: ProductIndexViewLike = ProductIndexView(),
          model: ProductIndexModel = ProductIndexModelImpl(),
          navigator: ProductIndexNavigatorLike = ProductIndexNavigator()
@@ -33,11 +33,11 @@ class ProductIndexViewController: UIViewController {
 
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         self.view = viewContainer.view
     }
@@ -74,7 +74,7 @@ extension ProductIndexViewController: ProductIndexPresenterLike {
         chooseBrandVC.transitioningDelegate = self
         self.present(chooseBrandVC, animated: true, completion: nil)
     }
-    
+
     func didSelectIndexPath(_ indexPath: IndexPath) {
         guard let prod = data?.productIndexSnapshot.itemIdentifiers(inSection: 0)[indexPath.row] else { return }
         let productSelectVC = ProductSelectViewController(productData: prod)
@@ -98,6 +98,6 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
 
 extension ProductIndexViewController {
     private enum Const {
-        static let brandList: [Brand] = [Brand.AlphaIndustries, Brand.Avirex, Brand.HelikonTex, Brand.Houston, Brand.Sessler, Brand.TruSpec, Brand.ValleyApparel, Brand.Cockpit, Brand.USSurplus]
+        static let brandList: [Brand] = [Brand.alphaIndustries, Brand.avirex, Brand.helikonTex, Brand.houston, Brand.sessler, Brand.truSpec, Brand.valleyApparel, Brand.cockpit, Brand.usSurplus]
     }
 }

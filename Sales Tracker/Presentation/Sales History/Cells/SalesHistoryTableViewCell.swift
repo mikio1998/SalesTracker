@@ -8,7 +8,7 @@
 import UIKit
 
 class SalesHistoryTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var shadeView: UIView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
@@ -17,34 +17,34 @@ class SalesHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    
+
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
-    
+
     var cellViewModel: SalesHistoryCellViewModel? {
         didSet {
             guard let item = cellViewModel?.soldProductItem else { return }
-            
+
             // Image View
             productImageView.loadImage(with: item.imageUrl)
-            
+
             // Brand label
             brandLabel.text = item.brand
-            
+
             // Product Label
             productLabel.text = item.name
-            
+
             // Color Label
             colorLabel.text = item.color
-            
+
             // Size Label
             sizeLabel.text = item.size
-            
+
             // Quantity Label
             quantityLabel.text = "\(item.quantity)点"
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -55,22 +55,22 @@ class SalesHistoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     func initView() {
         self.selectionStyle = .none
-        
+
         // Shade View
         shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
         shadeView.giveShadow()
-        
+
         // Image View
         productImageView.contentMode = .scaleAspectFit
-        
+
         // Main View
         mainView.giveRoundCorners(withCornerRadius: Const.mainViewCornerRadius)
         mainView.clipsToBounds = true
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         productImageView.image = nil

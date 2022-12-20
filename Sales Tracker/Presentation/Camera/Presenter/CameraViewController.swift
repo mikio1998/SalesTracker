@@ -12,7 +12,7 @@ protocol CameraViewPresenterLike: AnyObject {
 }
 
 final class CameraViewController: UIViewController {
-    
+
     private let viewContainer: CameraViewLike
     private var model: CameraModel
 
@@ -21,22 +21,22 @@ final class CameraViewController: UIViewController {
         self.model = model
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         self.view = viewContainer.view
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         model.startSession()
     }
     override func viewWillDisappear(_ animated: Bool) {
         model.stopSession()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self

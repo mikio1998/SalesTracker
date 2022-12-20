@@ -18,18 +18,20 @@ final class SettingsView: XibView {
     private lazy var dataSource: DataSource = {
         .init(tableView: tableView, cellProvider: cellProvider)
     }()
-    
+
     private lazy var cellProvider: DataSource.CellProvider = { tableView, indexPath, item in
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as! SettingsTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+            fatalError("xib does not exist")
+        }
         switch item {
         case .logout(let model):
             cell.setUpCell(title: model.title, image: model.icon)
         }
         return cell
     }
-    
+
     weak var presenterLike: SettingsPresenterLike?
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             self.tableView.delegate = self
@@ -37,7 +39,7 @@ final class SettingsView: XibView {
             self.tableView.isScrollEnabled = false
         }
     }
-    
+
     init() {
         super.init(frame: .zero)
     }

@@ -36,6 +36,4 @@ extension UIAlertController {
             }
         }
     }
-    
-    
 }

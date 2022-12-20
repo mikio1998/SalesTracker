@@ -1,0 +1,12 @@
+# Rule Documentation: https://realm.github.io/SwiftLint/rule-directory.html
+# Example implementation: https://novinfard.medium.com/swiftlint-in-use-279f44b3182e
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+identifier_name:
+  excluded: ["vc", "id", "i", "j", "a", "b", "x", "y", "m", "n"]
+
+line_length:
+  warning: 240 # Default 120
+  error: 700 # Default 350

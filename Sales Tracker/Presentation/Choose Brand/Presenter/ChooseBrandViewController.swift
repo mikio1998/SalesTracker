@@ -14,17 +14,17 @@ protocol ChooseBrandPresenterLike: AnyObject {
 class ChooseBrandViewController: UIViewController {
     private let viewContainer: ChooseBrandViewLike
     private let productIndexDelegate: ProductIndexViewControllerDelegate
-    
+
     init(list: [Brand], productIndexDelegate: ProductIndexViewControllerDelegate) {
         self.viewContainer = ChooseBrandView(list: list)
         self.productIndexDelegate = productIndexDelegate
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         self.view = viewContainer.view
     }

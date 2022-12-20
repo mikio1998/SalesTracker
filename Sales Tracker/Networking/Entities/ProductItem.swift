@@ -53,7 +53,7 @@ struct SalesTrack: Codable {
     var size: String
     var type: String
     var quantity: Int
-    
+
     init(brand: String,
          color: String,
          name: String,

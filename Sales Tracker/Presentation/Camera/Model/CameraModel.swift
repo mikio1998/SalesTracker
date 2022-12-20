@@ -10,10 +10,10 @@ import AVFoundation
 
 protocol CameraModel {
     var previewLayer: AVCaptureVideoPreviewLayer { get }
-    func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> ())
+    func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> Void)
     func startSession()
     func stopSession()
-    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> ())
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void)
 }
 
 final class CameraModelImpl: CameraModel {
@@ -22,20 +22,20 @@ final class CameraModelImpl: CameraModel {
     let output = AVCaptureMetadataOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     private let engine: NetworkEngine
-    
+
     init(engine: NetworkEngine = FirestoreManager.shared) {
         self.engine = engine
     }
-    
-    func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> ()) {
+
+    func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> Void) {
         self.captureDelegate = delegate
         output.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
         checkVideoPermissions(completion: completion)
     }
-    private func checkVideoPermissions(completion: @escaping (Error?) -> ()) {
+    private func checkVideoPermissions(completion: @escaping (Error?) -> Void) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { granted in
+            AVCaptureDevice.requestAccess(for: .video) { _ in
                 self.setUpCamera(completion: completion)
             }
         case .restricted:
@@ -48,8 +48,8 @@ final class CameraModelImpl: CameraModel {
             break
         }
     }
-    
-    private func setUpCamera(completion: @escaping (Error?) -> ()) {
+
+    private func setUpCamera(completion: @escaping (Error?) -> Void) {
         let session = AVCaptureSession()
         guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
         do {
@@ -71,20 +71,20 @@ final class CameraModelImpl: CameraModel {
             completion(error)
         }
     }
-    
+
     func startSession() {
         guard let session = session, session.isRunning == false else { return }
         DispatchQueue.global(qos: .userInitiated).async {
             session.startRunning()
         }
     }
-    
+
     func stopSession() {
         guard let session = session, session.isRunning == true else { return }
         session.stopRunning()
     }
-    
-    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> ()) {
+
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void) {
         guard let obj = objects.first as? AVMetadataMachineReadableCodeObject,
             let objStringValue = obj.stringValue else { return
         }
