@@ -6,6 +6,7 @@
 在庫補充の作業の効率性を上げることを目指して開発しています。  
 裏での在庫補充作業時間を最小化し、接客などに時間を優先することがアプリの目標です。  
 
+For the english translation please refer to this link. (https://mikio1998.github.io/apps/)  
 
 ## 環境
 ・MacbookPro M1 version.12.4  
