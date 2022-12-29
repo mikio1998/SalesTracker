@@ -12,6 +12,20 @@ class NetworkingClient {
 
     func execute(_ url: URL) {
         }
-    }
+}
 
+struct Prod: Decodable {
+    let name: String
+    let vendor: String
+    let price: Float
+    let variants: [ProdVariant]
+}
+
+struct ProdVariant: Decodable {
+    let name: String
+    let vendor: String
+    let price: Float
+    let size: String
+    let color: String
+    let url: String
 }
