@@ -6,6 +6,7 @@ target 'Sales Tracker' do
   use_frameworks!
 
   # Pods for Sales Tracker
+pod 'Alamofire'
 pod 'RxSwift'
 pod 'RxCocoa'
 pod 'Firebase/Core'
