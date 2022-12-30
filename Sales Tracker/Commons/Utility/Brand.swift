@@ -70,6 +70,31 @@ enum Brand {
         }
     }
 
+    var vendorName: String {
+        switch self {
+        case .testBrand:
+            return ""
+        case .alphaIndustries:
+            return "ALPHA"
+        case .avirex:
+            return "AVIREX"
+        case .helikonTex:
+            return "Helikon-Tex"
+        case .houston:
+            return ""
+        case .sessler:
+            return ""
+        case .truSpec:
+            return "TRU-SPEC"
+        case .valleyApparel:
+            return ""
+        case .cockpit:
+            return ""
+        case .usSurplus:
+            return ""
+        }
+    }
+
     var officialBrandName: String {
         switch self {
         case .testBrand:
