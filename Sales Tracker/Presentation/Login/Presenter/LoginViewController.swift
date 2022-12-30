@@ -36,18 +36,6 @@ final class LoginViewController: UIViewController {
         viewContainer.presenterLike = self
         viewContainer.setHelloTitle(model.helloTitle)
         viewContainer.setBackgroundImg(withURL: model.backgroundImgUrl)
-
-        let client = NetworkingClient()
-        client.fetchData()
-
-        ServiceLayer.request(router: Router.getProducts) { (result: Result<Prods, Error>) in
-            switch result {
-            case .success(let success):
-                print("suc", success)
-            case .failure(let err):
-                print("err", err)
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

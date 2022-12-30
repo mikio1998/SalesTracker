@@ -9,8 +9,7 @@ import Foundation
 import Alamofire
 
 class ServiceLayer {
-    class func request<T: Codable>(router: Router, completion: @escaping (Result<T, Error>) -> ()) {
-
+    class func request<T: Codable>(router: Router, completion: @escaping (Result<T, Error>) -> Void) {
         var components = URLComponents()
         components.scheme = router.scheme
         components.host = router.host
@@ -32,8 +31,12 @@ class ServiceLayer {
                 return
             }
 
-            // swiftlint:disable force_try
-            let responseObject = try! JSONDecoder().decode(T.self, from: data)
+            var responseObject: T
+            do {
+                responseObject = try JSONDecoder().decode(T.self, from: data)
+            } catch {
+                return
+            }
 
             DispatchQueue.main.async {
                 completion(.success(responseObject))
@@ -44,17 +47,16 @@ class ServiceLayer {
     }
 }
 
-class NetworkingClient {
-    func fetchData() {
-        let request = AF.request("https://nakata-72f8a.appspot.com/products")
-        request.responseDecodable(of: Prods.self) { response in
-            guard let prods = response.value else {
-                print("fail", response.error)
-                return }
-            print(prods)
-        }
-    }
-}
+//ServiceLayer.request(router: Router.getProducts) { (result: Result<Prods, Error>) in
+//    switch result {
+//    case .success(let success):
+//        print("suc", success)
+//    case .failure(let err):
+//        print("err", err)
+//    }
+//}
+
+
 
 struct Prods: Codable {
     let data: [String: Prod]
