@@ -64,6 +64,7 @@
 		E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC6E2910B5710065460C /* SettingsViewController.swift */; };
 		E9A3AC712910B5710065460C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6F2910B5710065460C /* SettingsViewController.xib */; };
 		E9A43321295D50F400CA9048 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43320295D50F400CA9048 /* NetworkingClient.swift */; };
+		E9A43323295EB37F00CA9048 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43322295EB37F00CA9048 /* Router.swift */; };
 		E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE3472909530A001693F8 /* ChooseBrandView.swift */; };
 		E9CFE34A29095312001693F8 /* ChooseBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE34929095312001693F8 /* ChooseBrandView.xib */; };
 		E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */; };
@@ -172,6 +173,7 @@
 		E9A3AC6E2910B5710065460C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E9A3AC6F2910B5710065460C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		E9A43320295D50F400CA9048 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
+		E9A43322295EB37F00CA9048 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E9CFE3472909530A001693F8 /* ChooseBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandView.swift; sourceTree = "<group>"; };
 		E9CFE34929095312001693F8 /* ChooseBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseBrandView.xib; sourceTree = "<group>"; };
 		E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandViewController.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A43320295D50F400CA9048 /* NetworkingClient.swift */,
+				E9A43322295EB37F00CA9048 /* Router.swift */,
 				E9526A95290E59990056546E /* Firestore */,
 				E99C65A82903B7EA0049E00D /* Entities */,
 				E99C65A92903B8750049E00D /* Data Models */,
@@ -1053,6 +1056,7 @@
 				E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
 				E9526AAB290FBAB00056546E /* Date+.swift in Sources */,
+				E9A43323295EB37F00CA9048 /* Router.swift in Sources */,
 				E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */,
 				E9CFE369290C0237001693F8 /* EditQuantityModel.swift in Sources */,
 				E9DB17E428FFBD4E006CF900 /* NSObject+Name.swift in Sources */,

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class NetworkingClient {
-
     func fetchData() {
         let request = AF.request("https://nakata-72f8a.appspot.com/products")
         request.responseDecodable(of: Prods.self) { response in
