@@ -17,6 +17,7 @@ class ServiceLayer {
         components.queryItems = router.parameters
 
         guard let url = components.url else { return }
+        print("url", url)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = router.method
 
@@ -28,52 +29,49 @@ class ServiceLayer {
                 return
             }
             guard response != nil, let data = data else {
+                print(response, data)
                 return
             }
-
             var responseObject: T
             do {
                 responseObject = try JSONDecoder().decode(T.self, from: data)
             } catch {
+                print("fail decode")
                 return
             }
-
             DispatchQueue.main.async {
                 completion(.success(responseObject))
             }
         }
         dataTask.resume()
-
     }
 }
 
-//ServiceLayer.request(router: Router.getProducts) { (result: Result<Prods, Error>) in
-//    switch result {
-//    case .success(let success):
-//        print("suc", success)
-//    case .failure(let err):
-//        print("err", err)
-//    }
-//}
-
-
-
 struct Prods: Codable {
     let data: [String: Prod]
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+    }
 }
 
 struct Prod: Codable {
-    let name: String?
-    let vendor: String?
-    let price: String?
+    let name: String
+    let vendor: String
+    let price: String
     let variants: [ProdVariant]
+    enum CodingKeys: String, CodingKey {
+        case name
+        case vendor
+        case price
+        case variants
+    }
 }
 
 struct ProdVariant: Codable {
-    let name: String?
-    let vendor: String?
-    let price: String?
-    let size: String?
-    let color: String?
-    let url: String?
+    let name: String
+    let vendor: String
+    let price: String
+    let size: String
+    let color: String
+    let url: String
 }
