@@ -39,6 +39,15 @@ final class LoginViewController: UIViewController {
 
         let client = NetworkingClient()
         client.fetchData()
+
+        ServiceLayer.request(router: Router.getProducts) { (result: Result<Prods, Error>) in
+            switch result {
+            case .success(let success):
+                print("suc", success)
+            case .failure(let err):
+                print("err", err)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
