@@ -10,22 +10,33 @@ import Alamofire
 
 class NetworkingClient {
 
-    func execute(_ url: URL) {
+    func fetchData() {
+        let request = AF.request("https://nakata-72f8a.appspot.com/products")
+        request.responseDecodable(of: Prods.self) { response in
+            guard let prods = response.value else {
+                print("fail", response.error)
+                return }
+            print(prods)
         }
+    }
 }
 
-struct Prod: Decodable {
-    let name: String
-    let vendor: String
-    let price: Float
+struct Prods: Codable {
+    let data: [String: Prod]
+}
+
+struct Prod: Codable {
+    let name: String?
+    let vendor: String?
+    let price: String?
     let variants: [ProdVariant]
 }
 
-struct ProdVariant: Decodable {
-    let name: String
-    let vendor: String
-    let price: Float
-    let size: String
-    let color: String
-    let url: String
+struct ProdVariant: Codable {
+    let name: String?
+    let vendor: String?
+    let price: String?
+    let size: String?
+    let color: String?
+    let url: String?
 }
