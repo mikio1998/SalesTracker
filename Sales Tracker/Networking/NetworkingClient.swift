@@ -46,32 +46,3 @@ class ServiceLayer {
         dataTask.resume()
     }
 }
-
-struct Prods: Codable {
-    let data: [String: Prod]
-    enum CodingKeys: String, CodingKey {
-        case data = "data"
-    }
-}
-
-struct Prod: Codable {
-    let name: String
-    let vendor: String
-    let price: String
-    let variants: [ProdVariant]
-    enum CodingKeys: String, CodingKey {
-        case name
-        case vendor
-        case price
-        case variants
-    }
-}
-
-struct ProdVariant: Codable {
-    let name: String
-    let vendor: String
-    let price: String
-    let size: String
-    let color: String
-    let url: String
-}
