@@ -31,7 +31,7 @@ final class ProductsListDataManager {
             guard let data = Self.shared.allData else {
                 // If reload is false but no data, force a reload.
                 loadList(reload: true, completion: completion)
-                return
+//                return
             }
             completion(.success(data))
         } else {
@@ -69,7 +69,7 @@ final class ProductsListDataManager {
             guard let data = dataSource else {
                 // If reload is false but no data, force a reload.
                 loadVendorList(reload: true, vendor: vendor, completion: completion)
-                return
+//                return
             }
             completion(.success(data))
         } else {

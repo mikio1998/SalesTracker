@@ -22,7 +22,7 @@ class FirestoreManager: NetworkEngine {
     // Should work?
     // MARK: Get Sales Collection
     // SoldProductItem
-    func getSoldProductItems(completion: @escaping (Result<[Prod], NetworkError>) -> Void) {
+    func getSoldProductItems(completion: @escaping (Result<[SoldProd], NetworkError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track")
         path.getDocuments { _snapshot, err in
@@ -31,7 +31,7 @@ class FirestoreManager: NetworkEngine {
             } else {
                 if let snapshot = _snapshot {
                     let products = snapshot.documents.compactMap {
-                        return try? $0.data(as: Prod.self)
+                        return try? $0.data(as: SoldProd.self)
                     }
                     completion(.success(products))
                     return

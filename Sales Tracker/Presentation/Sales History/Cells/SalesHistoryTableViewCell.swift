@@ -26,19 +26,19 @@ class SalesHistoryTableViewCell: UITableViewCell {
             guard let item = cellViewModel?.soldProductItem else { return }
 
             // Image View
-            productImageView.loadImage(with: item.imageUrl)
+            productImageView.loadImage(with: item.prod.url)
 
             // Brand label
-            brandLabel.text = item.brand
+            brandLabel.text = item.prod.vendor
 
             // Product Label
-            productLabel.text = item.name
+            productLabel.text = item.prod.name
 
             // Color Label
-            colorLabel.text = item.color
+            colorLabel.text = item.prod.color
 
             // Size Label
-            sizeLabel.text = item.size
+            sizeLabel.text = item.prod.size
 
             // Quantity Label
             quantityLabel.text = "\(item.quantity)点"

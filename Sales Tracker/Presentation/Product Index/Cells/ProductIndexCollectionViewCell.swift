@@ -29,7 +29,7 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         shadeView.giveSmallShadow()
 
         // Image View
-        guard let url = model.variants.first?.imageUrl else { return }
+        guard let url = model.variants.first?.url else { return }
         productImageView.loadImage(with: url)
         productImageView.contentMode = .scaleAspectFit
 
