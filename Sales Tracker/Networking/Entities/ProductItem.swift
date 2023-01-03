@@ -32,15 +32,21 @@ struct Prods: Codable {
 }
 
 struct Prod: Codable {
-    let name: String
-    let vendor: String
-    let price: String
-    let size: String
-    let color: String
-    let url: String
-    let sku: String
+    let name: String?
+    let vendor: String?
+    let price: String?
+    let size: String?
+    let color: String?
+    let url: String?
+    let sku: String?
 }
 
+// soldProds
+
+struct SoldProd: Codable {
+    let prod: Prod
+    var quantity: Int
+}
 
 //protocol Product {
 //    var brand: String { get set }
