@@ -19,7 +19,7 @@ struct ProductIndexDataModel {
         self.productIndexSnapshot = ProductIndexSnapshot()
         self.productIndexSnapshot.appendSections([0])
 
-        var variants = prods.data
+        let variants = prods.data
 
         var models = [ProductIndexCollectionSnapshotDataModel]()
         for variant in variants {

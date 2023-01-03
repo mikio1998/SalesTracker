@@ -73,8 +73,7 @@ class FirestoreManager: NetworkEngine {
     // ProductItem
     private static func queryForProductOrReturnNew(product: Prod) async throws -> SoldProd {
         let db = Firestore.firestore()
-        guard let sku = product.sku else {
-            throw NetworkError.getError }
+        let sku = product.sku
         let path = db.collection("sales track").document(sku)
         let prod: SoldProd = try await withCheckedThrowingContinuation({ continuation in
             path.getDocument { _snapshot, err in
@@ -103,7 +102,7 @@ class FirestoreManager: NetworkEngine {
     // MARK: Setting a sale.
     private static func setSoldProductItem(product: SoldProd) throws {
         let db = Firestore.firestore()
-        guard let sku = product.prod.sku else { return }
+        let sku = product.prod.sku
         let path = db.collection("sales track").document(sku)
         do {
             try path.setData(from: product) // MARK: Try as SoldProd, if not work change data struct.

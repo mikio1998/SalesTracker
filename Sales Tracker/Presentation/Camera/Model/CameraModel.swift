@@ -13,7 +13,7 @@ protocol CameraModel {
     func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> Void)
     func startSession()
     func stopSession()
-    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void)
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<Prod?, NetworkError>) -> Void)
 }
 
 final class CameraModelImpl: CameraModel {
@@ -21,11 +21,12 @@ final class CameraModelImpl: CameraModel {
     var session: AVCaptureSession?
     let output = AVCaptureMetadataOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
-    private let engine: NetworkEngine
+//    private let engine: NetworkEngine
 
-    init(engine: NetworkEngine = FirestoreManager.shared) {
-        self.engine = engine
-    }
+//    init(engine: NetworkEngine = FirestoreManager.shared) {
+//        self.engine = engine
+//    }
+    init() {}
 
     func startCam(delegate: AVCaptureMetadataOutputObjectsDelegate, completion: @escaping (Error?) -> Void) {
         self.captureDelegate = delegate
@@ -84,10 +85,9 @@ final class CameraModelImpl: CameraModel {
         session.stopRunning()
     }
 
-    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<ProductItem?, FirestoreError>) -> Void) {
+    func queryWithObjects(_ objects: [AVMetadataObject], completion: @escaping (Result<Prod?, NetworkError>) -> Void) {
         guard let obj = objects.first as? AVMetadataMachineReadableCodeObject,
-            let objStringValue = obj.stringValue else { return
-        }
-        engine.queryFromProduct(barcode: objStringValue, completion: completion)
+            let objStringValue = obj.stringValue else { return }
+        ServiceLayer.request(router: Router.getProductFromBarcode(barcode: objStringValue), completion: completion)
     }
 }

@@ -23,7 +23,7 @@ final class ProductIndexModelImpl: ProductIndexModel {
             case .failure(let err):
                 completion(.failure(err))
             case .success(let prods):
-                let dataModel = ProductIndexDataModel(brand: vendor, productItems: prods)
+                let dataModel = ProductIndexDataModel(vendor: vendor, prods: prods)
                 completion(.success(dataModel))
             }
         }

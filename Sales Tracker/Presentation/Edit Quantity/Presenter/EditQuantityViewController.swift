@@ -43,7 +43,7 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
         }
     }
     func didTapEditButton(item: SoldProd, count: Int) {
-        guard let sku = item.prod.sku else { return }
+        let sku = item.prod.sku
         SVProgressHUD.show()
         if count == 0 {
             engine.deleteSaleEntry(sku: sku) { result in
