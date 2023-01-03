@@ -95,7 +95,7 @@ enum Vendor {
         }
     }
 
-    var officialBrandName: String {
+    var officialVendorName: String {
         switch self {
         case .testBrand:
             return "Test Brand"
@@ -120,7 +120,7 @@ enum Vendor {
         }
     }
 
-    var brandColor: UIColor {
+    var vendorColor: UIColor {
         switch self {
         case .testBrand:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
@@ -145,7 +145,7 @@ enum Vendor {
         }
     }
 
-    var brandLogoUrl: String {
+    var vendorLogoUrl: String {
         switch self {
         case .testBrand:
             return "https://user-images.githubusercontent.com/1567433/114792417-57c1d080-9d56-11eb-8035-dc07cfd7557f.png"
