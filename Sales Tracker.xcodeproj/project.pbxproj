@@ -21,7 +21,7 @@
 		E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8F290E4B0D0056546E /* CameraViewController.swift */; };
 		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
 		E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A93290E4EA90056546E /* UIAlertController+.swift */; };
-		E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* FirestoreError.swift */; };
+		E9526A97290E59AD0056546E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* NetworkError.swift */; };
 		E9526A9D290F7AB90056546E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A9C290F7AB90056546E /* LoginView.swift */; };
 		E9526A9F290F7AC50056546E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A9E290F7AC50056546E /* LoginView.xib */; };
 		E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA0290F7AD70056546E /* LoginViewController.swift */; };
@@ -132,7 +132,7 @@
 		E9526A8F290E4B0D0056546E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E9526A93290E4EA90056546E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
-		E9526A96290E59AD0056546E /* FirestoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreError.swift; sourceTree = "<group>"; };
+		E9526A96290E59AD0056546E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E9526A9C290F7AB90056546E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9526A9E290F7AC50056546E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		E9526AA0290F7AD70056546E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 			children = (
 				E99172C9294C770A002F6272 /* NetworkEngine.swift */,
 				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
-				E9526A96290E59AD0056546E /* FirestoreError.swift */,
+				E9526A96290E59AD0056546E /* NetworkError.swift */,
 				E9526AA4290F89F60056546E /* AuthError.swift */,
 			);
 			path = Firestore;
@@ -1056,7 +1056,7 @@
 				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
 				E9526AA9290FB67D0056546E /* Hello.swift in Sources */,
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
-				E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */,
+				E9526A97290E59AD0056546E /* NetworkError.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
 				E9526AAB290FBAB00056546E /* Date+.swift in Sources */,
 				E9A43323295EB37F00CA9048 /* Router.swift in Sources */,

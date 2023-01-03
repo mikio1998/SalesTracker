@@ -1,5 +1,5 @@
 //
-//  FirestoreError.swift
+//  NetworkError.swift
 //  Sales Tracker
 //
 //  Created by Mikio Nakata on 2022/10/30.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FirestoreError: Error {
+enum NetworkError: Error {
     case getError
     case setError
     case updateError

@@ -14,7 +14,7 @@ class SalesHistoryViewModel {
 
     var presentAlert: (() -> Void)?
 
-    var showNoResults: ((FirestoreError?) -> Void)?
+    var showNoResults: ((NetworkError?) -> Void)?
 
     var presentEditQuantityVC: ((_ product: SoldProductItem) -> Void)?
 

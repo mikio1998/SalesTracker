@@ -22,7 +22,7 @@ class FirestoreManager: NetworkEngine {
     // Should work?
     // MARK: Get Sales Collection
     // SoldProductItem
-    func getSoldProductItems(completion: @escaping (Result<[Prod], FirestoreError>) -> Void) {
+    func getSoldProductItems(completion: @escaping (Result<[Prod], NetworkError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track")
         path.getDocuments { _snapshot, err in
@@ -74,12 +74,12 @@ class FirestoreManager: NetworkEngine {
     private static func queryForProductOrReturnNew(product: Prod) async throws -> SoldProd {
         let db = Firestore.firestore()
         guard let sku = product.sku else {
-            throw FirestoreError.getError }
+            throw NetworkError.getError }
         let path = db.collection("sales track").document(sku)
         let prod: SoldProd = try await withCheckedThrowingContinuation({ continuation in
             path.getDocument { _snapshot, err in
                 if err != nil {
-                    continuation.resume(throwing: FirestoreError.getError)
+                    continuation.resume(throwing: NetworkError.getError)
                     return
                 } else {
                     if let snapshot = _snapshot, snapshot.exists { // *Already in sales track.*
@@ -87,7 +87,7 @@ class FirestoreManager: NetworkEngine {
                             let item = try snapshot.data(as: SoldProd.self)
                             continuation.resume(returning: item)
                         } catch {
-                            continuation.resume(throwing: FirestoreError.decodingError)
+                            continuation.resume(throwing: NetworkError.decodingError)
                         }
                     } else { // *New to sales track*
                         let newItem = SoldProd(prod: product, quantity: 0)
@@ -112,7 +112,7 @@ class FirestoreManager: NetworkEngine {
         }
     }
 
-    func soldAnItem(product: Prod, quantitySold: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) async {
+    func soldAnItem(product: Prod, quantitySold: Int, completion: @escaping (Result<(), NetworkError>) -> Void) async {
         do {
             var queryProduct = try await FirestoreManager.queryForProductOrReturnNew(product: product)
             queryProduct.quantity += quantitySold
@@ -124,7 +124,7 @@ class FirestoreManager: NetworkEngine {
     }
 
     // MARK: Delete Sale
-    func deleteSaleEntry(sku: String, completion: @escaping (Result<(), FirestoreError>) -> Void) {
+    func deleteSaleEntry(sku: String, completion: @escaping (Result<(), NetworkError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(sku)
         path.delete { err in
@@ -137,7 +137,7 @@ class FirestoreManager: NetworkEngine {
     }
 
     // MARK: Update sale item count
-    func updateSaleCountForItem(sku: String, newCount: Int, completion: @escaping (Result<(), FirestoreError>) -> Void) {
+    func updateSaleCountForItem(sku: String, newCount: Int, completion: @escaping (Result<(), NetworkError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track").document(sku)
         path.updateData(["quantity": newCount]) { err in
