@@ -10,7 +10,7 @@ import SVProgressHUD
 
 protocol EditQuantityPresenterLike: AnyObject {
     func dismissPresenter(animated: Bool)
-    func didTapEditButton(item: SoldProductItem, count: Int)
+    func didTapEditButton(item: SoldProd, count: Int)
 }
 
 final class EditQuantityViewController: UIViewController {
@@ -18,7 +18,7 @@ final class EditQuantityViewController: UIViewController {
     private let salesHistoryDelegate: SalesHistoryViewControllerDelegate
     // MARK: TODO model
     private let engine: NetworkEngine
-    init(soldItem: SoldProductItem, salesHistoryDelegate: SalesHistoryViewControllerDelegate, engine: NetworkEngine = FirestoreManager.shared) {
+    init(soldItem: SoldProd, salesHistoryDelegate: SalesHistoryViewControllerDelegate, engine: NetworkEngine = FirestoreManager.shared) {
         self.viewContainer = EditQuantityView(soldItem: soldItem)
         self.salesHistoryDelegate = salesHistoryDelegate
         self.engine = engine
@@ -42,11 +42,11 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
             self.salesHistoryDelegate.reloadData()
         }
     }
-    func didTapEditButton(item: SoldProductItem, count: Int) {
-        guard let id = item.id else { return }
+    func didTapEditButton(item: SoldProd, count: Int) {
+        guard let sku = item.prod.sku else { return }
         SVProgressHUD.show()
         if count == 0 {
-            engine.deleteSaleEntry(id: id) { result in
+            engine.deleteSaleEntry(sku: sku) { result in
                 SVProgressHUD.dismiss()
                 switch result {
                 case .failure(let fireErr):
@@ -61,7 +61,7 @@ extension EditQuantityViewController: EditQuantityPresenterLike {
                 }
             }
         } else {
-            engine.updateSaleCountForItem(id: id, newCount: count) { result in
+            engine.updateSaleCountForItem(sku: sku, newCount: count) { result in
                 SVProgressHUD.dismiss()
                 switch result {
                 case .failure(let fireErr):
