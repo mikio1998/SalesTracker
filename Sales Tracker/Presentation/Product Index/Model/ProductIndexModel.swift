@@ -21,21 +21,11 @@ final class ProductIndexModelImpl: ProductIndexModel {
         ProductsListDataManager.loadVendorList(vendor: vendor) { result in
             switch result {
             case .failure(let err):
-                completion(err)
+                completion(.failure(err))
             case .success(let prods):
                 let dataModel = ProductIndexDataModel(brand: vendor, productItems: prods)
                 completion(.success(dataModel))
             }
         }
-
-//        engine.getProductItems(forBrand: brand) { result in
-//            switch result {
-//            case .failure(let fireErr):
-//                completion(.failure(fireErr))
-//            case .success(let productItems):
-//                let dataModel = ProductIndexDataModel(brand: brand, productItems: productItems)
-//                completion(.success(dataModel))
-//            }
-//        }
     }
 }
