@@ -21,6 +21,9 @@ import FirebaseFirestoreSwift
 //    }
 //}
 
+// Left off here
+//  Make the backend w/ firestore work.
+
 struct Prods: Codable {
     let data: [String: Prod]
     enum CodingKeys: String, CodingKey {
@@ -35,6 +38,7 @@ struct Prod: Codable {
     let size: String
     let color: String
     let url: String
+    let sku: String
 }
 
 
