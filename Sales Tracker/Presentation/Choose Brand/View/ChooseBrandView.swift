@@ -14,7 +14,7 @@ protocol ChooseBrandViewLike: ViewContainer {
 
 final class ChooseBrandView: XibView {
     weak var presenterLike: ChooseBrandPresenterLike?
-    private var pickerList: [Brand]
+    private var pickerList: [Vendor]
     @IBOutlet weak var slideIndicator: UIView!
     @IBOutlet weak var pickerView: UIPickerView! {
         didSet {
@@ -24,7 +24,7 @@ final class ChooseBrandView: XibView {
     }
     @IBOutlet weak var switchButton: UIView!
 
-    init(list: [Brand]) {
+    init(list: [Vendor]) {
         self.pickerList = list
         super.init(frame: .zero)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))

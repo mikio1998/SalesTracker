@@ -1,5 +1,5 @@
 //
-//  Brand.swift
+//  Vendor.swift
 //  Sales Tracker
 //
 //  Created by Mikio Nakata on 2022/10/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Brand {
+enum Vendor {
     case testBrand
     case alphaIndustries
     case avirex

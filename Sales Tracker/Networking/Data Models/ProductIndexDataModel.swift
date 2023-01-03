@@ -12,9 +12,9 @@ import UIKit
 typealias ProductIndexSnapshot = NSDiffableDataSourceSnapshot<Int, ProductIndexCollectionSnapshotDataModel>
 
 struct ProductIndexDataModel {
-    let brand: Brand
+    let brand: Vendor
     var productIndexSnapshot: ProductIndexSnapshot
-    init(brand: Brand, productItems: [ProductItem]) {
+    init(brand: Vendor, productItems: [ProductItem]) {
         self.brand = brand
         self.productIndexSnapshot = ProductIndexSnapshot()
         self.productIndexSnapshot.appendSections([0])
@@ -41,7 +41,7 @@ struct ProductIndexDataModel {
 }
 
 struct ProductIndexCollectionSnapshotDataModel: Hashable {
-    let brand: Brand
+    let brand: Vendor
     let name: String
     let price: String
     let variants: [ProductItem]

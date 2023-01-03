@@ -11,7 +11,7 @@ import Foundation
 final class ProductsListDataManager {
     static let shared = ProductsListDataManager()
 
-    // Cache
+    // Caches
     private var allData: Prods?
     private var alphaData: Prods?
     private var avirexData: Prods?
@@ -39,8 +39,7 @@ final class ProductsListDataManager {
         }
     }
 
-    static func loadVendorList(reload: Bool = false, vendor: Brand, completion: @escaping (Result<Prods, Error>) -> Void) {
-        // Non-caching
+    static func loadVendorList(reload: Bool = false, vendor: Vendor, completion: @escaping (Result<Prods, Error>) -> Void) {
         let dataSource: Prods? = {
             switch vendor {
             case .testBrand:
@@ -76,17 +75,6 @@ final class ProductsListDataManager {
         } else {
             ServiceLayer.request(router: Router.getProductsList(vendor: vendor.vendorName), completion: completion)
         }
-
-//        Caching
-//        guard let data = Self.shared.data else {
-//            loadList { _ in
-//                // If theres no data, call loadList.
-//                loadVendorList(vendor: vendor, completion: completion)
-//            }
-//            return
-//        }
-//        // Sort brand from Prods (todo).
-
     }
 
 }

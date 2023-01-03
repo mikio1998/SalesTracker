@@ -9,7 +9,7 @@ import Foundation
 @testable import Sales_Tracker
 
 class MockFirestoreManager: NetworkEngine {
-    func getProductItems(forBrand brand: Brand, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
+    func getProductItems(forBrand brand: Vendor, completion: @escaping (Result<[ProductItem], FirestoreError>) -> Void) {
         let items: [ProductItem] = [ProductItem.mock1()]
         completion(.success(items))
     }

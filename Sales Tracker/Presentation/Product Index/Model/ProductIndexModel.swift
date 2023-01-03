@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProductIndexModel {
-    func loadDataModel(brand: Brand, completion: @escaping (Result<ProductIndexDataModel, FirestoreError>) -> Void)
+    func loadDataModel(brand: Vendor, completion: @escaping (Result<ProductIndexDataModel, FirestoreError>) -> Void)
 }
 
 final class ProductIndexModelImpl: ProductIndexModel {
@@ -17,7 +17,7 @@ final class ProductIndexModelImpl: ProductIndexModel {
         self.engine = engine
     }
 
-    func loadDataModel(brand: Brand, completion: @escaping (Result<ProductIndexDataModel, FirestoreError>) -> Void) {
+    func loadDataModel(brand: Vendor, completion: @escaping (Result<ProductIndexDataModel, FirestoreError>) -> Void) {
         engine.getProductItems(forBrand: brand) { result in
             switch result {
             case .failure(let fireErr):

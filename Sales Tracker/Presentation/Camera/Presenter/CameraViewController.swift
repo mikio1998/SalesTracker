@@ -60,7 +60,7 @@ extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate {
                 print("err", fireErr)
                 // TODO: show error on presenter.
             case .success(let productItem):
-                let model = ProductIndexCollectionSnapshotDataModel(brand: Brand(name: productItem!.brand), name: productItem!.name, price: productItem!.price, variants: [productItem!])
+                let model = ProductIndexCollectionSnapshotDataModel(brand: Vendor(name: productItem!.brand), name: productItem!.name, price: productItem!.price, variants: [productItem!])
                 let productSelectVC = ProductSelectViewController(productData: model)
                 productSelectVC.modalPresentationStyle = .custom
                 productSelectVC.transitioningDelegate = self

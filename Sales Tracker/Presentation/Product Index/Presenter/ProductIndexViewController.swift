@@ -14,7 +14,7 @@ protocol ProductIndexPresenterLike: AnyObject {
 }
 
 protocol ProductIndexViewControllerDelegate: AnyObject {
-    func reloadIndex(forBrand brand: Brand)
+    func reloadIndex(forBrand brand: Vendor)
 }
 
 class ProductIndexViewController: UIViewController {
@@ -48,7 +48,7 @@ class ProductIndexViewController: UIViewController {
         loadData(brand: Const.brandList[0])
     }
 
-    private func loadData(brand: Brand) {
+    private func loadData(brand: Vendor) {
         SVProgressHUD.show()
         model.loadDataModel(brand: brand) { result in
             SVProgressHUD.dismiss()
@@ -85,7 +85,7 @@ extension ProductIndexViewController: ProductIndexPresenterLike {
 }
 
 extension ProductIndexViewController: ProductIndexViewControllerDelegate {
-    func reloadIndex(forBrand brand: Brand) {
+    func reloadIndex(forBrand brand: Vendor) {
         self.loadData(brand: brand)
     }
 }
@@ -98,6 +98,6 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
 
 extension ProductIndexViewController {
     private enum Const {
-        static let brandList: [Brand] = [Brand.alphaIndustries, Brand.avirex, Brand.helikonTex, Brand.houston, Brand.sessler, Brand.truSpec, Brand.valleyApparel, Brand.cockpit, Brand.usSurplus]
+        static let brandList: [Vendor] = [Vendor.alphaIndustries, Vendor.avirex, Vendor.helikonTex, Vendor.houston, Vendor.sessler, Vendor.truSpec, Vendor.valleyApparel, Vendor.cockpit, Vendor.usSurplus]
     }
 }
