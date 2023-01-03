@@ -14,7 +14,7 @@ protocol ProductIndexPresenterLike: AnyObject {
 }
 
 protocol ProductIndexViewControllerDelegate: AnyObject {
-    func reloadIndex(forBrand brand: Vendor)
+    func reloadIndex(forVendor vendor: Vendor)
 }
 
 class ProductIndexViewController: UIViewController {
@@ -45,12 +45,12 @@ class ProductIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
-        loadData(brand: Const.brandList[0])
+        loadData(vendor: Const.vendorList[0])
     }
 
-    private func loadData(brand: Vendor) {
+    private func loadData(vendor: Vendor) {
         SVProgressHUD.show()
-        model.loadDataModel(brand: brand) { result in
+        model.loadDataModel(vendor: vendor) { result in
             SVProgressHUD.dismiss()
             switch result {
             case .failure(let fireErr):
@@ -59,7 +59,7 @@ class ProductIndexViewController: UIViewController {
                     .show(fromVC: self)
                 self.viewContainer.noResults(error: fireErr)
             case .success(let dataModel):
-                self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.vendorLogoUrl)
+                self.viewContainer.setTitleAndImage(dataModel.vendor.officialVendorName, imageUrl: dataModel.vendor.vendorLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)
                 self.data = dataModel
             }
@@ -69,7 +69,7 @@ class ProductIndexViewController: UIViewController {
 
 extension ProductIndexViewController: ProductIndexPresenterLike {
     func didTapListButton() {
-        let chooseBrandVC = ChooseBrandViewController(list: Const.brandList, productIndexDelegate: self)
+        let chooseBrandVC = ChooseBrandViewController(list: Const.vendorList, productIndexDelegate: self)
         chooseBrandVC.modalPresentationStyle = .custom
         chooseBrandVC.transitioningDelegate = self
         self.present(chooseBrandVC, animated: true, completion: nil)
@@ -85,8 +85,8 @@ extension ProductIndexViewController: ProductIndexPresenterLike {
 }
 
 extension ProductIndexViewController: ProductIndexViewControllerDelegate {
-    func reloadIndex(forBrand brand: Vendor) {
-        self.loadData(brand: brand)
+    func reloadIndex(forVendor vendor: Vendor) {
+        self.loadData(vendor: vendor)
     }
 }
 
@@ -98,6 +98,6 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
 
 extension ProductIndexViewController {
     private enum Const {
-        static let brandList: [Vendor] = [Vendor.alphaIndustries, Vendor.avirex, Vendor.helikonTex, Vendor.houston, Vendor.sessler, Vendor.truSpec, Vendor.valleyApparel, Vendor.cockpit, Vendor.usSurplus]
+        static let vendorList: [Vendor] = [Vendor.alphaIndustries, Vendor.avirex, Vendor.helikonTex, Vendor.houston, Vendor.sessler, Vendor.truSpec, Vendor.valleyApparel, Vendor.cockpit, Vendor.usSurplus]
     }
 }
