@@ -11,17 +11,18 @@ enum Router {
     case getProduct(handle: String)
     case getSoldProducts
     case postSoldProduct(product: Prod)
+    case getProductFromBarcode(barcode: String)
 
     var scheme: String {
         switch self {
-        case .getProductsList, .getProduct, .getSoldProducts, .postSoldProduct:
+        case .getProductsList, .getProduct, .getSoldProducts, .postSoldProduct, .getProductFromBarcode:
             return "https"
         }
     }
 
     var host: String {
         switch self {
-        case .getProductsList, .getProduct, .getSoldProducts, .postSoldProduct:
+        case .getProductsList, .getProduct, .getSoldProducts, .postSoldProduct, .getProductFromBarcode:
             return "nakata-72f8a.appspot.com"
         }
     }
@@ -36,6 +37,8 @@ enum Router {
             return "/soldproducts"
         case .postSoldProduct:
             return "/soldproducts"
+        case .getProductFromBarcode:
+            return "/barcode"
         }
     }
 
@@ -58,12 +61,14 @@ enum Router {
                     URLQueryItem(name: "url", value: vendor),
                     URLQueryItem(name: "quantity", value: vendor)
             ]
+        case .getProductFromBarcode(let barcode):
+            return [URLQueryItem(name: "barcode", value: barcode)]
         }
     }
 
     var method: String {
         switch self {
-        case .getProductsList, .getProduct, .getSoldProducts:
+        case .getProductsList, .getProduct, .getSoldProducts, .getProductFromBarcode:
             return "GET"
         case .postSoldProduct(_):
             return "POST"
