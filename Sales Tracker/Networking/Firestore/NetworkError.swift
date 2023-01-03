@@ -13,6 +13,8 @@ enum NetworkError: Error {
     case updateError
     case deleteError
     case decodingError
+    case responseError
+    case general
 
     var message: String {
         switch self {
@@ -25,7 +27,11 @@ enum NetworkError: Error {
         case .deleteError:
             return "Error deleting document."
         case .decodingError:
-            return "Error decoding document data."
+            return "Error decoding data."
+        case .responseError:
+            return "Error obtaining api response."
+        case .general:
+            return "Networking error has occured."
         }
     }
 }

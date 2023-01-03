@@ -26,7 +26,7 @@ final class ProductsListDataManager {
     private init() {}
 
     // Fetch cache, or perform request.
-    static func loadList(reload: Bool = false, completion: @escaping (Result<Prods, Error>) -> Void) {
+    static func loadList(reload: Bool = false, completion: @escaping (Result<Prods, NetworkError>) -> Void) {
         if Self.shared.allData != nil && reload == false {
             guard let data = Self.shared.allData else {
                 // If reload is false but no data, force a reload.
@@ -39,7 +39,7 @@ final class ProductsListDataManager {
         }
     }
 
-    static func loadVendorList(reload: Bool = false, vendor: Vendor, completion: @escaping (Result<Prods, Error>) -> Void) {
+    static func loadVendorList(reload: Bool = false, vendor: Vendor, completion: @escaping (Result<Prods, NetworkError>) -> Void) {
         let dataSource: Prods? = {
             switch vendor {
             case .testBrand:
