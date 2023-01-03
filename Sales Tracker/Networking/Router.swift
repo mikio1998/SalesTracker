@@ -6,7 +6,7 @@
 //
 import Foundation
 
-// Sold Products handled w/ Firestore
+// Sold Products are handled w/ Firestore
 enum Router {
     case getProductsList(vendor: String?)
     case getProduct(handle: String)
