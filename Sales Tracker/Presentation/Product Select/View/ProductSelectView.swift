@@ -34,8 +34,8 @@ final class ProductSelectView: XibView {
         self.data = data
         guard let first = data.variants.first else { return }
         self.titleLabel.text = data.name
-        self.priceAndCodeLabel.text = "\(first.productNum) ｜ ¥\(data.price)"
-        self.imageView.loadImage(with: first.imageUrl)
+        self.priceAndCodeLabel.text = "\(first.sku) ｜ ¥\(data.price)"
+        self.imageView.loadImage(with: first.url)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         self.addGestureRecognizer(panGesture)
         slideIndicator.roundCorners(for: .allCorners, radius: Const.slideIndicatorCornerRadius)
@@ -81,22 +81,19 @@ final class ProductSelectView: XibView {
 
         let selectedColor: String = data.variants.getNthColor(n: colorRow)
         let selectedImage: String = data.variants.getNthImg(n: colorRow)
-        let selectedProductNum: String = data.variants.getNthProductNum(n: colorRow)
         let selectedSize: String = data.variants.getNthSize(n: sizeRow)
         let selectedQuantity: Int = quantityRow + 1
-        let selectedId: String? = data.variants.searchVariantDocumentIdFor(color: selectedColor, size: selectedSize)
-        let selectedBarcodes: [String] = data.variants.searchVariantBarcodesFor(color: selectedColor, size: selectedSize)
+        let selectedSKU: String = data.variants.searchVariantSKUFor(color: selectedColor, size: selectedSize)
 
-        let item: ProductItem = ProductItem(
-            id: selectedId,
-            brand: data.brand.officialBrandName,
+        let item: Prod = Prod(
             name: data.name,
+            vendor: data.brand.vendorName,
             price: data.price,
-            color: selectedColor,
             size: selectedSize,
-            imageUrl: selectedImage,
-            productNum: selectedProductNum,
-            barcodes: selectedBarcodes)
+            color: selectedColor,
+            url: selectedImage,
+            sku: selectedSKU)
+
         presenterLike?.didTapAddButton(item: item, quantity: selectedQuantity)
     }
 }

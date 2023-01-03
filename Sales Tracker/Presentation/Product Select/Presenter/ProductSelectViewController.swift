@@ -8,9 +8,11 @@
 import UIKit
 import SVProgressHUD
 
+// left off here, just refactoring thru the project...
+
 protocol ProductSelectPresenterLike: AnyObject {
     func dismissPresenter(animated: Bool)
-    func didTapAddButton(item: ProductItem, quantity: Int)
+    func didTapAddButton(item: Prod, quantity: Int)
 }
 
 final class ProductSelectViewController: UIViewController {
@@ -40,7 +42,7 @@ final class ProductSelectViewController: UIViewController {
     }
 }
 extension ProductSelectViewController: ProductSelectPresenterLike {
-    func didTapAddButton(item: ProductItem, quantity: Int) {
+    func didTapAddButton(item: Prod, quantity: Int) {
         SVProgressHUD.show()
         Task {
             await engine.soldAnItem(product: item, quantitySold: quantity, completion: { result in
