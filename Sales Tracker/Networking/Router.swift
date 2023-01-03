@@ -7,10 +7,10 @@
 import Foundation
 
 enum Router {
-    case getProductsList(_ vendor: String?)
-    case getProduct(_ handle: String)
+    case getProductsList(vendor: String?)
+    case getProduct(handle: String)
     case getSoldProducts
-    case postSoldProduct(_ product: Prod)
+    case postSoldProduct(product: Prod)
 
     var scheme: String {
         switch self {
@@ -70,12 +70,3 @@ enum Router {
         }
     }
 }
-
-//ServiceLayer.request(router: Router.getProduct("alpha-leatherjacket-cwu45p-black")) { (result: Result<Prod, Error>) in
-//    switch result {
-//    case .success(let success):
-//        print("suc", success)
-//    case .failure(let err):
-//        print("err", err)
-//    }
-//}
