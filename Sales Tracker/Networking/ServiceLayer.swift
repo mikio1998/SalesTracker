@@ -1,12 +1,12 @@
 //
-//  NetworkingClient.swift
+//  ServiceLayer.swift
 //  Sales Tracker
 //
 //  Created by Mikio Nakata on 2022/12/29.
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
 class ServiceLayer {
     class func request<T: Codable>(router: Router, completion: @escaping (Result<T, Error>) -> Void) {

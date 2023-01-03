@@ -38,6 +38,7 @@
 		E96362D628FE77AA00C6F3CD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362D528FE77AA00C6F3CD /* ViewContainer.swift */; };
 		E970671829122AA500FDD1D7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970671629122AA500FDD1D7 /* SettingsTableViewCell.swift */; };
 		E970671929122AA500FDD1D7 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */; };
+		E9849F862963E4DE00C7DADD /* ProductsListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */; };
 		E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9898B0A2913A052000F2622 /* ProductSelectModel.swift */; };
 		E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E246D291653BD00CFFC18 /* CameraModel.swift */; };
 		E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */; };
@@ -63,7 +64,7 @@
 		E9A3AC6D2910B5620065460C /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6C2910B5610065460C /* SettingsView.xib */; };
 		E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC6E2910B5710065460C /* SettingsViewController.swift */; };
 		E9A3AC712910B5710065460C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6F2910B5710065460C /* SettingsViewController.xib */; };
-		E9A43321295D50F400CA9048 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43320295D50F400CA9048 /* NetworkingClient.swift */; };
+		E9A43321295D50F400CA9048 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43320295D50F400CA9048 /* ServiceLayer.swift */; };
 		E9A43323295EB37F00CA9048 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43322295EB37F00CA9048 /* Router.swift */; };
 		E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE3472909530A001693F8 /* ChooseBrandView.swift */; };
 		E9CFE34A29095312001693F8 /* ChooseBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE34929095312001693F8 /* ChooseBrandView.xib */; };
@@ -148,6 +149,7 @@
 		E96362D528FE77AA00C6F3CD /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		E970671629122AA500FDD1D7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListDataManager.swift; sourceTree = "<group>"; };
 		E9898B0A2913A052000F2622 /* ProductSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectModel.swift; sourceTree = "<group>"; };
 		E98E246D291653BD00CFFC18 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryCellViewModel.swift; sourceTree = "<group>"; };
@@ -172,7 +174,7 @@
 		E9A3AC6C2910B5610065460C /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		E9A3AC6E2910B5710065460C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E9A3AC6F2910B5710065460C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		E9A43320295D50F400CA9048 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
+		E9A43320295D50F400CA9048 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		E9A43322295EB37F00CA9048 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E9CFE3472909530A001693F8 /* ChooseBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandView.swift; sourceTree = "<group>"; };
 		E9CFE34929095312001693F8 /* ChooseBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseBrandView.xib; sourceTree = "<group>"; };
@@ -467,7 +469,8 @@
 		E982B6A928FAECBB006BB72C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E9A43320295D50F400CA9048 /* NetworkingClient.swift */,
+				E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */,
+				E9A43320295D50F400CA9048 /* ServiceLayer.swift */,
 				E9A43322295EB37F00CA9048 /* Router.swift */,
 				E9526A95290E59990056546E /* Firestore */,
 				E99C65A82903B7EA0049E00D /* Entities */,
@@ -1091,9 +1094,10 @@
 				E9526A8C290E49F10056546E /* CameraView.swift in Sources */,
 				E9DB17FF29025A1B006CF900 /* ProductIndexDataModel.swift in Sources */,
 				E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */,
+				E9849F862963E4DE00C7DADD /* ProductsListDataManager.swift in Sources */,
 				E932778228FAA9A700EA9E40 /* SceneDelegate.swift in Sources */,
 				E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */,
-				E9A43321295D50F400CA9048 /* NetworkingClient.swift in Sources */,
+				E9A43321295D50F400CA9048 /* ServiceLayer.swift in Sources */,
 				E9DB17DD28FFAE2B006CF900 /* ProductIndexNavigator.swift in Sources */,
 				E99172C8294C6DEE002F6272 /* FirestoreManager.swift in Sources */,
 				E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */,

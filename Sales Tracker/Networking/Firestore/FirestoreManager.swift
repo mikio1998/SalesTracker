@@ -47,7 +47,7 @@ class FirestoreManager: NetworkEngine {
 //        }
 //    }
 
-    // KEEP
+    // Rework: Get {
     // MARK: Get Sales Collection
     // SoldProductItem
     func getSoldProductItems(completion: @escaping (Result<[Prod], FirestoreError>) -> Void) {
