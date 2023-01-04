@@ -91,9 +91,12 @@ class SalesHistoryViewModel {
     }
 
     func didSelectDeleteFor(_ indexPath: IndexPath) {
-        guard indexPath.row < salesHistoryCellViewModels.count else { return }
+        guard indexPath.row < salesHistoryCellViewModels.count else {
+            self.alert = ("失敗", "Internal Error.")
+            return
+        }
         let productSKU = salesHistoryCellViewModels[indexPath.row].soldProductItem.prod.sku
-
+        print(productSKU)
         engine.deleteSaleEntry(sku: productSKU) { [weak self] result in
             switch result {
             case .failure(let fireErr):
