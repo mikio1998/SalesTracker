@@ -466,12 +466,20 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		E982B6A928FAECBB006BB72C /* Networking */ = {
+		E977DD7429655EDC009F8DD3 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */,
 				E9A43320295D50F400CA9048 /* ServiceLayer.swift */,
 				E9A43322295EB37F00CA9048 /* Router.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E982B6A928FAECBB006BB72C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E977DD7429655EDC009F8DD3 /* API */,
 				E9526A95290E59990056546E /* Firestore */,
 				E99C65A82903B7EA0049E00D /* Entities */,
 				E99C65A92903B8750049E00D /* Data Models */,

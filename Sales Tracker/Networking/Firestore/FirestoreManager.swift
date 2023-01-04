@@ -19,9 +19,7 @@ class FirestoreManager: NetworkEngine {
 
     private init() {}
 
-    // Should work?
     // MARK: Get Sales Collection
-    // SoldProductItem
     func getSoldProductItems(completion: @escaping (Result<[SoldProd], NetworkError>) -> Void) {
         let db = Firestore.firestore()
         let path = db.collection("sales track")
@@ -44,33 +42,7 @@ class FirestoreManager: NetworkEngine {
         }
     }
 
-    // Barcode request handled by Flask Restful
-    // ProductItem
-//    func queryFromProduct(barcode: String, completion: @escaping (Result<Prod?, FirestoreError>) -> Void) {
-//        let db = Firestore.firestore()
-//        let query = db.collection("products").whereField("barcodes", arrayContains: barcode)
-//        query.getDocuments { _snapshot, err in
-//            if err != nil {
-//                completion(.failure(.getError))
-//            } else {
-//                if let snapshot = _snapshot {
-//                    let products = snapshot.documents.compactMap {
-//                        return try? $0.data(as: Prod.self)
-//                    }
-//                    if let first = products.first {
-//                        completion(.success(first))
-//                    } else {
-//                        completion(.success(nil))
-//                    }
-//                } else {
-//                    completion(.failure(.getError))
-//                }
-//            }
-//        }
-//    }
-
     // MARK: Search sales by id (if already sold).
-    // ProductItem
     private static func queryForProductOrReturnNew(product: Prod) async throws -> SoldProd {
         let db = Firestore.firestore()
         let sku = product.sku
@@ -105,7 +77,7 @@ class FirestoreManager: NetworkEngine {
         let sku = product.prod.sku
         let path = db.collection("sales track").document(sku)
         do {
-            try path.setData(from: product) // MARK: Try as SoldProd, if not work change data struct.
+            try path.setData(from: product)
         } catch let error {
             print(error)
         }
