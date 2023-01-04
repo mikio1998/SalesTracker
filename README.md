@@ -11,25 +11,32 @@ For the english translation please refer to this link. (https://mikio1998.github
 ## 環境
 ・MacbookPro M1 version.12.4  
 ・Swift 5  
+・Python 3.8 
 ・Xcode ver.14.1  
+・Spyder ver.4.1.5 
 実機  
 ・iPhone11 Pro iOS 15.3
 
 ## Tech Stack
-・Firebase  
-・Firebase/Auth  
-・Firebase/Firestore  
-・FirebaseFirestoreSwift  
 ・SVProgressHUD  
 ・Nuke  
 ・AVFoundation  
 ・XCTest  
 ・SwiftLint  
+バックエンド  
+・Flask  
+・GCP (Google Cloud)   
+・Firebase  
+・Firebase/Auth  
+・Firebase/Firestore  
+・FirebaseFirestoreSwift  
+
 
 
 ## 工夫している点
 コードベースの全体はMVPで作りましたが、リアクティブプログラミングを試したかったので、そのためにアプリの一部をMVPからMVVMにリファクタを試みました (Sales Tracker画面辺りです)。
-アプリの規模が拡大し、ステートが頻繁に変わる画面では、MVPよりMVVM+バインディングが有利になると感じました。
+アプリの規模が拡大し、ステートが頻繁に変わる画面では、MVPよりMVVM+バインディングが有利になると感じました。  
+FlaskとPythonを使用し、Web (Shopify)側でも使用されるcsvファイルのデータをAPIから取得できるようにしました。CSVを使用することで、ウェブとモバイルのデータの管理が一元化した。  
 
 ## 機能一覧
 #### ユーザーログイン  
