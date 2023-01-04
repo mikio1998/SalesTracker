@@ -11,7 +11,7 @@ For the english translation please refer to this link. (https://mikio1998.github
 ## 環境
 ・MacbookPro M1 version.12.4  
 ・Swift 5  
-・Python 3.8 
+・Python 3.8  
 ・Xcode ver.14.1  
 ・Spyder ver.4.1.5  
 ・Postman ver.9.31.26  
