@@ -14,6 +14,7 @@ For the english translation please refer to this link. (https://mikio1998.github
 ・Python 3.8 
 ・Xcode ver.14.1  
 ・Spyder ver.4.1.5 
+・Postman ver.9.31.26
 実機  
 ・iPhone11 Pro iOS 15.3
 
