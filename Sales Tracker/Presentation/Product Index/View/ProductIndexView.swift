@@ -14,7 +14,7 @@ protocol ProductIndexViewLike: ViewContainer {
     var presenterLike: ProductIndexPresenterLike? { get set }
     func setTitleAndImage(_ title: String, imageUrl: String)
     func setSnapshot(_ snapshot: ProductIndexSnapshot)
-    func noResults(error: FirestoreError?)
+    func noResults(error: NetworkError?)
 }
 
 final class ProductIndexView: XibView {
@@ -82,11 +82,13 @@ extension ProductIndexView: ProductIndexViewLike {
         dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
     }
 
-    func noResults(error: FirestoreError?) {
-        collectionView.alpha = 0
-        noResultsView.alpha = 1
-        noResultLabel.alpha = 1
-        noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
+    func noResults(error: NetworkError?) {
+        DispatchQueue.main.async {
+            self.collectionView.alpha = 0
+            self.noResultsView.alpha = 1
+            self.noResultLabel.alpha = 1
+            self.noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
+        }
     }
 
     func showCollection() {

@@ -12,26 +12,20 @@ import UIKit
 typealias ProductIndexSnapshot = NSDiffableDataSourceSnapshot<Int, ProductIndexCollectionSnapshotDataModel>
 
 struct ProductIndexDataModel {
-    let brand: Brand
+    let vendor: Vendor
     var productIndexSnapshot: ProductIndexSnapshot
-    init(brand: Brand, productItems: [ProductItem]) {
-        self.brand = brand
+    init(vendor: Vendor, prods: Prods) {
+        self.vendor = vendor
         self.productIndexSnapshot = ProductIndexSnapshot()
         self.productIndexSnapshot.appendSections([0])
-        var variants = [String: [ProductItem]]()
-        for item in productItems {
-            guard item.id != nil else { continue }
-            if variants.contains(where: { $0.key == item.name }) {
-                variants[item.name]?.append(item)
-            } else {
-                variants[item.name] = [item]
-            }
-        }
+
+        let variants = prods.data
+
         var models = [ProductIndexCollectionSnapshotDataModel]()
         for variant in variants {
             let model = ProductIndexCollectionSnapshotDataModel(
-                brand: brand,
-                name: variant.key,
+                brand: vendor,
+                name: variant.value.first?.name ?? variant.key,
                 price: variant.value.first?.price ?? "",
                 variants: variant.value)
             models.append(model)
@@ -41,18 +35,18 @@ struct ProductIndexDataModel {
 }
 
 struct ProductIndexCollectionSnapshotDataModel: Hashable {
-    let brand: Brand
+    let brand: Vendor
     let name: String
     let price: String
-    let variants: [ProductItem]
+    let variants: [Prod]
 }
 
 typealias ColorURLProductNum = (color: String, urlString: String, productNum: String)
-extension Array where Element == ProductItem {
+extension Array where Element == Prod {
     private var colorImgProductNumArray: [ColorURLProductNum] {
         var uniques = [ColorURLProductNum]()
         for i in self where !uniques.contains(where: { $0.color == i.color }) {
-            uniques.append(ColorURLProductNum(color: i.color, urlString: i.imageUrl, productNum: i.productNum))
+            uniques.append(ColorURLProductNum(color: i.color, urlString: i.url, productNum: i.sku))
         }
         return uniques
     }
@@ -96,10 +90,10 @@ extension Array where Element == ProductItem {
     func getNthSize(n: Int) -> String {
         sizeArray[n]
     }
-    func searchVariantDocumentIdFor(color: String, size: String) -> String? {
-        self.first(where: { $0.color == color && $0.size == size })?.id
+    func searchVariantSKUFor(color: String, size: String) -> String {
+        self.first(where: { $0.color == color && $0.size == size })?.sku ?? ""
     }
-    func searchVariantBarcodesFor(color: String, size: String) -> [String] {
-        self.first(where: { $0.color == color && $0.size == size })?.barcodes ?? []
-    }
+//    func searchVariantBarcodesFor(color: String, size: String) -> [String] {
+//        self.first(where: { $0.color == color && $0.size == size })?.barcodes ?? []
+//    }
 }

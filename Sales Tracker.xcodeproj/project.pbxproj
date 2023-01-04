@@ -21,7 +21,7 @@
 		E9526A91290E4B0D0056546E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A8F290E4B0D0056546E /* CameraViewController.swift */; };
 		E9526A92290E4B0D0056546E /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A90290E4B0D0056546E /* CameraViewController.xib */; };
 		E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A93290E4EA90056546E /* UIAlertController+.swift */; };
-		E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* FirestoreError.swift */; };
+		E9526A97290E59AD0056546E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A96290E59AD0056546E /* NetworkError.swift */; };
 		E9526A9D290F7AB90056546E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526A9C290F7AB90056546E /* LoginView.swift */; };
 		E9526A9F290F7AC50056546E /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9526A9E290F7AC50056546E /* LoginView.xib */; };
 		E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9526AA0290F7AD70056546E /* LoginViewController.swift */; };
@@ -38,6 +38,7 @@
 		E96362D628FE77AA00C6F3CD /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96362D528FE77AA00C6F3CD /* ViewContainer.swift */; };
 		E970671829122AA500FDD1D7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970671629122AA500FDD1D7 /* SettingsTableViewCell.swift */; };
 		E970671929122AA500FDD1D7 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */; };
+		E9849F862963E4DE00C7DADD /* ProductsListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */; };
 		E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9898B0A2913A052000F2622 /* ProductSelectModel.swift */; };
 		E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E246D291653BD00CFFC18 /* CameraModel.swift */; };
 		E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */; };
@@ -49,7 +50,7 @@
 		E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C9294C770A002F6272 /* NetworkEngine.swift */; };
 		E99172D3294C934B002F6272 /* MockFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99172C4294C6449002F6272 /* MockFirestoreManager.swift */; };
 		E99C65A62903B76A0049E00D /* ProductIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65A52903B76A0049E00D /* ProductIndexModel.swift */; };
-		E99C65AB2903C4C80049E00D /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AA2903C4C80049E00D /* Brand.swift */; };
+		E99C65AB2903C4C80049E00D /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AA2903C4C80049E00D /* Vendor.swift */; };
 		E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65AD2904FB730049E00D /* ProductIndexCollectionViewCell.swift */; };
 		E99C65B02904FB730049E00D /* ProductIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E99C65AE2904FB730049E00D /* ProductIndexCollectionViewCell.xib */; };
 		E99C65B42907CF7B0049E00D /* ProductSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65B22907CF7A0049E00D /* ProductSelectViewController.swift */; };
@@ -63,6 +64,8 @@
 		E9A3AC6D2910B5620065460C /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6C2910B5610065460C /* SettingsView.xib */; };
 		E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC6E2910B5710065460C /* SettingsViewController.swift */; };
 		E9A3AC712910B5710065460C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6F2910B5710065460C /* SettingsViewController.xib */; };
+		E9A43321295D50F400CA9048 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43320295D50F400CA9048 /* ServiceLayer.swift */; };
+		E9A43323295EB37F00CA9048 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43322295EB37F00CA9048 /* Router.swift */; };
 		E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE3472909530A001693F8 /* ChooseBrandView.swift */; };
 		E9CFE34A29095312001693F8 /* ChooseBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CFE34929095312001693F8 /* ChooseBrandView.xib */; };
 		E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */; };
@@ -129,7 +132,7 @@
 		E9526A8F290E4B0D0056546E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E9526A90290E4B0D0056546E /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		E9526A93290E4EA90056546E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
-		E9526A96290E59AD0056546E /* FirestoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreError.swift; sourceTree = "<group>"; };
+		E9526A96290E59AD0056546E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E9526A9C290F7AB90056546E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E9526A9E290F7AC50056546E /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		E9526AA0290F7AD70056546E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		E96362D528FE77AA00C6F3CD /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		E970671629122AA500FDD1D7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		E970671729122AA500FDD1D7 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListDataManager.swift; sourceTree = "<group>"; };
 		E9898B0A2913A052000F2622 /* ProductSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectModel.swift; sourceTree = "<group>"; };
 		E98E246D291653BD00CFFC18 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		E99172B2294B1116002F6272 /* SalesHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesHistoryCellViewModel.swift; sourceTree = "<group>"; };
@@ -156,7 +160,7 @@
 		E99172C4294C6449002F6272 /* MockFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirestoreManager.swift; sourceTree = "<group>"; };
 		E99172C9294C770A002F6272 /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		E99C65A52903B76A0049E00D /* ProductIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexModel.swift; sourceTree = "<group>"; };
-		E99C65AA2903C4C80049E00D /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		E99C65AA2903C4C80049E00D /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		E99C65AD2904FB730049E00D /* ProductIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIndexCollectionViewCell.swift; sourceTree = "<group>"; };
 		E99C65AE2904FB730049E00D /* ProductIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductIndexCollectionViewCell.xib; sourceTree = "<group>"; };
 		E99C65B22907CF7A0049E00D /* ProductSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 		E9A3AC6C2910B5610065460C /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		E9A3AC6E2910B5710065460C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E9A3AC6F2910B5710065460C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		E9A43320295D50F400CA9048 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		E9A43322295EB37F00CA9048 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E9CFE3472909530A001693F8 /* ChooseBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandView.swift; sourceTree = "<group>"; };
 		E9CFE34929095312001693F8 /* ChooseBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseBrandView.xib; sourceTree = "<group>"; };
 		E9CFE34C290A4CD8001693F8 /* ChooseBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseBrandViewController.swift; sourceTree = "<group>"; };
@@ -334,7 +340,7 @@
 			children = (
 				E99172C9294C770A002F6272 /* NetworkEngine.swift */,
 				E9DB17E528FFCD3E006CF900 /* FirestoreManager.swift */,
-				E9526A96290E59AD0056546E /* FirestoreError.swift */,
+				E9526A96290E59AD0056546E /* NetworkError.swift */,
 				E9526AA4290F89F60056546E /* AuthError.swift */,
 			);
 			path = Firestore;
@@ -454,15 +460,26 @@
 		E96362D428FE779100C6F3CD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				E99C65AA2903C4C80049E00D /* Brand.swift */,
+				E99C65AA2903C4C80049E00D /* Vendor.swift */,
 				E9526AA8290FB67D0056546E /* Hello.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		E977DD7429655EDC009F8DD3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E9849F852963E4DE00C7DADD /* ProductsListDataManager.swift */,
+				E9A43320295D50F400CA9048 /* ServiceLayer.swift */,
+				E9A43322295EB37F00CA9048 /* Router.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		E982B6A928FAECBB006BB72C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E977DD7429655EDC009F8DD3 /* API */,
 				E9526A95290E59990056546E /* Firestore */,
 				E99C65A82903B7EA0049E00D /* Entities */,
 				E99C65A92903B8750049E00D /* Data Models */,
@@ -1014,7 +1031,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		EEC12E51DBDBD329BA7A05DA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1047,9 +1064,10 @@
 				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
 				E9526AA9290FB67D0056546E /* Hello.swift in Sources */,
 				E9CFE3482909530A001693F8 /* ChooseBrandView.swift in Sources */,
-				E9526A97290E59AD0056546E /* FirestoreError.swift in Sources */,
+				E9526A97290E59AD0056546E /* NetworkError.swift in Sources */,
 				E9CFE367290BFEF8001693F8 /* EditQuantityView.swift in Sources */,
 				E9526AAB290FBAB00056546E /* Date+.swift in Sources */,
+				E9A43323295EB37F00CA9048 /* Router.swift in Sources */,
 				E9526A94290E4EAA0056546E /* UIAlertController+.swift in Sources */,
 				E9CFE369290C0237001693F8 /* EditQuantityModel.swift in Sources */,
 				E9DB17E428FFBD4E006CF900 /* NSObject+Name.swift in Sources */,
@@ -1069,7 +1087,7 @@
 				E9A3AC672910B0E60065460C /* SettingsModel.swift in Sources */,
 				E9526AA5290F89F60056546E /* AuthError.swift in Sources */,
 				E96362CA28FE748B00C6F3CD /* ProductIndexView.swift in Sources */,
-				E99C65AB2903C4C80049E00D /* Brand.swift in Sources */,
+				E99C65AB2903C4C80049E00D /* Vendor.swift in Sources */,
 				E9526AA2290F7AD70056546E /* LoginViewController.swift in Sources */,
 				E9CFE36B290D2613001693F8 /* UIImageView+URL.swift in Sources */,
 				E99C65AF2904FB730049E00D /* ProductIndexCollectionViewCell.swift in Sources */,
@@ -1084,8 +1102,10 @@
 				E9526A8C290E49F10056546E /* CameraView.swift in Sources */,
 				E9DB17FF29025A1B006CF900 /* ProductIndexDataModel.swift in Sources */,
 				E99172CA294C770A002F6272 /* NetworkEngine.swift in Sources */,
+				E9849F862963E4DE00C7DADD /* ProductsListDataManager.swift in Sources */,
 				E932778228FAA9A700EA9E40 /* SceneDelegate.swift in Sources */,
 				E9DB17DF28FFB02B006CF900 /* Transitionable.swift in Sources */,
+				E9A43321295D50F400CA9048 /* ServiceLayer.swift in Sources */,
 				E9DB17DD28FFAE2B006CF900 /* ProductIndexNavigator.swift in Sources */,
 				E99172C8294C6DEE002F6272 /* FirestoreManager.swift in Sources */,
 				E9898B0B2913A052000F2622 /* ProductSelectModel.swift in Sources */,

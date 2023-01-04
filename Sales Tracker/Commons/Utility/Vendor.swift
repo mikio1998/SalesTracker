@@ -1,5 +1,5 @@
 //
-//  Brand.swift
+//  Vendor.swift
 //  Sales Tracker
 //
 //  Created by Mikio Nakata on 2022/10/22.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Brand {
+enum Vendor {
     case testBrand
     case alphaIndustries
     case avirex
@@ -70,7 +70,32 @@ enum Brand {
         }
     }
 
-    var officialBrandName: String {
+    var vendorName: String {
+        switch self {
+        case .testBrand:
+            return ""
+        case .alphaIndustries:
+            return "ALPHA"
+        case .avirex:
+            return "AVIREX"
+        case .helikonTex:
+            return "HELIKON-TEX"
+        case .houston:
+            return ""
+        case .sessler:
+            return ""
+        case .truSpec:
+            return "TRU-SPEC"
+        case .valleyApparel:
+            return ""
+        case .cockpit:
+            return ""
+        case .usSurplus:
+            return ""
+        }
+    }
+
+    var officialVendorName: String {
         switch self {
         case .testBrand:
             return "Test Brand"
@@ -95,7 +120,7 @@ enum Brand {
         }
     }
 
-    var brandColor: UIColor {
+    var vendorColor: UIColor {
         switch self {
         case .testBrand:
             return #colorLiteral(red: 0, green: 0.2980392157, blue: 0.4, alpha: 1)
@@ -120,7 +145,7 @@ enum Brand {
         }
     }
 
-    var brandLogoUrl: String {
+    var vendorLogoUrl: String {
         switch self {
         case .testBrand:
             return "https://user-images.githubusercontent.com/1567433/114792417-57c1d080-9d56-11eb-8035-dc07cfd7557f.png"

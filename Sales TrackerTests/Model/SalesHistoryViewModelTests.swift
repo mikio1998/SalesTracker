@@ -34,7 +34,7 @@ final class SalesHistoryViewModelTests: XCTestCase {
     // Get sold product item (failed)
     func test_get_sales_history_fail() {
         // Given
-        let error = FirestoreError.getError
+        let error = NetworkError.getError
 
         // When
         sut.getSalesHistory()

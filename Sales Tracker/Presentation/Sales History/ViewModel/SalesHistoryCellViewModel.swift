@@ -8,5 +8,5 @@
 import Foundation
 
 struct SalesHistoryCellViewModel {
-    var soldProductItem: SoldProductItem
+    var soldProductItem: SoldProd
 }

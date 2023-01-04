@@ -14,7 +14,7 @@ protocol ProductIndexPresenterLike: AnyObject {
 }
 
 protocol ProductIndexViewControllerDelegate: AnyObject {
-    func reloadIndex(forBrand brand: Brand)
+    func reloadIndex(forVendor vendor: Vendor)
 }
 
 class ProductIndexViewController: UIViewController {
@@ -45,21 +45,28 @@ class ProductIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
-        loadData(brand: Const.brandList[0])
+        loadData(vendor: Const.vendorList[2])
     }
 
-    private func loadData(brand: Brand) {
+    private func loadData(vendor: Vendor) {
         SVProgressHUD.show()
-        model.loadDataModel(brand: brand) { result in
-            SVProgressHUD.dismiss()
+        model.loadDataModel(vendor: vendor) { result in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
             switch result {
-            case .failure(let fireErr):
-                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
-                    .addOK()
-                    .show(fromVC: self)
-                self.viewContainer.noResults(error: fireErr)
+            case .failure(let networkErr):
+                DispatchQueue.main.async {
+                    UIAlertController(title: "エラー発生", message: networkErr.message, preferredStyle: .alert)
+                        .addOK()
+                        .show(fromVC: self)
+                }
+//                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+//                    .addOK()
+//                    .show(fromVC: self)
+                self.viewContainer.noResults(error: networkErr)
             case .success(let dataModel):
-                self.viewContainer.setTitleAndImage(dataModel.brand.officialBrandName, imageUrl: dataModel.brand.brandLogoUrl)
+                self.viewContainer.setTitleAndImage(dataModel.vendor.officialVendorName, imageUrl: dataModel.vendor.vendorLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)
                 self.data = dataModel
             }
@@ -69,7 +76,7 @@ class ProductIndexViewController: UIViewController {
 
 extension ProductIndexViewController: ProductIndexPresenterLike {
     func didTapListButton() {
-        let chooseBrandVC = ChooseBrandViewController(list: Const.brandList, productIndexDelegate: self)
+        let chooseBrandVC = ChooseBrandViewController(list: Const.vendorList, productIndexDelegate: self)
         chooseBrandVC.modalPresentationStyle = .custom
         chooseBrandVC.transitioningDelegate = self
         self.present(chooseBrandVC, animated: true, completion: nil)
@@ -85,8 +92,8 @@ extension ProductIndexViewController: ProductIndexPresenterLike {
 }
 
 extension ProductIndexViewController: ProductIndexViewControllerDelegate {
-    func reloadIndex(forBrand brand: Brand) {
-        self.loadData(brand: brand)
+    func reloadIndex(forVendor vendor: Vendor) {
+        self.loadData(vendor: vendor)
     }
 }
 
@@ -98,6 +105,6 @@ extension ProductIndexViewController: UIViewControllerTransitioningDelegate {
 
 extension ProductIndexViewController {
     private enum Const {
-        static let brandList: [Brand] = [Brand.alphaIndustries, Brand.avirex, Brand.helikonTex, Brand.houston, Brand.sessler, Brand.truSpec, Brand.valleyApparel, Brand.cockpit, Brand.usSurplus]
+        static let vendorList: [Vendor] = [Vendor.alphaIndustries, Vendor.avirex, Vendor.helikonTex, Vendor.houston, Vendor.sessler, Vendor.truSpec, Vendor.valleyApparel, Vendor.cockpit, Vendor.usSurplus]
     }
 }

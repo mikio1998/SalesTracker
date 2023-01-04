@@ -28,14 +28,14 @@ final class EditQuantityView: XibView {
     @IBAction func tapPlus(_ sender: Any) {
         self.countNum += 1
     }
-    private var soldItem: SoldProductItem
+    private var soldItem: SoldProd
     private var countNum: Int {
         didSet {
             counterLabel.text = String(countNum)
         }
     }
 
-    init(soldItem: SoldProductItem) {
+    init(soldItem: SoldProd) {
         self.soldItem = soldItem
         self.countNum = soldItem.quantity
         super.init(frame: .zero)

@@ -8,14 +8,14 @@
 import UIKit
 
 protocol ChooseBrandPresenterLike: AnyObject {
-    func dismissPresenter(animated: Bool, reloadIndexFor brand: Brand?)
+    func dismissPresenter(animated: Bool, reloadIndexFor brand: Vendor?)
 }
 
 class ChooseBrandViewController: UIViewController {
     private let viewContainer: ChooseBrandViewLike
     private let productIndexDelegate: ProductIndexViewControllerDelegate
 
-    init(list: [Brand], productIndexDelegate: ProductIndexViewControllerDelegate) {
+    init(list: [Vendor], productIndexDelegate: ProductIndexViewControllerDelegate) {
         self.viewContainer = ChooseBrandView(list: list)
         self.productIndexDelegate = productIndexDelegate
         super.init(nibName: nil, bundle: Bundle(for: Self.self))
@@ -36,10 +36,10 @@ class ChooseBrandViewController: UIViewController {
 
 }
 extension ChooseBrandViewController: ChooseBrandPresenterLike {
-    func dismissPresenter(animated: Bool, reloadIndexFor brand: Brand?) {
+    func dismissPresenter(animated: Bool, reloadIndexFor vendor: Vendor?) {
         self.dismiss(animated: true) {
-            guard let brand = brand else { return }
-            self.productIndexDelegate.reloadIndex(forBrand: brand)
+            guard let vendor = vendor else { return }
+            self.productIndexDelegate.reloadIndex(forVendor: vendor)
         }
     }
 }

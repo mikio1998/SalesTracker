@@ -14,13 +14,13 @@ class SalesHistoryViewModel {
 
     var presentAlert: (() -> Void)?
 
-    var showNoResults: ((FirestoreError?) -> Void)?
+    var showNoResults: ((NetworkError?) -> Void)?
 
-    var presentEditQuantityVC: ((_ product: SoldProductItem) -> Void)?
+    var presentEditQuantityVC: ((_ product: SoldProd) -> Void)?
 
     var toggleSVProgressHUD: (() -> Void)?
 
-    var soldProductItems = [SoldProductItem]() {
+    var soldProductItems = [SoldProd]() {
         didSet {
             let count = soldProductItems.reduce(0) { partialResult, item in
                 return partialResult + item.quantity
@@ -38,9 +38,9 @@ class SalesHistoryViewModel {
     var salesHistoryCellViewModels = [SalesHistoryCellViewModel]() {
         didSet {
             if salesHistoryCellViewModels.isEmpty {
-                self.reloadTableView?()
-            } else {
                 self.showNoResults?(nil)
+            } else {
+                self.reloadTableView?()
             }
             self.isLoading = false
         }
@@ -77,7 +77,7 @@ class SalesHistoryViewModel {
         }
     }
 
-    func processFetchedItems(soldProductItems: [SoldProductItem]) {
+    func processFetchedItems(soldProductItems: [SoldProd]) {
         self.soldProductItems = soldProductItems // cache
         var vms = [SalesHistoryCellViewModel]() // create VMs of cells.
         for item in soldProductItems {
@@ -91,8 +91,13 @@ class SalesHistoryViewModel {
     }
 
     func didSelectDeleteFor(_ indexPath: IndexPath) {
-        guard let productId = salesHistoryCellViewModels[indexPath.row].soldProductItem.id else { return }
-        engine.deleteSaleEntry(id: productId) { [weak self] result in
+        guard indexPath.row < salesHistoryCellViewModels.count else {
+            self.alert = ("失敗", "Internal Error.")
+            return
+        }
+        let productSKU = salesHistoryCellViewModels[indexPath.row].soldProductItem.prod.sku
+        print(productSKU)
+        engine.deleteSaleEntry(sku: productSKU) { [weak self] result in
             switch result {
             case .failure(let fireErr):
                 self?.alert = ("失敗", fireErr.message)
