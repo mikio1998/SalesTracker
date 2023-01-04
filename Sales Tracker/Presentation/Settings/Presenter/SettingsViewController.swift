@@ -52,7 +52,9 @@ extension SettingsViewController: SettingsPresenterLike {
         self.model.signOut { result in
             switch result {
             case .failure:
-                UIAlertController(title: "エラー", message: "ログアウトが失敗しました。", preferredStyle: .alert).addOK().show(fromVC: self)
+                DispatchQueue.main.async {
+                    UIAlertController(title: "エラー", message: "ログアウトが失敗しました。", preferredStyle: .alert).addOK().show(fromVC: self)
+                }
             case .success(()):
                 self.goLoginScreen()
             }

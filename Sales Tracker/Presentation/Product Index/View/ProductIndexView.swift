@@ -83,10 +83,12 @@ extension ProductIndexView: ProductIndexViewLike {
     }
 
     func noResults(error: NetworkError?) {
-        collectionView.alpha = 0
-        noResultsView.alpha = 1
-        noResultLabel.alpha = 1
-        noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
+        DispatchQueue.main.async {
+            self.collectionView.alpha = 0
+            self.noResultsView.alpha = 1
+            self.noResultLabel.alpha = 1
+            self.noResultLabel.text = error != nil ? error?.message : "検索結果がありません。"
+        }
     }
 
     func showCollection() {

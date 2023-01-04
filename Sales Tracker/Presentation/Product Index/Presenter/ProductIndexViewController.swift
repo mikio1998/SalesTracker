@@ -51,13 +51,20 @@ class ProductIndexViewController: UIViewController {
     private func loadData(vendor: Vendor) {
         SVProgressHUD.show()
         model.loadDataModel(vendor: vendor) { result in
-            SVProgressHUD.dismiss()
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
             switch result {
-            case .failure(let fireErr):
-                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
-                    .addOK()
-                    .show(fromVC: self)
-                self.viewContainer.noResults(error: fireErr)
+            case .failure(let networkErr):
+                DispatchQueue.main.async {
+                    UIAlertController(title: "エラー発生", message: networkErr.message, preferredStyle: .alert)
+                        .addOK()
+                        .show(fromVC: self)
+                }
+//                UIAlertController(title: "エラー発生", message: fireErr.message, preferredStyle: .alert)
+//                    .addOK()
+//                    .show(fromVC: self)
+                self.viewContainer.noResults(error: networkErr)
             case .success(let dataModel):
                 self.viewContainer.setTitleAndImage(dataModel.vendor.officialVendorName, imageUrl: dataModel.vendor.vendorLogoUrl)
                 self.viewContainer.setSnapshot(dataModel.productIndexSnapshot)

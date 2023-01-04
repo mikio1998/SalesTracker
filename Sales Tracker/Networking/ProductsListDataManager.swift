@@ -31,7 +31,7 @@ final class ProductsListDataManager {
             guard let data = Self.shared.allData else {
                 // If reload is false but no data, force a reload.
                 loadList(reload: true, completion: completion)
-//                return
+                return
             }
             completion(.success(data))
         } else {
@@ -43,25 +43,25 @@ final class ProductsListDataManager {
         let dataSource: Prods? = {
             switch vendor {
             case .testBrand:
-                return
+                return ProductsListDataManager.shared.helikonTexData
             case .alphaIndustries:
-                dataSource = ProductsListDataManager.shared.alphaData
+                return ProductsListDataManager.shared.alphaData
             case .avirex:
-                dataSource = ProductsListDataManager.shared.avirexData
+                return ProductsListDataManager.shared.avirexData
             case .helikonTex:
-                dataSource = ProductsListDataManager.shared.helikonTexData
+                return ProductsListDataManager.shared.helikonTexData
             case .houston:
-                dataSource = ProductsListDataManager.shared.houstonData
+                return ProductsListDataManager.shared.houstonData
             case .sessler:
-                dataSource = ProductsListDataManager.shared.sesslerData
+                return ProductsListDataManager.shared.sesslerData
             case .truSpec:
-                dataSource = ProductsListDataManager.shared.truSpecData
+                return ProductsListDataManager.shared.truSpecData
             case .valleyApparel:
-                dataSource = ProductsListDataManager.shared.valleyApparelData
+                return ProductsListDataManager.shared.valleyApparelData
             case .cockpit:
-                dataSource = ProductsListDataManager.shared.cockpitData
+                return ProductsListDataManager.shared.cockpitData
             case .usSurplus:
-                dataSource = ProductsListDataManager.shared.usSurplusData
+                return ProductsListDataManager.shared.usSurplusData
             }
         }()
 
@@ -69,7 +69,7 @@ final class ProductsListDataManager {
             guard let data = dataSource else {
                 // If reload is false but no data, force a reload.
                 loadVendorList(reload: true, vendor: vendor, completion: completion)
-//                return
+                return
             }
             completion(.success(data))
         } else {

@@ -87,7 +87,7 @@ extension ChooseBrandView: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case Const.brandComponent:
-            return pickerList[row].officialVendorName
+            return pickerList[row].officialVendorName
         default:
             return ""
         }

@@ -36,10 +36,10 @@ class ChooseBrandViewController: UIViewController {
 
 }
 extension ChooseBrandViewController: ChooseBrandPresenterLike {
-    func dismissPresenter(animated: Bool, reloadIndexFor brand: Vendor?) {
+    func dismissPresenter(animated: Bool, reloadIndexFor vendor: Vendor?) {
         self.dismiss(animated: true) {
-            guard let brand = brand else { return }
-            self.productIndexDelegate.reloadIndex(forBrand: brand)
+            guard let vendor = vendor else { return }
+            self.productIndexDelegate.reloadIndex(forVendor: vendor)
         }
     }
 }
