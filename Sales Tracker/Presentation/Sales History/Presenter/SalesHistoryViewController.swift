@@ -144,14 +144,19 @@ extension SalesHistoryViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
+        let delete = UIContextualAction(style: .destructive, title: "完了") { (_, _, completionHandler) in
             self.viewModel.didSelectDeleteFor(indexPath)
             completionHandler(true)
         }
+
+        delete.image = UIImage(systemName: "shippingbox")
+        delete.backgroundColor = #colorLiteral(red: 0.249427259, green: 0.8708531857, blue: 0.01010659151, alpha: 1)
         let edit = UIContextualAction(style: .normal, title: "編集") { (_, _, completionHandler) in
             self.viewModel.didSelectEditFor(indexPath)
             completionHandler(true)
         }
+        edit.image = UIImage(systemName: "pencil.tip")
+
         let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete, edit])
         swipeActionConfig.performsFirstActionWithFullSwipe = false
         return swipeActionConfig
