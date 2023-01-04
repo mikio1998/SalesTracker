@@ -79,7 +79,7 @@ enum Vendor {
         case .avirex:
             return "AVIREX"
         case .helikonTex:
-            return "Helikon-Tex"
+            return "HELIKON-TEX"
         case .houston:
             return ""
         case .sessler:

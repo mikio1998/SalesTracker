@@ -45,7 +45,7 @@ class ProductIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.presenterLike = self
-        loadData(vendor: Const.vendorList[0])
+        loadData(vendor: Const.vendorList[2])
     }
 
     private func loadData(vendor: Vendor) {
