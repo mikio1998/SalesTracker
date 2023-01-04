@@ -12,7 +12,7 @@ final class ProductsListDataManager {
     static let shared = ProductsListDataManager()
 
     // Caches
-    private var allData: Prods?
+//    private var allData: Prods?
     private var alphaData: Prods?
     private var avirexData: Prods?
     private var helikonTexData: Prods?
@@ -26,18 +26,18 @@ final class ProductsListDataManager {
     private init() {}
 
     // Fetch cache, or perform request.
-    static func loadList(reload: Bool = false, completion: @escaping (Result<Prods, NetworkError>) -> Void) {
-        if Self.shared.allData != nil && reload == false {
-            guard let data = Self.shared.allData else {
-                // If reload is false but no data, force a reload.
-                loadList(reload: true, completion: completion)
-                return
-            }
-            completion(.success(data))
-        } else {
-            ServiceLayer.request(router: Router.getProductsList(vendor: nil), completion: completion)
-        }
-    }
+//    static func loadList(reload: Bool = false, completion: @escaping (Result<Prods, NetworkError>) -> Void) {
+//        if Self.shared.allData != nil && reload == false {
+//            guard let data = Self.shared.allData else {
+//                // If reload is false but no data, force a reload.
+//                loadList(reload: true, completion: completion)
+//                return
+//            }
+//            completion(.success(data))
+//        } else {
+//            ServiceLayer.request(router: Router.getProductsList(vendor: nil), completion: completion)
+//        }
+//    }
 
     static func loadVendorList(reload: Bool = false, vendor: Vendor, completion: @escaping (Result<Prods, NetworkError>) -> Void) {
         let dataSource: Prods? = {

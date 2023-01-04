@@ -17,7 +17,7 @@ protocol RouterProtocol {
 
 // Sold Products are handled w/ Firestore
 enum Router: RouterProtocol {
-    case getProductsList(vendor: String?)
+    case getProductsList(vendor: String)
     case getProduct(handle: String)
     case getProductFromBarcode(barcode: String)
 
@@ -50,8 +50,8 @@ enum Router: RouterProtocol {
 
     var path: String {
         switch self {
-        case .getProductsList:
-            return "/productslist"
+        case .getProductsList(let vendor):
+            return "/productslist" + "/\(String(describing: vendor))"
         case .getProduct(let handle):
             return "/product" + "/\(handle)"
         case .getProductFromBarcode:
@@ -62,8 +62,8 @@ enum Router: RouterProtocol {
     var parameters: [URLQueryItem] {
 //        let accessToken = ""
         switch self {
-        case .getProductsList(let vendor):
-            return [URLQueryItem(name: "vendor", value: vendor)]
+        case .getProductsList(_):
+            return []
         case .getProduct(_):
             return []
         case .getProductFromBarcode(let barcode):
