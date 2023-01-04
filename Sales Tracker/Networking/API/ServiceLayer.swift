@@ -15,7 +15,7 @@ class ServiceLayer {
         components.host = router.host
         components.path = router.path
         components.port = router.port
-        components.queryItems = router.parameters
+//        components.queryItems = router.parameters
 
         guard let url = components.url else { return }
         print("url", url)

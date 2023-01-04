@@ -11,7 +11,7 @@ protocol RouterProtocol {
     var scheme: String { get }
     var host: String { get }
     var path: String { get }
-    var parameters: [URLQueryItem] { get }
+    var parameters: [URLQueryItem]? { get }
     var method: String { get }
 }
 
@@ -54,20 +54,20 @@ enum Router: RouterProtocol {
             return "/productslist" + "/\(String(describing: vendor))"
         case .getProduct(let handle):
             return "/product" + "/\(handle)"
-        case .getProductFromBarcode:
-            return "/barcode"
+        case .getProductFromBarcode(let barcode):
+            return "/barcode" + "/\(barcode)"
         }
     }
 
-    var parameters: [URLQueryItem] {
+    var parameters: [URLQueryItem]? {
 //        let accessToken = ""
         switch self {
         case .getProductsList(_):
-            return []
+            return nil
         case .getProduct(_):
-            return []
-        case .getProductFromBarcode(let barcode):
-            return [URLQueryItem(name: "barcode", value: barcode)]
+            return nil
+        case .getProductFromBarcode(_):
+            return nil
         }
     }
 
