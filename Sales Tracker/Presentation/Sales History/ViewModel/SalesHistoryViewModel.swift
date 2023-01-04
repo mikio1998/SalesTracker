@@ -38,9 +38,9 @@ class SalesHistoryViewModel {
     var salesHistoryCellViewModels = [SalesHistoryCellViewModel]() {
         didSet {
             if salesHistoryCellViewModels.isEmpty {
-                self.reloadTableView?()
-            } else {
                 self.showNoResults?(nil)
+            } else {
+                self.reloadTableView?()
             }
             self.isLoading = false
         }
