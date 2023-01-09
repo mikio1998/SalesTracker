@@ -43,6 +43,9 @@ class SalesHistoryTableViewCell: UITableViewCell {
 
             // Quantity Label
             quantityLabel.text = "\(item.quantity)点"
+
+            // SKU Label
+            skuLabel.text = item.prod.sku
         }
     }
 
