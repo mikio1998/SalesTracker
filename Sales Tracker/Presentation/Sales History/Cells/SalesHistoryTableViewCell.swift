@@ -17,6 +17,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var skuLabel: UILabel!
 
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
@@ -42,6 +43,9 @@ class SalesHistoryTableViewCell: UITableViewCell {
 
             // Quantity Label
             quantityLabel.text = "\(item.quantity)点"
+
+            // SKU Label
+            skuLabel.text = item.prod.sku
         }
     }
 

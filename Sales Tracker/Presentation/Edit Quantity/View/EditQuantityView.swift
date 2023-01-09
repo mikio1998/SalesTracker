@@ -34,7 +34,10 @@ final class EditQuantityView: XibView {
         didSet {
             counterLabel.text = String(countNum)
             self.editButtonLabel.text = countNum == 0 ? "キャンセル" : "変更"
-            self.editButton.backgroundColor = countNum == 0 ? #colorLiteral(red: 0.7495272756, green: 0.7350062728, blue: 0.7312479615, alpha: 1) : #colorLiteral(red: 0.2404436469, green: 0.70667243, blue: 0.5386798978, alpha: 1)
+            let color = countNum == 0 ? #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1) : #colorLiteral(red: 0.2404436469, green: 0.70667243, blue: 0.5386798978, alpha: 1)
+            self.editButton.backgroundColor = color
+            self.plusButton.imageView?.tintColor = color
+            self.minusButton.imageView?.tintColor = color
         }
     }
 

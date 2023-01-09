@@ -172,7 +172,7 @@ extension SalesHistoryViewController: UIViewControllerTransitioningDelegate {
 
 extension SalesHistoryViewController {
     private enum Const {
-        static let tableViewRowHeight: CGFloat = 130
+        static let tableViewRowHeight: CGFloat = 150
         static let noResultsWithoutErrorImage: UIImage = UIImage(systemName: "checkmark")!
         static let noResultsWithErrorImage: UIImage = UIImage(systemName: "xmark")!
     }
