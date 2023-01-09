@@ -90,7 +90,7 @@ extension Array where Element == Prod {
     func getNthSize(n: Int) -> String {
         sizeArray[n]
     }
-    func searchVariantSKUFor(color: String, size: String) -> String {
+    func getVariantSKUFor(color: String, size: String) -> String {
         self.first(where: { $0.color == color && $0.size == size })?.sku ?? ""
     }
 //    func searchVariantBarcodesFor(color: String, size: String) -> [String] {

@@ -83,7 +83,7 @@ final class ProductSelectView: XibView {
         let selectedImage: String = data.variants.getNthImg(n: colorRow)
         let selectedSize: String = data.variants.getNthSize(n: sizeRow)
         let selectedQuantity: Int = quantityRow + 1
-        let selectedSKU: String = data.variants.searchVariantSKUFor(color: selectedColor, size: selectedSize)
+        let selectedSKU: String = data.variants.getVariantSKUFor(color: selectedColor, size: selectedSize)
 
         let item: Prod = Prod(
             name: data.name,
@@ -133,11 +133,18 @@ extension ProductSelectView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == Const.colorComponent {
-            guard let url = data?.variants.getNthColorAndImg(n: row).urlString else { return }
+        guard component == Const.colorComponent || component == Const.sizeComponent else { return }
 
-            self.imageView.loadImage(with: url)
-        }
+        let colorRow: Int = pickerView.selectedRow(inComponent: Const.colorComponent)
+        let sizeRow: Int = pickerView.selectedRow(inComponent: Const.sizeComponent)
+
+        guard let url = data?.variants.getNthColorAndImg(n: colorRow).urlString,
+              let color = data?.variants.getNthColor(n: colorRow),
+              let size = data?.variants.getNthSize(n: sizeRow),
+              let sku = data?.variants.getVariantSKUFor(color: color, size: size),
+              let data = self.data else { return }
+        self.imageView.loadImage(with: url)
+        self.priceAndCodeLabel.text = "\(sku) ｜ ¥\(data.price)"
     }
 
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
