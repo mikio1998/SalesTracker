@@ -21,6 +21,7 @@ final class EditQuantityView: XibView {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var editButton: UIView!
+    @IBOutlet weak var editButtonLabel: UILabel!
     @IBAction func tapMinus(_ sender: Any) {
         guard countNum > 0 else { return }
         self.countNum -= 1
@@ -32,6 +33,8 @@ final class EditQuantityView: XibView {
     private var countNum: Int {
         didSet {
             counterLabel.text = String(countNum)
+            self.editButtonLabel.text = countNum == 0 ? "キャンセル" : "変更"
+            self.editButton.backgroundColor = countNum == 0 ? #colorLiteral(red: 0.7495272756, green: 0.7350062728, blue: 0.7312479615, alpha: 1) : #colorLiteral(red: 0.2404436469, green: 0.70667243, blue: 0.5386798978, alpha: 1)
         }
     }
 
