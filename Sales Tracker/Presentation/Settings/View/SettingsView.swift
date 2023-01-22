@@ -40,6 +40,15 @@ final class SettingsView: XibView {
         }
     }
 
+    @IBOutlet weak var backView: UIView! {
+        didSet {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                self.backView.backgroundColor = .black
+            }
+        }
+    }
+
+
     init() {
         super.init(frame: .zero)
     }
