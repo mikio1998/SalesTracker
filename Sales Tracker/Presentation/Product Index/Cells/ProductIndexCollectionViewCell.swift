@@ -25,8 +25,10 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
 
     func setUpCell(model: ProductIndexCollectionSnapshotDataModel) {
         // Shade View
-        shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.shadeViewCornerRaidusDivisor)
-        shadeView.giveSmallShadow()
+        if self.traitCollection.userInterfaceStyle == .light {
+            shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.shadeViewCornerRaidusDivisor)
+            shadeView.giveSmallShadow()
+        }
 
         // Image View
         guard let url = model.variants.first?.url else { return }
