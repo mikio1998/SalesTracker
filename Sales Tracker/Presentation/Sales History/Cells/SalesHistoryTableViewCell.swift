@@ -64,8 +64,10 @@ class SalesHistoryTableViewCell: UITableViewCell {
         self.selectionStyle = .none
 
         // Shade View
-        shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
-        shadeView.giveShadow()
+        if self.traitCollection.userInterfaceStyle == .light {
+            shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
+            shadeView.giveShadow()
+        }
 
         // Image View
         productImageView.contentMode = .scaleAspectFit
