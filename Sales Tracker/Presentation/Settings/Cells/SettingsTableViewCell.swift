@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var iconImaageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var title: UILabel!
 
     class var identifier: String { return String(describing: self) }
@@ -27,7 +27,7 @@ class SettingsTableViewCell: UITableViewCell {
 
     func setUpCell(title: String, image: UIImage) {
         self.title.text = title
-        self.iconImaageView.image = image
+        self.iconImageView.image = image
         self.selectionStyle = .none
     }
 }
