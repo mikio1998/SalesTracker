@@ -27,7 +27,9 @@ class SettingsTableViewCell: UITableViewCell {
 
     func setUpCell(title: String, image: UIImage) {
         self.title.text = title
+        self.title.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
         self.iconImageView.image = image
+        self.iconImageView.tintColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
         self.selectionStyle = .none
     }
 }
