@@ -68,7 +68,7 @@ class SalesHistoryTableViewCell: UITableViewCell {
             shadeView.giveRoundCorners(withCornerRadius: Const.shadeViewCornerRadius)
             shadeView.giveShadow()
         }
-
+        self.mainView.backgroundColor = #colorLiteral(red: 0.1098036841, green: 0.1098041013, blue: 0.1183908954, alpha: 1)
         // Image View
         productImageView.contentMode = .scaleAspectFit
 
