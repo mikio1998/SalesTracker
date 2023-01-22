@@ -25,13 +25,18 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
 
     func setUpCell(model: ProductIndexCollectionSnapshotDataModel) {
         // Shade View
-        shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.shadeViewCornerRaidusDivisor)
-        shadeView.giveSmallShadow()
+        if self.traitCollection.userInterfaceStyle == .light {
+            shadeView.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.shadeViewCornerRaidusDivisor)
+            shadeView.giveSmallShadow()
+        }
 
         // Image View
         guard let url = model.variants.first?.url else { return }
         productImageView.loadImage(with: url)
         productImageView.contentMode = .scaleAspectFit
+        if self.traitCollection.userInterfaceStyle == .dark {
+            productImageView.backgroundColor = #colorLiteral(red: 0.1098036841, green: 0.1098041013, blue: 0.1183908954, alpha: 1)
+        }
 
         // Details View
         detailsLabel.giveRoundCorners(withCornerRadius: detailsLabel.frame.width / Const.detailsLabelCornerRaidusDivisor)
@@ -40,9 +45,15 @@ class ProductIndexCollectionViewCell: UICollectionViewCell {
         // Whole View
         wholeView.giveRoundCorners(withCornerRadius: Const.wholeViewCornerRaidus)
         wholeView.layer.masksToBounds = true
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.wholeView.backgroundColor = #colorLiteral(red: 0.1098036841, green: 0.1098041013, blue: 0.1183908954, alpha: 1)
+        }
 
         // Name Label
         productNameLabel.text = model.name
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.productNameLabel.backgroundColor = #colorLiteral(red: 0.1098036841, green: 0.1098041013, blue: 0.1183908954, alpha: 1)
+        }
     }
 }
 

@@ -40,6 +40,24 @@ final class SettingsView: XibView {
         }
     }
 
+    @IBOutlet weak var backView: UIView! {
+        didSet {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                self.backView.backgroundColor = .black
+            }
+        }
+    }
+
+    @IBOutlet weak var title: UILabel! {
+        didSet {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                title.textColor = .white
+            } else {
+                title.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
+            }
+        }
+    }
+
     init() {
         super.init(frame: .zero)
     }
