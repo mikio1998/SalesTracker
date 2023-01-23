@@ -41,6 +41,12 @@ class SettingsViewModel {
     }
 
     func didSelectRow(at indexPath: IndexPath) {
-
+        
     }
+}
+
+
+enum SettingsTableCellType: Hashable {
+    case basic(SettingsCellViewModel)
+    // Any special cells...
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct SettingsCellViewModel {
+struct SettingsCellViewModel: Hashable {
     var title: String
     var titleTextColor: UIColor
     var iconImage: UIImage

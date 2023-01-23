@@ -10,12 +10,12 @@ import UIKit
 
 typealias SettingsSnapshot = NSDiffableDataSourceSnapshot<Int, SettingsTableCellType>
 
-enum SettingsTableCellType: Hashable {
-    case logout(LogoutDataModel)
-}
+//enum SettingsTableCellType: Hashable {
+//    case logout(LogoutDataModel)
+//}
 
-struct LogoutDataModel: Hashable {
-    let title: String
-    let icon: UIImage
-    let backgroundColor: UIColor
-}
+//struct LogoutDataModel: Hashable {
+//    let title: String
+//    let icon: UIImage
+//    let backgroundColor: UIColor
+//}

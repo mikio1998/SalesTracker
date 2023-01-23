@@ -46,7 +46,6 @@ final class SettingsViewController: UIViewController {
             self?.viewModel.isLoading == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
         }
     }
-
 }
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
