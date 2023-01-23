@@ -25,11 +25,20 @@ class SettingsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setUpCell(title: String, image: UIImage) {
-        self.title.text = title
-        self.title.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
-        self.iconImageView.image = image
-        self.iconImageView.tintColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
+//    func setUpCell(title: String, image: UIImage) {
+//        self.title.text = title
+//        self.title.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
+//        self.iconImageView.image = image
+//        self.iconImageView.tintColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
+//        self.selectionStyle = .none
+//    }
+    func setUpCell(vm: SettingsCellViewModel) {
+        self.title.text = vm.title
+        self.title.textColor = vm.titleTextColor
+        self.iconImageView.image = vm.iconImage
+        self.iconImageView.tintColor = vm.iconImageTintColor
         self.selectionStyle = .none
     }
+
+
 }

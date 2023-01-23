@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SettingsViewModel {
     var presentAlert: (() -> Void)?
@@ -28,16 +29,12 @@ class SettingsViewModel {
 
     }
 
-    var settingsCellViewModels = [SettingsCellViewModel]() {
-//        didSet {
-//            if salesHistoryCellViewModels.isEmpty {
-//                self.showNoResults?(nil)
-//            } else {
-//                self.reloadTableView?()
-//            }
-//            self.isLoading = false
-//        }
-    }
+    var settingsCellViewModels: [SettingsCellViewModel] = [
+        SettingsCellViewModel(title: "ログアウト",
+                              titleTextColor: #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1),
+                              iconImage: UIImage(systemName: "rectangle.portrait.and.arrow.right") ?? .actions,
+                              iconImageTintColor: #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1))
+    ]
     
     func getCellViewModel(at indexPath: IndexPath) -> SettingsCellViewModel {
         return settingsCellViewModels[indexPath.row]
