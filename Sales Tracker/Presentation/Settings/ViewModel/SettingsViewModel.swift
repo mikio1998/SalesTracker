@@ -30,12 +30,6 @@ class SettingsViewModel {
 
     }
 
-//    var settingsCellViewModels: [SettingsCellViewModel] = [
-//        LogoutCellViewModel(title: "ログアウト",
-//                              titleTextColor: #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1),
-//                              iconImage: UIImage(systemName: "rectangle.portrait.and.arrow.right") ?? .actions,
-//                              iconImageTintColor: #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1))
-//    ]
     var settingsCellViewModels: [SettingsTableCellType] = [
         .logout(LogoutCellViewModel(title: "ログアウト",
                                     titleTextColor: #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1),
