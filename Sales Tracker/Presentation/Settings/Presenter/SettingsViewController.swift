@@ -54,12 +54,21 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+        let cellType = self.viewModel.getCellViewModel(at: indexPath)
+
+        switch cellType {
+
+        // Basic cells use SettingsTableViewCell
+        case .logout(let logoutModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+                fatalError("xib does not exist")
+            }
+            cell.setUpCell(vm: logoutModel)
+            return cell
+        default:
             fatalError("xib does not exist")
         }
-        let cellVM = self.viewModel.getCellViewModel(at: indexPath)
-        cell.setUpCell(vm: cellVM)
-        return cell
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

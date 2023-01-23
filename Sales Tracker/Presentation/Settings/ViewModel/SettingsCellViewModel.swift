@@ -8,7 +8,20 @@
 import Foundation
 import UIKit
 
-struct SettingsCellViewModel: Hashable {
+enum SettingsTableCellType: Hashable {
+    case logout(LogoutCellViewModel)
+    // Any other cells...
+}
+
+// Basic cell template
+protocol SettingsCellViewModel {
+    var title: String { get }
+    var titleTextColor: UIColor { get }
+    var iconImage: UIImage { get }
+    var iconImageTintColor: UIColor { get }
+}
+
+struct LogoutCellViewModel: SettingsCellViewModel, Hashable {
     var title: String
     var titleTextColor: UIColor
     var iconImage: UIImage
