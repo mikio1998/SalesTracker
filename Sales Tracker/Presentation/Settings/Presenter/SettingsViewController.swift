@@ -30,6 +30,8 @@ final class SettingsViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(SettingsTableViewCell.nib, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        self.tableView.isScrollEnabled = false
+        self.adjustDarkMode()
     }
 
     func initViewModel() {
@@ -44,6 +46,19 @@ final class SettingsViewController: UIViewController {
         // Toggle SVProgressHUD
         viewModel.toggleSVProgressHUD = { [weak self] in
             self?.viewModel.isLoading == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        }
+    }
+
+    func adjustDarkMode() {
+        // backView
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.backView.backgroundColor = .black
+        }
+        // title
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.titleLabel.textColor = .white
+        } else {
+            self.titleLabel.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
         }
     }
 }
