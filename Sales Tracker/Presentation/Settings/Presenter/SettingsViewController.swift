@@ -10,6 +10,10 @@ import SVProgressHUD
 
 final class SettingsViewController: UIViewController {
     // outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+
 
     lazy var viewModel = {
         SettingsViewModel()
