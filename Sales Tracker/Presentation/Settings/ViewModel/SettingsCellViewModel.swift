@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct SettingsCellViewModel {
-    
+    var title: String
+    var titleTextColor: UIColor
+    var iconImage: UIImage
+    var iconImageTintColor: UIColor
 }
