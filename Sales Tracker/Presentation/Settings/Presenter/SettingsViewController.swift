@@ -49,6 +49,25 @@ final class SettingsViewController: UIViewController {
 
 }
 
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewModel.settingsCellViewModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+            fatalError("xib does not exist")
+        }
+        let cellVM = self.viewModel.getCellViewModel(at: indexPath)
+        cell.setUpCell(vm: cellVM)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.didSelectRow(at: indexPath)
+    }
+}
+
 //protocol SettingsPresenterLike: AnyObject {
 //    func didSelectIndexPath(_ indexPath: IndexPath)
 //}
