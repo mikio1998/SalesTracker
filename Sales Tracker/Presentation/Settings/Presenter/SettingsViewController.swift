@@ -4,67 +4,90 @@
 //
 //  Created by Mikio Nakata on 2022/11/01.
 //
+// Left off: MVVM SettingsVC
+//      Just see what else
 
 import UIKit
-
-protocol SettingsPresenterLike: AnyObject {
-    func didSelectIndexPath(_ indexPath: IndexPath)
-}
+import SVProgressHUD
 
 final class SettingsViewController: UIViewController {
-    private let viewContainer: SettingsViewLike
-    private let model: SettingsModel
+    // outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
 
-    init(viewContainer: SettingsViewLike = SettingsView(), model: SettingsModel = SettingsModelImpl()) {
-        self.viewContainer = viewContainer
-        self.model = model
-        super.init(nibName: nil, bundle: Bundle(for: Self.self))
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func loadView() {
-        self.view = viewContainer.view
-    }
+    lazy var viewModel = {
+        SettingsViewModel()
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewContainer.presenterLike = self
-        viewContainer.setSnapshot(model.settingsSnapshot)
+        initView()
+        initViewModel()
     }
-}
-extension SettingsViewController: SettingsPresenterLike {
-    func didSelectIndexPath(_ indexPath: IndexPath) {
-        let cellModel = model.settingsSnapshot.itemIdentifiers(inSection: 0)[indexPath.row]
-        switch cellModel {
-        case .logout:
-            UIAlertController(title: "ログアウトしますか？", message: nil, preferredStyle: .alert)
+
+    func initView() {
+        // Tableview
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(SettingsTableViewCell.nib, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        self.tableView.isScrollEnabled = false
+        self.adjustDarkMode()
+    }
+
+    func initViewModel() {
+        // Present alert
+        viewModel.presentAlert = { [weak self] in
+            guard let self = self else { return }
+            UIAlertController(title: self.viewModel.alert?.title, message: self.viewModel.alert?.msg, preferredStyle: .alert)
+//                .addOK()
                 .addOK { _ in
-                    self.signOut()
-                }.addCancel()
+                    self.viewModel.alert?.action?()
+                }
+                .addCancel()
                 .show(fromVC: self)
         }
-    }
 
-    private func signOut() {
-        self.model.signOut { result in
-            switch result {
-            case .failure:
-                DispatchQueue.main.async {
-                    UIAlertController(title: "エラー", message: "ログアウトが失敗しました。", preferredStyle: .alert).addOK().show(fromVC: self)
-                }
-            case .success(()):
-                self.goLoginScreen()
-            }
+        // Toggle SVProgressHUD
+        viewModel.toggleSVProgressHUD = { [weak self] in
+            self?.viewModel.isLoading == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
         }
-        self.goLoginScreen()
     }
 
-    func goLoginScreen() {
-        let viewController = LoginViewController()
-        UIApplication.shared.windows.first?.rootViewController = viewController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    func adjustDarkMode() {
+        // backView
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.backView.backgroundColor = .black
+        }
+        // title
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.titleLabel.textColor = .white
+        } else {
+            self.titleLabel.textColor = #colorLiteral(red: 0.3790956736, green: 0.3788567185, blue: 0.3960185051, alpha: 1)
+        }
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.viewModel.settingsCellViewModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellType = self.viewModel.getCellViewModel(at: indexPath)
+
+        switch cellType {
+        // Basic cells use SettingsTableViewCell
+        case .logout(let logoutModel):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+                fatalError("xib does not exist")
+            }
+            cell.setUpCell(vm: logoutModel)
+            return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel.didSelectRow(at: indexPath)
     }
 }
