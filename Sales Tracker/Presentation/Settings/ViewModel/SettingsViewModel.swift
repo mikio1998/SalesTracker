@@ -11,10 +11,10 @@ import FirebaseAuth
 
 class SettingsViewModel {
     var presentAlert: (() -> Void)?
-
     var toggleSVProgressHUD: (() -> Void)?
+    var logout: (() -> Void)?
 
-    var alert: (title: String, msg: String)? {
+    var alert: (title: String, msg: String, action: (() -> Void)?)? {
         didSet {
             self.presentAlert?()
         }
@@ -26,9 +26,7 @@ class SettingsViewModel {
         }
     }
 
-    init() {
-
-    }
+    init() {}
 
     var settingsCellViewModels: [SettingsTableCellType] = [
         .logout(LogoutCellViewModel(title: "ログアウト",
@@ -44,29 +42,33 @@ class SettingsViewModel {
     func didSelectRow(at indexPath: IndexPath) {
         let cellModel = self.settingsCellViewModels[indexPath.row]
         switch cellModel {
-        case .logout(let _):
-            // perform logout
-            self.firebaseLogout { [weak self] result in
-                switch result {
-                case .success(let _):
-                    self?.alert = ("ログアウト完了", "")
-                case .failure(let failure):
-                    self?.alert = ("エラー発生", failure.message)
-                }
-            }
+        case .logout(_):
+            // present logout? alert
+            self.alert = ("ログアウトしますか？", "", self.firebaseLogout)
         }
     }
 
-    func firebaseLogout(completion: @escaping (Result<(), AuthError>) -> Void) {
+    func firebaseLogout() {
         guard FirebaseAuth.Auth.auth().currentUser != nil else {
-            completion(.failure(AuthError.logoutError))
+            self.alert = ("エラー発生", AuthError.logoutError.message, nil)
             return
         }
+        self.isLoading = true
         do {
             try FirebaseAuth.Auth.auth().signOut()
-            completion(.success(()))
+            self.isLoading = false
+            self.goLoginScreen()
+            return
         } catch {
-            completion(.failure(AuthError.logoutError))
+            self.isLoading = false
+            self.alert = ("エラー発生", AuthError.logoutError.message, nil)
+            return
         }
+    }
+
+    func goLoginScreen() {
+        let viewController = LoginViewController()
+        UIApplication.shared.windows.first?.rootViewController = viewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

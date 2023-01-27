@@ -4,6 +4,8 @@
 //
 //  Created by Mikio Nakata on 2022/11/01.
 //
+// Left off: MVVM SettingsVC
+//      Just see what else
 
 import UIKit
 import SVProgressHUD
@@ -39,7 +41,11 @@ final class SettingsViewController: UIViewController {
         viewModel.presentAlert = { [weak self] in
             guard let self = self else { return }
             UIAlertController(title: self.viewModel.alert?.title, message: self.viewModel.alert?.msg, preferredStyle: .alert)
-                .addOK()
+//                .addOK()
+                .addOK { _ in
+                    self.viewModel.alert?.action?()
+                }
+                .addCancel()
                 .show(fromVC: self)
         }
 
@@ -72,7 +78,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         let cellType = self.viewModel.getCellViewModel(at: indexPath)
 
         switch cellType {
-
         // Basic cells use SettingsTableViewCell
         case .logout(let logoutModel):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
