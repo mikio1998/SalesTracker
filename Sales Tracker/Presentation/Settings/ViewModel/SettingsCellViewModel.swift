@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Cell types
 enum SettingsTableCellType: Hashable {
     case logout(LogoutCellViewModel)
     // Any other cells...

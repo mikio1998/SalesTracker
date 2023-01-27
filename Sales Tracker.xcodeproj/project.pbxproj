@@ -60,10 +60,6 @@
 		E99C65B72907D3F20049E00D /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65B62907D3F10049E00D /* PresentationController.swift */; };
 		E99C65BC2907D66D0049E00D /* ProductSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E99C65BB2907D66D0049E00D /* ProductSelectView.xib */; };
 		E99C65BE2907D9D90049E00D /* ProductSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C65BD2907D9D80049E00D /* ProductSelectView.swift */; };
-		E9A3AC672910B0E60065460C /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC662910B0E60065460C /* SettingsModel.swift */; };
-		E9A3AC692910B2620065460C /* SettingsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC682910B2620065460C /* SettingsDataModel.swift */; };
-		E9A3AC6B2910B5570065460C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC6A2910B5570065460C /* SettingsView.swift */; };
-		E9A3AC6D2910B5620065460C /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6C2910B5610065460C /* SettingsView.xib */; };
 		E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3AC6E2910B5710065460C /* SettingsViewController.swift */; };
 		E9A3AC712910B5710065460C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A3AC6F2910B5710065460C /* SettingsViewController.xib */; };
 		E9A43321295D50F400CA9048 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A43320295D50F400CA9048 /* ServiceLayer.swift */; };
@@ -172,10 +168,6 @@
 		E99C65B62907D3F10049E00D /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		E99C65BB2907D66D0049E00D /* ProductSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductSelectView.xib; sourceTree = "<group>"; };
 		E99C65BD2907D9D80049E00D /* ProductSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectView.swift; sourceTree = "<group>"; };
-		E9A3AC662910B0E60065460C /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		E9A3AC682910B2620065460C /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
-		E9A3AC6A2910B5570065460C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		E9A3AC6C2910B5610065460C /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		E9A3AC6E2910B5710065460C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E9A3AC6F2910B5710065460C /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		E9A43320295D50F400CA9048 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
@@ -547,7 +539,6 @@
 			isa = PBXGroup;
 			children = (
 				E9DB17FE29025A1B006CF900 /* ProductIndexDataModel.swift */,
-				E9A3AC682910B2620065460C /* SettingsDataModel.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -602,28 +593,9 @@
 			children = (
 				E92CE95F297E826C00EF74A0 /* ViewModel */,
 				E9A3AC722910BD790065460C /* Cells */,
-				E9A3AC632910B03C0065460C /* Model */,
-				E9A3AC642910B0430065460C /* View */,
 				E9A3AC652910B0490065460C /* Presenter */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		E9A3AC632910B03C0065460C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E9A3AC662910B0E60065460C /* SettingsModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E9A3AC642910B0430065460C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E9A3AC6A2910B5570065460C /* SettingsView.swift */,
-				E9A3AC6C2910B5610065460C /* SettingsView.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E9A3AC652910B0490065460C /* Presenter */ = {
@@ -909,7 +881,6 @@
 				E9526A9F290F7AC50056546E /* LoginView.xib in Resources */,
 				E99C65B52907CF7B0049E00D /* ProductSelectViewController.xib in Resources */,
 				E932778C28FAA9A900EA9E40 /* LaunchScreen.storyboard in Resources */,
-				E9A3AC6D2910B5620065460C /* SettingsView.xib in Resources */,
 				E99C65B02904FB730049E00D /* ProductIndexCollectionViewCell.xib in Resources */,
 				E9CFE365290BFEE9001693F8 /* EditQuantityView.xib in Resources */,
 				E96362D028FE75E400C6F3CD /* ProductIndexView.xib in Resources */,
@@ -1073,7 +1044,6 @@
 			files = (
 				E96362BC28FE6AB900C6F3CD /* ProductItem.swift in Sources */,
 				E92CE964297E85FD00EF74A0 /* SettingsCellViewModel.swift in Sources */,
-				E9A3AC6B2910B5570065460C /* SettingsView.swift in Sources */,
 				E98E246E291653BE00CFFC18 /* CameraModel.swift in Sources */,
 				E99172B3294B1116002F6272 /* SalesHistoryCellViewModel.swift in Sources */,
 				E9526AA7290F8C4C0056546E /* LoginModel.swift in Sources */,
@@ -1099,7 +1069,6 @@
 				E99172B5294B1436002F6272 /* SalesHistoryViewModel.swift in Sources */,
 				E970671829122AA500FDD1D7 /* SettingsTableViewCell.swift in Sources */,
 				E9A3AC702910B5710065460C /* SettingsViewController.swift in Sources */,
-				E9A3AC672910B0E60065460C /* SettingsModel.swift in Sources */,
 				E9526AA5290F89F60056546E /* AuthError.swift in Sources */,
 				E96362CA28FE748B00C6F3CD /* ProductIndexView.swift in Sources */,
 				E99C65AB2903C4C80049E00D /* Vendor.swift in Sources */,
@@ -1112,7 +1081,6 @@
 				E96362C028FE71E900C6F3CD /* ProductIndexViewController.swift in Sources */,
 				E92CE962297E82A100EF74A0 /* SettingsViewModel.swift in Sources */,
 				E9CFE34E290A4CD8001693F8 /* ChooseBrandViewController.swift in Sources */,
-				E9A3AC692910B2620065460C /* SettingsDataModel.swift in Sources */,
 				E9DB17DA28FE855A006CF900 /* XibView.swift in Sources */,
 				E9CFE35B290BA590001693F8 /* UIView+.swift in Sources */,
 				E9526A8C290E49F10056546E /* CameraView.swift in Sources */,
