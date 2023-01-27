@@ -16,7 +16,6 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
 
-
     lazy var viewModel = {
         SettingsViewModel()
     }()
@@ -85,10 +84,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.setUpCell(vm: logoutModel)
             return cell
-        default:
-            fatalError("xib does not exist")
         }
-
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

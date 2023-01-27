@@ -43,7 +43,6 @@ class SettingsViewModel {
         let cellModel = self.settingsCellViewModels[indexPath.row]
         switch cellModel {
         case .logout(_):
-            // present logout? alert
             self.alert = ("ログアウトしますか？", "", self.firebaseLogout)
         }
     }
@@ -53,14 +52,11 @@ class SettingsViewModel {
             self.alert = ("エラー発生", AuthError.logoutError.message, nil)
             return
         }
-        self.isLoading = true
         do {
             try FirebaseAuth.Auth.auth().signOut()
-            self.isLoading = false
             self.goLoginScreen()
             return
         } catch {
-            self.isLoading = false
             self.alert = ("エラー発生", AuthError.logoutError.message, nil)
             return
         }
